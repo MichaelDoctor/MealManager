@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CookType" representedClassName="CookType" syncable="YES">
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="parentCookType" inverseEntity="Ingredient"/>
+        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Instruction" inverseName="parentCookType" inverseEntity="Instruction"/>
+        <relationship name="parentMeal" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="cookType" inverseEntity="Meal"/>
+    </entity>
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="quantity" attributeType="Double" minValueString="0" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="unit" attributeType="String" defaultValueString=""/>
+        <relationship name="parentCookType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CookType" inverseName="ingredients" inverseEntity="CookType"/>
+    </entity>
+    <entity name="Instruction" representedClassName="Instruction" syncable="YES">
+        <attribute name="step" attributeType="String" defaultValueString=""/>
+        <attribute name="stepNumber" attributeType="Integer 64" minValueString="1" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="timeHour" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="100" usesScalarValueType="YES"/>
+        <attribute name="timeMinute" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="59" usesScalarValueType="YES"/>
+        <attribute name="timeSecond" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="59" usesScalarValueType="YES"/>
+        <relationship name="parentCookType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CookType" inverseName="instructions" inverseEntity="CookType"/>
+    </entity>
+    <entity name="Meal" representedClassName="Meal" syncable="YES">
+        <attribute name="cuisineType" attributeType="String" defaultValueString="Unknown"/>
+        <attribute name="didEat" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="numberOfTimesEaten" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" attributeType="String"/>
+        <relationship name="cookType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CookType" inverseName="parentMeal" inverseEntity="CookType"/>
+        <relationship name="orderType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OrderType" inverseName="parentMeal" inverseEntity="OrderType"/>
+    </entity>
+    <entity name="OrderType" representedClassName="OrderType" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="isLocal" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="link" optional="YES" attributeType="String"/>
+        <relationship name="parentMeal" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="orderType" inverseEntity="Meal"/>
+    </entity>
+    <elements>
+        <element name="Meal" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="OrderType" positionX="-54" positionY="27" width="128" height="89"/>
+        <element name="CookType" positionX="-36" positionY="36" width="128" height="74"/>
+        <element name="Ingredient" positionX="-18" positionY="54" width="128" height="89"/>
+        <element name="Instruction" positionX="0" positionY="63" width="128" height="119"/>
+    </elements>
+</model>
