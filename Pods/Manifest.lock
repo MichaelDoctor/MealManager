@@ -1,0 +1,40 @@
+PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - Eureka (5.3.3)
+  - IQKeyboardManagerSwift (6.5.6)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - SideMenu (6.5.0)
+  - ViewAnimator (3.0.2)
+
+DEPENDENCIES:
+  - Charts
+  - Eureka
+  - IQKeyboardManagerSwift
+  - NVActivityIndicatorView
+  - SideMenu
+  - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Charts
+    - Eureka
+    - IQKeyboardManagerSwift
+    - NVActivityIndicatorView
+    - SideMenu
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  ViewAnimator: 16435576cd44fca0b0d63147d5031fd3e91d295a
+
+PODFILE CHECKSUM: 8518a9d0e3b14f5060e9fdf68092eeb7bdbca61c
+
+COCOAPODS: 1.10.1
