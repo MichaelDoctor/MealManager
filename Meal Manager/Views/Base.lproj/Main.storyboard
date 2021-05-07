@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KjO-fe-i48">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -32,13 +32,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Slogan here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
-                                <rect key="frame" x="101" y="344" width="212" height="34.5"/>
+                                <rect key="frame" x="105.5" y="350" width="203" height="29.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-oz-AmF">
-                                <rect key="frame" x="137" y="634.5" width="140" height="27.5"/>
+                                <rect key="frame" x="136" y="638.5" width="142" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,14 +51,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
-                                <rect key="frame" x="58.5" y="228.5" width="297" height="49"/>
+                                <rect key="frame" x="79" y="229.5" width="256" height="47"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="40"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="x72-IR-xhp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5fo-gJ-Xwr"/>
                             <constraint firstItem="A0f-Ad-5LB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Oz9-QE-RiO"/>
@@ -83,10 +83,12 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" id="KjO-fe-i48" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9rx-VH-0IE"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hg6-Ls-9kt">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Hg6-Ls-9kt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="MMRedColor"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Eot-AV-Naw" kind="relationship" relationship="viewControllers" id="qwZ-5y-7AM"/>
@@ -96,14 +98,18 @@
             </objects>
             <point key="canvasLocation" x="1768" y="70"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="aj3-Rl-1ul">
             <objects>
                 <navigationController id="Eot-AV-Naw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="sFz-Kv-jAb"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="list.dash" catalog="system" id="sFz-Kv-jAb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="S0k-P1-oXt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="MMRedColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="2fm-nN-cn3" kind="relationship" relationship="rootViewController" id="rv7-pF-fv2"/>
@@ -113,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="2707" y="-565"/>
         </scene>
-        <!--View Controller-->
+        <!--List View Controller-->
         <scene sceneID="AFM-vd-Xyk">
             <objects>
-                <viewController id="2fm-nN-cn3" sceneMemberID="viewController">
+                <viewController id="2fm-nN-cn3" customClass="ListViewController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sr0-dx-ahP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,33 +135,46 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-vu-0h3">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="631"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="631" id="Z9J-Tf-Tk1"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" id="RD7-zt-BrI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" id="2EL-VO-yiv">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RD7-zt-BrI" id="SY4-E0-ANU">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2EL-VO-yiv" id="Mag-TH-YPm">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-hj-VMY">
+                                <rect key="frame" x="0.0" y="763" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mdh-SV-bug"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VNS-vu-0h3" firstAttribute="top" secondItem="813-XB-Eo1" secondAttribute="bottom" id="3iL-Bn-Ima"/>
-                            <constraint firstItem="813-XB-Eo1" firstAttribute="leading" secondItem="mdh-SV-bug" secondAttribute="leading" id="NHa-x5-w7g"/>
-                            <constraint firstItem="813-XB-Eo1" firstAttribute="trailing" secondItem="VNS-vu-0h3" secondAttribute="trailing" id="O8A-Mr-Gqk"/>
-                            <constraint firstItem="VNS-vu-0h3" firstAttribute="bottom" secondItem="mdh-SV-bug" secondAttribute="bottom" id="hqB-X5-2WI"/>
-                            <constraint firstItem="813-XB-Eo1" firstAttribute="top" secondItem="mdh-SV-bug" secondAttribute="top" id="iia-cd-E66"/>
-                            <constraint firstItem="813-XB-Eo1" firstAttribute="leading" secondItem="VNS-vu-0h3" secondAttribute="leading" id="rHo-ry-yKS"/>
-                            <constraint firstItem="813-XB-Eo1" firstAttribute="centerX" secondItem="Sr0-dx-ahP" secondAttribute="centerX" id="xiy-y7-vdT"/>
+                            <constraint firstItem="813-XB-Eo1" firstAttribute="top" secondItem="mdh-SV-bug" secondAttribute="top" id="5Wt-eb-CDR"/>
+                            <constraint firstItem="J3W-hj-VMY" firstAttribute="top" secondItem="VNS-vu-0h3" secondAttribute="bottom" id="6AN-zc-Mxf"/>
+                            <constraint firstItem="J3W-hj-VMY" firstAttribute="bottom" secondItem="mdh-SV-bug" secondAttribute="bottom" id="Lgc-GP-zbE"/>
+                            <constraint firstItem="VNS-vu-0h3" firstAttribute="leading" secondItem="J3W-hj-VMY" secondAttribute="leading" id="Sci-kD-BIv"/>
+                            <constraint firstItem="813-XB-Eo1" firstAttribute="trailing" secondItem="VNS-vu-0h3" secondAttribute="trailing" id="UiP-Vb-93S"/>
+                            <constraint firstItem="VNS-vu-0h3" firstAttribute="trailing" secondItem="J3W-hj-VMY" secondAttribute="trailing" id="c7C-Vt-vsx"/>
+                            <constraint firstItem="813-XB-Eo1" firstAttribute="leading" secondItem="VNS-vu-0h3" secondAttribute="leading" id="ebx-ch-Axu"/>
+                            <constraint firstItem="813-XB-Eo1" firstAttribute="leading" secondItem="mdh-SV-bug" secondAttribute="leading" id="j7v-zD-yxl"/>
+                            <constraint firstItem="VNS-vu-0h3" firstAttribute="top" secondItem="813-XB-Eo1" secondAttribute="bottom" id="otu-0q-dEw"/>
+                            <constraint firstItem="813-XB-Eo1" firstAttribute="centerX" secondItem="Sr0-dx-ahP" secondAttribute="centerX" id="sGk-bT-tce"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0fu-hB-XNF"/>
+                    <connections>
+                        <outlet property="tableView" destination="VNS-vu-0h3" id="9gh-gT-9by"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrT-eR-xmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,8 +182,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <namedColor name="MMBlackColor">
-            <color red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MMRedColor">
+            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

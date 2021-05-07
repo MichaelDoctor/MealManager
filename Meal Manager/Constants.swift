@@ -11,7 +11,14 @@ struct K {
     
     struct Views {
         static let tabBarCtr = "TabBarController"
-        static let cellIdentifier = "Meal Cell"
+        static let cellIdentifier = "MealCell"
+    }
+    
+    struct Color {
+        static let accent = "AccentColor"
+        static let red = "MMRedColor"
+        static let black = "MMBlackColor"
+        static let white = "MMWhiteColor"
     }
     
 }

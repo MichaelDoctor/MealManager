@@ -12,5 +12,6 @@ target 'Meal Manager' do
   pod 'NVActivityIndicatorView'
   pod "ViewAnimator"
   pod 'SideMenu'
+  pod 'Google-Mobile-Ads-SDK'
 
 end
