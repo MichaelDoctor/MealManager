@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA4494B626436C320028F452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494B526436C320028F452 /* AppDelegate.swift */; };
 		CA4494B826436C320028F452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494B726436C320028F452 /* SceneDelegate.swift */; };
-		CA4494BA26436C320028F452 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494B926436C320028F452 /* ViewController.swift */; };
+		CA4494BA26436C320028F452 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494B926436C320028F452 /* WelcomeController.swift */; };
 		CA4494BD26436C320028F452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4494BB26436C320028F452 /* Main.storyboard */; };
 		CA4494C026436C320028F452 /* Meal_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA4494BE26436C320028F452 /* Meal_Manager.xcdatamodeld */; };
 		CA4494C226436C340028F452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4494C126436C340028F452 /* Assets.xcassets */; };
@@ -25,13 +25,19 @@
 		CA4494E52644A3C60028F452 /* CookType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494DB2644A3C60028F452 /* CookType+CoreDataProperties.swift */; };
 		CA4494E62644A3C60028F452 /* Instruction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494DC2644A3C60028F452 /* Instruction+CoreDataClass.swift */; };
 		CA4494E72644A3C60028F452 /* Instruction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4494DD2644A3C60028F452 /* Instruction+CoreDataProperties.swift */; };
+		CA4495302644AFE70028F452 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA44952C2644AF310028F452 /* Montserrat-Bold.ttf */; };
+		CA4495312644AFEA0028F452 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA44952A2644AF310028F452 /* Montserrat-Italic.ttf */; };
+		CA4495322644AFED0028F452 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA44952D2644AF320028F452 /* Montserrat-Regular.ttf */; };
+		CA4495332644AFF10028F452 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA44952E2644AF320028F452 /* OpenSans-Bold.ttf */; };
+		CA4495342644AFF40028F452 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA4495292644AF310028F452 /* OpenSans-Italic.ttf */; };
+		CA4495352644AFF70028F452 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA44952B2644AF310028F452 /* OpenSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA4494B226436C320028F452 /* Meal Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meal Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4494B526436C320028F452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA4494B726436C320028F452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA4494B926436C320028F452 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA4494B926436C320028F452 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		CA4494BC26436C320028F452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA4494BF26436C320028F452 /* Meal_Manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Meal_Manager.xcdatamodel; sourceTree = "<group>"; };
 		CA4494C126436C340028F452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +54,12 @@
 		CA4494DB2644A3C60028F452 /* CookType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CookType+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CA4494DC2644A3C60028F452 /* Instruction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Instruction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CA4494DD2644A3C60028F452 /* Instruction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Instruction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CA4495292644AF310028F452 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		CA44952A2644AF310028F452 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		CA44952B2644AF310028F452 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		CA44952C2644AF310028F452 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		CA44952D2644AF320028F452 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		CA44952E2644AF320028F452 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,7 @@
 		CA4494CC2644A0020028F452 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CA44952F2644AF3D0028F452 /* Fonts */,
 				CA4494C126436C340028F452 /* Assets.xcassets */,
 				CA4494C326436C340028F452 /* LaunchScreen.storyboard */,
 			);
@@ -121,7 +134,7 @@
 		CA4494D02644A0770028F452 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CA4494B926436C320028F452 /* ViewController.swift */,
+				CA4494B926436C320028F452 /* WelcomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -141,6 +154,19 @@
 				CA4494DD2644A3C60028F452 /* Instruction+CoreDataProperties.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CA44952F2644AF3D0028F452 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CA44952C2644AF310028F452 /* Montserrat-Bold.ttf */,
+				CA44952A2644AF310028F452 /* Montserrat-Italic.ttf */,
+				CA44952D2644AF320028F452 /* Montserrat-Regular.ttf */,
+				CA44952E2644AF320028F452 /* OpenSans-Bold.ttf */,
+				CA4495292644AF310028F452 /* OpenSans-Italic.ttf */,
+				CA44952B2644AF310028F452 /* OpenSans-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +226,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4495322644AFED0028F452 /* Montserrat-Regular.ttf in Resources */,
+				CA4495342644AFF40028F452 /* OpenSans-Italic.ttf in Resources */,
+				CA4495332644AFF10028F452 /* OpenSans-Bold.ttf in Resources */,
+				CA4495312644AFEA0028F452 /* Montserrat-Italic.ttf in Resources */,
+				CA4495302644AFE70028F452 /* Montserrat-Bold.ttf in Resources */,
 				CA4494C526436C340028F452 /* LaunchScreen.storyboard in Resources */,
 				CA4494C226436C340028F452 /* Assets.xcassets in Resources */,
+				CA4495352644AFF70028F452 /* OpenSans-Regular.ttf in Resources */,
 				CA4494BD26436C320028F452 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA4494D32644A1050028F452 /* Constants.swift in Sources */,
-				CA4494BA26436C320028F452 /* ViewController.swift in Sources */,
+				CA4494BA26436C320028F452 /* WelcomeController.swift in Sources */,
 				CA4494DE2644A3C60028F452 /* OrderType+CoreDataClass.swift in Sources */,
 				CA4494E12644A3C60028F452 /* Ingredient+CoreDataProperties.swift in Sources */,
 				CA4494E62644A3C60028F452 /* Instruction+CoreDataClass.swift in Sources */,
