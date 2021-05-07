@@ -12,6 +12,13 @@ class ListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    // Core Data Context
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+//    var meals = [Meal]()
+    var meals = [String]()
+    
+    // Google Admob banner
     private let banner: GADBannerView = {
         let banner = GADBannerView()
         // replace later
@@ -24,7 +31,6 @@ class ListViewController: UIViewController {
         return banner
     }()
     
-    var test = ["Hello"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,17 +46,49 @@ class ListViewController: UIViewController {
         banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
     }
     
+    @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
+        print("left tapped")
+    }
+    
+    
+    @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
+        print("right tapped")
+    }
+    
+    @IBAction func filterButtonTapped(_ sender: UIButton) {
+        print("filter tapped")
+    }
+    
+    func loadMeals() {
+        
+    }
+    
 }
 
 //MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        if meals.isEmpty {
+            // Will return a cell to tell the user to add a meal
+            return 1
+        } else {
+            return meals.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cellIdentifier, for: indexPath)
-        cell.textLabel?.text = test[indexPath.row]
+        if meals.isEmpty {
+            cell.textLabel?.text = "Add A Meal"
+            cell.detailTextLabel?.text = "Tap the top left button"
+            cell.textLabel?.textColor = .gray
+            cell.detailTextLabel?.textColor = .lightGray
+        } else {
+            cell.textLabel?.text = meals[indexPath.row]
+            cell.detailTextLabel?.text = "Order"
+            cell.textLabel?.textColor = UIColor.init(named: K.Color.black)
+            cell.detailTextLabel?.textColor = .gray
+        }
         return cell
     }
 }
