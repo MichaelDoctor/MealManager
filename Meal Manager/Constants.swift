@@ -9,4 +9,9 @@ import Foundation
 
 struct K {
     
+    struct Views {
+        static let tabBarCtr = "TabBarController"
+        static let cellIdentifier = "Meal Cell"
+    }
+    
 }

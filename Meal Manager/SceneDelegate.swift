@@ -49,7 +49,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
+    
+    //MARK: - Custom Functions
+    
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else { return }
+        
+        // change root view controller
+        window.rootViewController = vc
+        
+        // add animation
+        UIView.transition(with: window, duration: 0.5, options: [.transitionCurlUp], animations: nil, completion: nil)
+    }
 
 }
 
