@@ -9,6 +9,8 @@ import Foundation
 
 struct K {
     
+    static let preloadKey = "didPreloadCuisine"
+    
     struct Views {
         static let tabBarCtr = "TabBarController"
         static let cellIdentifier = "MealCell"

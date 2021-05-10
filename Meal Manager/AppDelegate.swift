@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // preload cuisine data
+        preloadData()
         
         // IQKeyboardManager
         IQKeyboardManager.shared.enable = true
@@ -82,6 +84,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    //MARK: - PreloadedData
+    private func preloadData() {
+        
+        let userDefaults = UserDefaults.standard
+        
+        // everytime app is installed
+        if !userDefaults.bool(forKey: K.preloadKey) {
+            // never loaded data. PreloadData and parse plist
+            guard let urlPath = Bundle.main.url(forResource: "PreloadedCuisine", withExtension: "plist") else { return }
+            let backgroundContext = persistentContainer.newBackgroundContext()
+            persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+            backgroundContext.perform {
+                if let arrayContents = NSArray(contentsOf: urlPath) as? [String] {
+                    
+                    for name in arrayContents {
+                        let cuisine = Cuisine(context: backgroundContext)
+                        cuisine.name = name
+                        cuisine.isActive = true
+                        cuisine.numberOfTimesEaten = 0
+                    }
+                    
+                    // save default cuisines
+                    do {
+                        try backgroundContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+                // save values
+                userDefaults.setValue(true, forKey: K.preloadKey)
+            }
+            
+            
+            
+            
+        }
+    }
 }
 

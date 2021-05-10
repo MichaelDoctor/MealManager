@@ -5,6 +5,11 @@
         <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Instruction" inverseName="parentCookType" inverseEntity="Instruction"/>
         <relationship name="parentMeal" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="cookType" inverseEntity="Meal"/>
     </entity>
+    <entity name="Cuisine" representedClassName="Cuisine" syncable="YES">
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="numberOfTimesEaten" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="quantity" attributeType="Double" minValueString="0" defaultValueString="1" usesScalarValueType="YES"/>
@@ -36,10 +41,11 @@
         <relationship name="parentMeal" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="orderType" inverseEntity="Meal"/>
     </entity>
     <elements>
-        <element name="Meal" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="OrderType" positionX="-54" positionY="27" width="128" height="89"/>
-        <element name="CookType" positionX="-36" positionY="36" width="128" height="74"/>
-        <element name="Ingredient" positionX="-18" positionY="54" width="128" height="89"/>
-        <element name="Instruction" positionX="0" positionY="63" width="128" height="119"/>
+        <element name="CookType" positionX="-301.9010620117188" positionY="206.8999328613281" width="128" height="74"/>
+        <element name="Cuisine" positionX="144.6185302734375" positionY="229.5565490722656" width="128" height="74"/>
+        <element name="Ingredient" positionX="36.220703125" positionY="54.13400268554688" width="128" height="89"/>
+        <element name="Instruction" positionX="-78.21343994140625" positionY="305.1183471679688" width="128" height="119"/>
+        <element name="Meal" positionX="-264.8759765625" positionY="-108.7994232177734" width="128" height="149"/>
+        <element name="OrderType" positionX="110.7532958984375" positionY="-112.0725250244141" width="128" height="89"/>
     </elements>
 </model>
