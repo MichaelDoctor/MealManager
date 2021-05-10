@@ -23,4 +23,10 @@ struct K {
         static let white = "MMWhiteColor"
     }
     
+    struct CuisineFilter {
+        static let all = "ALL"
+        static let enable = "ENABLE"
+        static let disable = "DISABLE"
+    }
+    
 }
