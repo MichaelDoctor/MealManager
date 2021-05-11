@@ -201,7 +201,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Meal Manager" id="0fu-hB-XNF">
-                        <barButtonItem key="leftBarButtonItem" image="plus" catalog="system" id="Dyi-3Y-Ufb">
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="Dyi-3Y-Ufb">
                             <color key="tintColor" name="MMWhiteColor"/>
                             <connections>
                                 <action selector="leftNavButtonTapped:" destination="2fm-nN-cn3" id="XQ0-Su-22g"/>
@@ -225,10 +225,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="MMBlackColor">
             <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

@@ -60,7 +60,41 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
-        print("Enable all or disable all option")
+        let alert = UIAlertController(title: "Enable/Disable", message: "Replace with sidebar later", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Enable All", style: .default){
+            _ in
+            self.updateBatchActive(value: true)
+        })
+        alert.addAction(UIAlertAction(title: "Disable All", style: .default) {
+            _ in
+            self.updateBatchActive(value: false)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    func updateBatchActive(value isActive: Bool) {
+        // batch update Cuisine
+        let request = NSBatchUpdateRequest(entityName: "Cuisine")
+        // where cuisine is opposite of parameter
+        request.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: !isActive))
+        // those that do not match the parameter are changed to mathc
+        request.propertiesToUpdate = ["isActive": NSNumber(value: isActive)]
+        request.resultType = .updatedObjectIDsResultType
+        
+        do {
+            // attempt to  execute request
+            let result = try self.context.execute(request) as! NSBatchUpdateResult
+            // grab any changes
+            let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
+            // merge changes to context
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+            // reload data to match merged context changes if any
+            self.filterChanged(to: K.CuisineFilter.all)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
     }
     
     
@@ -160,8 +194,6 @@ class ListViewController: UIViewController {
             
             // set all enabled cuisines
             self.activeCuisines = try context.fetch(activeRequest)
-            
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
