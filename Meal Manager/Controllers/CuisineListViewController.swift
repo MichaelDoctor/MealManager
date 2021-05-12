@@ -9,7 +9,7 @@ import UIKit
 import GoogleMobileAds
 import CoreData
 
-class ListViewController: UIViewController {
+class CuisineListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -50,8 +50,12 @@ class ListViewController: UIViewController {
         // get Cuisines
         loadCuisines()
     }
-    
-    //MARK: - Populate our cuisine arrays
+}
+
+//MARK: - Core Data Related functions
+
+extension CuisineListViewController {
+    //MARK: - Read
     
     func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil) {
         // fetch data from Core Data
@@ -76,7 +80,7 @@ class ListViewController: UIViewController {
             request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
             
             // fetch active cuisines. Used only for the play button.
-            let activeRequest = Cuisine.fetchRequest() as NSFetchRequest<Cuisine>
+            let activeRequest: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
             activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
             
             // set all cuisines
@@ -91,40 +95,8 @@ class ListViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-}
-
-//MARK: - Place Ad Banner
-
-extension ListViewController {
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // Adjust size and position of ad banner
-        let bottom = view.window!.frame.size.height
-        let tabBarHeight = tabBarController!.tabBar.frame.size.height
-        banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
-    }
-}
-
-//MARK: - Left Menu Button / Batch Operations
-
-extension ListViewController {
-    @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Enable/Disable", message: "Replace with sidebar later", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Enable All", style: .default){
-            _ in
-            self.updateBatchActive(value: true)
-        })
-        alert.addAction(UIAlertAction(title: "Disable All", style: .default) {
-            _ in
-            self.updateBatchActive(value: false)
-        })
-        alert.addAction(UIAlertAction(title: "Reset All Eaten Data", style: .default) {
-            _ in
-            self.updateBatchNumEaten()
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
-    }
+    
+    //MARK: - Update
     
     func updateBatchActive(value isActive: Bool) {
         // batch update Cuisine
@@ -171,10 +143,54 @@ extension ListViewController {
             print(error.localizedDescription)
         }
     }
+    
+    func updateCuisine(cuisine: Cuisine, newNum: Int) {
+        cuisine.numberOfTimesEaten = Int64(newNum)
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+//MARK: - Size and Place Ad Banner
+
+extension CuisineListViewController {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Adjust size and position of ad banner
+        let bottom = view.window!.frame.size.height
+        let tabBarHeight = tabBarController!.tabBar.frame.size.height
+        banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
+    }
+}
+
+//MARK: - Left Menu Button
+
+extension CuisineListViewController {
+    @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Enable/Disable", message: "Replace with sidebar later", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Enable All", style: .default){
+            _ in
+            self.updateBatchActive(value: true)
+        })
+        alert.addAction(UIAlertAction(title: "Disable All", style: .default) {
+            _ in
+            self.updateBatchActive(value: false)
+        })
+        alert.addAction(UIAlertAction(title: "Reset All Eaten Data", style: .default) {
+            _ in
+            self.updateBatchNumEaten()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
 }
 //MARK: - Play Button / Eat
 
-extension ListViewController {
+extension CuisineListViewController {
     @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
         
         // *****
@@ -203,20 +219,10 @@ extension ListViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
     }
-    
-    func updateCuisine(cuisine: Cuisine, newNum: Int) {
-        cuisine.numberOfTimesEaten = Int64(newNum)
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }
 //MARK: - Filter Button
 
-extension ListViewController {
+extension CuisineListViewController {
     @IBAction func filterButtonTapped(_ sender: UIButton) {
         
         
@@ -262,7 +268,7 @@ extension ListViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension ListViewController: UITableViewDataSource {
+extension CuisineListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if cuisines.isEmpty {
             // Will return a cell to tell the user noting was found
@@ -273,26 +279,28 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cellIdentifierCuisine, for: indexPath)
         // Empty array
         if cuisines.isEmpty {
             cell.textLabel?.text = "No Results Found"
             cell.detailTextLabel?.text = "No matching cuisine was found."
             cell.textLabel?.textColor = .gray
             cell.detailTextLabel?.textColor = .lightGray
+            cell.isUserInteractionEnabled = false
         } else {
             let cuisine = cuisines[indexPath.row]
             cell.textLabel?.text = cuisine.name
             cell.detailTextLabel?.text = cuisine.isActive ? "Enabled" : "Disabled"
             cell.textLabel?.textColor = UIColor.init(named: K.Color.black)
             cell.detailTextLabel?.textColor = .gray
+            cell.isUserInteractionEnabled = true
         }
         return cell
     }
 }
 
 //MARK: - UITableViewDelegate
-extension ListViewController: UITableViewDelegate {
+extension CuisineListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cuisine = cuisines[indexPath.row]
         print(cuisine.numberOfTimesEaten)
@@ -321,7 +329,7 @@ extension ListViewController: UITableViewDelegate {
 
 //MARK: - UISearchBarDelegate
 
-extension ListViewController: UISearchBarDelegate {
+extension CuisineListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // check its not nil
         guard let text = searchBar.text else { return }

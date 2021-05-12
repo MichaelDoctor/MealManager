@@ -13,7 +13,8 @@ struct K {
     
     struct Views {
         static let tabBarCtr = "TabBarController"
-        static let cellIdentifier = "MealCell"
+        static let cellIdentifierCuisine = "CuisineCell"
+        static let cellIdentifierMeal = "MealCell"
     }
     
     struct Color {
@@ -27,6 +28,12 @@ struct K {
         static let all = "ALL"
         static let enable = "ENABLE"
         static let disable = "DISABLE"
+    }
+    
+    struct MealFilter {
+        static let all = "ALL"
+        static let cook = "Eat In"
+        static let order = "Eat Out"
     }
     
 }
