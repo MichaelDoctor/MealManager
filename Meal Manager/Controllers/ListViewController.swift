@@ -51,6 +51,51 @@ class ListViewController: UIViewController {
         loadCuisines()
     }
     
+    //MARK: - Populate our cuisine arrays
+    
+    func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil) {
+        // fetch data from Core Data
+        do {
+            var filterPredicate: NSPredicate? = nil
+            
+            if filterSetting != K.CuisineFilter.all {
+                let isActive = filterSetting == K.CuisineFilter.enable ? true : false
+                filterPredicate = NSPredicate(format: "isActive == %@", NSNumber(value: isActive))
+            }
+            
+            // Fetch for searchBar request, filterRequest, or both
+            if let additionalPredicate = predicate, let filter = filterPredicate {
+                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [filter, additionalPredicate])
+            } else if let additionalPredicate = predicate {
+                request.predicate = additionalPredicate
+            } else if let filter = filterPredicate {
+                request.predicate = filter
+            }
+            
+            // sort ascending order
+            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            
+            // fetch active cuisines. Used only for the play button.
+            let activeRequest = Cuisine.fetchRequest() as NSFetchRequest<Cuisine>
+            activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
+            
+            // set all cuisines
+            self.cuisines = try context.fetch(request)
+            
+            // set all enabled cuisines
+            self.activeCuisines = try context.fetch(activeRequest)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+//MARK: - Place Ad Banner
+
+extension ListViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // Adjust size and position of ad banner
@@ -58,7 +103,11 @@ class ListViewController: UIViewController {
         let tabBarHeight = tabBarController!.tabBar.frame.size.height
         banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
     }
-    
+}
+
+//MARK: - Left Menu Button / Batch Operations
+
+extension ListViewController {
     @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Enable/Disable", message: "Replace with sidebar later", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Enable All", style: .default){
@@ -68,6 +117,10 @@ class ListViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Disable All", style: .default) {
             _ in
             self.updateBatchActive(value: false)
+        })
+        alert.addAction(UIAlertAction(title: "Reset All Eaten Data", style: .default) {
+            _ in
+            self.updateBatchNumEaten()
         })
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
@@ -94,10 +147,34 @@ class ListViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
     
-    
+    func updateBatchNumEaten() {
+        // batch update Cuisine
+        let request = NSBatchUpdateRequest(entityName: "Cuisine")
+        // where numberOfTimesEaten > 0
+        request.predicate = NSPredicate(format: "numberOfTimesEaten > %i", Int64(0))
+        // those that are greater than 0 are changed to 0
+        request.propertiesToUpdate = ["numberOfTimesEaten": Int64(0)]
+        request.resultType = .updatedObjectIDsResultType
+        
+        do {
+            // attempt to  execute request
+            let result = try self.context.execute(request) as! NSBatchUpdateResult
+            // grab any changes
+            let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
+            // merge changes to context
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+            // reload data to match merged context changes if any
+            self.filterChanged(to: K.CuisineFilter.all)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+//MARK: - Play Button / Eat
+
+extension ListViewController {
     @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
         
         // *****
@@ -105,20 +182,41 @@ class ListViewController: UIViewController {
         // *****
         
         let alert: UIAlertController
+        var cuisine: Cuisine?
         // Check if its empty
         if !activeCuisines.isEmpty {
-            let cuisine = activeCuisines.randomElement()?.name
-            alert = UIAlertController(title: cuisine, message: "Try eating \(cuisine!)", preferredStyle: .alert)
+            cuisine = activeCuisines.randomElement()
+            alert = UIAlertController(title: cuisine!.name, message: "Try eating \(cuisine!.name!)", preferredStyle: .alert)
         } else {
             // active cuisines are empty
             alert = UIAlertController(title: "No Cuisines Found", message: "Please enable your preferred cuisines.", preferredStyle: .alert)
         }
-        alert.addAction(UIAlertAction(title: "Eat", style: .default))
-        alert.addAction(UIAlertAction(title: "Try Again", style: .destructive))
+        alert.addAction(UIAlertAction(title: "Eat", style: .default) {
+            _ in
+            guard cuisine != nil else { return }
+            self.updateCuisine(cuisine: cuisine!, newNum: Int(cuisine!.numberOfTimesEaten) + 1)
+        })
+        alert.addAction(UIAlertAction(title: "Try Again", style: .destructive) {
+            _ in
+            self.rightNavButtonTapped(sender)
+        })
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
     }
     
+    func updateCuisine(cuisine: Cuisine, newNum: Int) {
+        cuisine.numberOfTimesEaten = Int64(newNum)
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+//MARK: - Filter Button
+
+extension ListViewController {
     @IBAction func filterButtonTapped(_ sender: UIButton) {
         
         
@@ -161,47 +259,6 @@ class ListViewController: UIViewController {
         }
         self.loadCuisines()
     }
-    
-    // Populates our cuisine arrays
-    func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil) {
-        // fetch data from Core Data
-        do {
-            var filterPredicate: NSPredicate? = nil
-            
-            if filterSetting != K.CuisineFilter.all {
-                let isActive = filterSetting == K.CuisineFilter.enable ? true : false
-                filterPredicate = NSPredicate(format: "isActive == %@", NSNumber(value: isActive))
-            }
-            
-            // Fetch for searchBar request, filterRequest, or both
-            if let additionalPredicate = predicate, let filter = filterPredicate {
-                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [filter, additionalPredicate])
-            } else if let additionalPredicate = predicate {
-                request.predicate = additionalPredicate
-            } else if let filter = filterPredicate {
-                request.predicate = filter
-            }
-            
-            // sort ascending order
-            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-            
-            // fetch active cuisines. Used only for the play button.
-            let activeRequest = Cuisine.fetchRequest() as NSFetchRequest<Cuisine>
-            activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
-            
-            // set all cuisines
-            self.cuisines = try context.fetch(request)
-            
-            // set all enabled cuisines
-            self.activeCuisines = try context.fetch(activeRequest)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
 }
 
 //MARK: - UITableViewDataSource
@@ -238,6 +295,7 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cuisine = cuisines[indexPath.row]
+        print(cuisine.numberOfTimesEaten)
         
         let alert = UIAlertController(title: cuisine.name!, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -253,7 +311,8 @@ extension ListViewController: UITableViewDelegate {
                 print(error.localizedDescription)
             }
             // reload table
-            self.loadCuisines()
+//            self.loadCuisines()
+            self.searchBarSearchButtonClicked(self.searchBar)
         })
         present(alert, animated: true)
     }
