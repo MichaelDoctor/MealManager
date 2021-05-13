@@ -13,8 +13,18 @@ struct K {
     
     struct Views {
         static let tabBarCtr = "TabBarController"
-        static let cellIdentifierCuisine = "CuisineCell"
-        static let cellIdentifierMeal = "MealCell"
+        
+        static let cuisineRightCell = "CuisineRightCell"
+        static let cuisineRightMenu = "CuisineRightMenu"
+        static let cuisineRightDetail = "CuisineRightDetail"
+        static let cuisineLeftMenu = "CuisineLeftMenu"
+        static let cuisineLeftCell = "CuisineLeftCell"
+        
+        static let mealRightMenu = "MealRightMenu"
+        static let mealRightCell = "MealRightCell"
+        static let mealRightDetail = "MealRightDetail"
+        static let mealLeftMenu = "MealLeftMenu"
+        static let mealLeftCell = "MealLeftCell"
     }
     
     struct Color {

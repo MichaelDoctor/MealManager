@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMobileAds
 import CoreData
+import SideMenu
 
 class MealListViewController: UIViewController {
     
@@ -28,7 +29,10 @@ class MealListViewController: UIViewController {
         //        banner.adUnitID = "ca-app-pub-2009699556932262/
         // added to plist
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        banner.load(GADRequest())
+        DispatchQueue.global(qos: .background).async {
+            banner.load(GADRequest())
+        }
+//        banner.load(GADRequest())
         //      banner.backgroundColor = .secondarySystemBackground
         banner.backgroundColor = .white
         return banner
@@ -120,7 +124,14 @@ extension MealListViewController {
     
     //MARK: - Delete
     func deleteMeal(_ meal: Meal) {
+        if meal.type == K.MealFilter.cook {
+            context.delete(meal.cookType!)
+        } else {
+            context.delete(meal.orderType!)
+        }
+        
         context.delete(meal)
+        
         // save the data
         do {
             try context.save()
@@ -167,10 +178,12 @@ extension MealListViewController {
 
 extension MealListViewController {
     @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Right", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
+//        let alert = UIAlertController(title: "Right", message: nil, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//        present(alert, animated: true)
+        let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! SideMenuNavigationController
+        present(menu, animated: true)
     }
 }
 
@@ -200,7 +213,7 @@ extension MealListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cellIdentifierMeal, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.mealRightCell, for: indexPath)
         // Empty array
         if meals.isEmpty {
             cell.textLabel?.text = "No Meals Found"
@@ -233,7 +246,12 @@ extension MealListViewController: UITableViewDelegate {
 extension MealListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
-        print(text)
+        
+        let request: NSFetchRequest<Meal> = Meal.fetchRequest()
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        loadMeals(with: request, predicate: NSPredicate(format: "name CONTAINS[cd] %@", text))
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
