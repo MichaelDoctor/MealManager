@@ -419,7 +419,6 @@
         <!--Side Menu Navigation Controller-->
         <scene sceneID="aKL-Ru-2D8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGS-vZ-gmO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="CuisineRightMenu" id="XcX-Mr-lpP" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="fId-GI-kqg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -429,6 +428,7 @@
                         <segue destination="na3-vl-bfA" kind="relationship" relationship="rootViewController" id="5Cb-hN-GGW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGS-vZ-gmO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4455" y="-1256"/>
         </scene>

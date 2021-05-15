@@ -14,13 +14,10 @@ class CuisineLeftMenuControllerTableViewController: UITableViewController {
     
     // Core Data Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
-
 }
 
 //MARK: - Core Data CRUD
@@ -63,8 +60,6 @@ extension CuisineLeftMenuControllerTableViewController {
             let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
             // merge changes to context
             NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
-            // reload data to match merged context changes if any
-//            self.filterChanged(to: K.CuisineFilter.all)
         } catch {
             print(error.localizedDescription)
         }
@@ -89,17 +84,38 @@ extension CuisineLeftMenuControllerTableViewController {
 extension CuisineLeftMenuControllerTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(options[indexPath.row])
+        let alert = UIAlertController(title: options[indexPath.row], message: nil, preferredStyle: .alert)
         switch indexPath.row {
         case 0:
-            updateBatchActive(value: true)
+            alert.message = "All disabled cuisines will be enabled."
+            alert.addAction(UIAlertAction(title: "Enable All", style: .default, handler: {
+                _ in
+                self.updateBatchActive(value: true)
+                self.dismiss(animated: true)
+            }))
         case 1:
-            updateBatchActive(value: false)
+            alert.message = "All enabled cuisines will be disabled."
+            alert.addAction(UIAlertAction(title: "Disable All", style: .default, handler: {
+                _ in
+                self.updateBatchActive(value: false)
+                self.dismiss(animated: true)
+            }))
         case 2:
-            updateBatchNumEaten()
+            alert.message = "Are you sure you want to reset the number of times eaten for all cuisines?"
+            alert.addAction(UIAlertAction(title: "Reset Count", style: .destructive, handler: {
+                _ in
+                self.updateBatchNumEaten()
+                self.dismiss(animated: true)
+            }))
         default:
             break
         }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) {
+            _ in
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        })
+        present(alert, animated: true)
     }
+    
 }
 

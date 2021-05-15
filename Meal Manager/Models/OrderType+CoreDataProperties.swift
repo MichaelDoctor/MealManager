@@ -2,7 +2,7 @@
 //  OrderType+CoreDataProperties.swift
 //  Meal Manager
 //
-//  Created by Michael Doctor on 2021-05-06.
+//  Created by Michael Doctor on 2021-05-14.
 //
 //
 
@@ -16,9 +16,9 @@ extension OrderType {
         return NSFetchRequest<OrderType>(entityName: "OrderType")
     }
 
-    @NSManaged public var link: String?
     @NSManaged public var address: String?
     @NSManaged public var isLocal: Bool
+    @NSManaged public var link: String?
     @NSManaged public var parentMeal: Meal?
 
 }

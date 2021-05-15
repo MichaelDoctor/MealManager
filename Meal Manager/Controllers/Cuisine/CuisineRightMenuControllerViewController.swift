@@ -172,12 +172,12 @@ extension CuisineRightMenuControllerViewController: UITableViewDelegate, UITable
             // save
             do {
                 try self.context.save()
+                self.searchBarSearchButtonClicked(self.searchBar)
             } catch {
                 print(error.localizedDescription)
             }
             // reload table
             //            self.loadCuisines()
-            self.searchBarSearchButtonClicked(self.searchBar)
         })
         present(alert, animated: true)
     }
@@ -186,7 +186,14 @@ extension CuisineRightMenuControllerViewController: UITableViewDelegate, UITable
 //MARK: - UISearchBarDelegate
 extension CuisineRightMenuControllerViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text else { return }
+        guard let text = searchBar.text else {
+            loadCuisines()
+            return }
+        if text.isEmpty {
+            loadCuisines()
+            return
+        }
+        
         
         let request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
         

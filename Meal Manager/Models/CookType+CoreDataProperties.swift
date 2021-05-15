@@ -2,7 +2,7 @@
 //  CookType+CoreDataProperties.swift
 //  Meal Manager
 //
-//  Created by Michael Doctor on 2021-05-06.
+//  Created by Michael Doctor on 2021-05-14.
 //
 //
 
@@ -16,9 +16,9 @@ extension CookType {
         return NSFetchRequest<CookType>(entityName: "CookType")
     }
 
-    @NSManaged public var parentMeal: Meal?
     @NSManaged public var ingredients: NSSet?
     @NSManaged public var instructions: NSSet?
+    @NSManaged public var parentMeal: Meal?
 
 }
 

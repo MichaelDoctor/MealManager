@@ -237,7 +237,7 @@ extension MealListViewController: UITableViewDataSource {
 
 extension MealListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(meals[indexPath.row].name)
+        
     }
 }
 

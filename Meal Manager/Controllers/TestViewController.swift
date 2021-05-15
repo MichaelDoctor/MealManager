@@ -119,7 +119,7 @@ extension TestViewController: UITableViewDataSource {
 
 extension TestViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(meals[indexPath.row].name)
+        
     }
 }
 

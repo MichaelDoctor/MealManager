@@ -2,7 +2,7 @@
 //  Instruction+CoreDataProperties.swift
 //  Meal Manager
 //
-//  Created by Michael Doctor on 2021-05-06.
+//  Created by Michael Doctor on 2021-05-14.
 //
 //
 
@@ -16,8 +16,8 @@ extension Instruction {
         return NSFetchRequest<Instruction>(entityName: "Instruction")
     }
 
-    @NSManaged public var stepNumber: Int64
     @NSManaged public var step: String?
+    @NSManaged public var stepNumber: Int64
     @NSManaged public var timeHour: Int64
     @NSManaged public var timeMinute: Int64
     @NSManaged public var timeSecond: Int64
