@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SideMenu
 
 class CuisineRightMenuControllerViewController: UIViewController {
     var filterSetting = K.CuisineFilter.all
@@ -25,7 +26,6 @@ class CuisineRightMenuControllerViewController: UIViewController {
         tableView.delegate = self
         
         searchBar.delegate = self
-        
         
         // get Cuisines
         loadCuisines()
@@ -160,26 +160,33 @@ extension CuisineRightMenuControllerViewController: UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cuisine = cuisines[indexPath.row]
-        
-        let alert = UIAlertController(title: cuisine.name!, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        alert.addAction(UIAlertAction(title: cuisine.isActive ? "Disable" : "Enable" , style: cuisine.isActive ? .destructive : .default) {
-            _ in
-            // edit active property
-            cuisine.isActive = !cuisine.isActive
+        if let detailViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisineRightDetail) as? CuisineDetailViewController {
             
-            // save
-            do {
-                try self.context.save()
-                self.searchBarSearchButtonClicked(self.searchBar)
-            } catch {
-                print(error.localizedDescription)
-            }
-            // reload table
-            //            self.loadCuisines()
-        })
-        present(alert, animated: true)
+            detailViewController.cuisine = cuisines[indexPath.row]
+            navigationController?.pushViewController(detailViewController, animated: true)
+            
+        }
+//        let alert = UIAlertController(title: cuisine.name!, message: nil, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default) {
+//            _ in
+//            self.tableView.deselectRow(at: indexPath, animated: true)
+//        })
+//        alert.addAction(UIAlertAction(title: cuisine.isActive ? "Disable" : "Enable" , style: cuisine.isActive ? .destructive : .default) {
+//            _ in
+//            // edit active property
+//            cuisine.isActive = !cuisine.isActive
+//
+//            // save
+//            do {
+//                try self.context.save()
+//                self.searchBarSearchButtonClicked(self.searchBar)
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//            // reload table
+//            //            self.loadCuisines()
+//        })
+//        present(alert, animated: true)
     }
 }
 

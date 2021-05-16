@@ -520,6 +520,40 @@
             </objects>
             <point key="canvasLocation" x="5182.608695652174" y="-1256.25"/>
         </scene>
+        <!--Cuisine Detail View Controller-->
+        <scene sceneID="xa1-F8-Anc">
+            <objects>
+                <viewController storyboardIdentifier="CuisineRightDetail" id="BCS-g0-Qb3" customClass="CuisineDetailViewController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v9U-YB-gNd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XC-se-Y6k">
+                                <rect key="frame" x="186" y="442.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYe-9b-nlG">
+                                <rect key="frame" x="184" y="621.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Y04-TJ-VNM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mYe-9b-nlG" firstAttribute="centerX" secondItem="Y04-TJ-VNM" secondAttribute="centerX" id="LLc-bf-aBj"/>
+                            <constraint firstItem="5XC-se-Y6k" firstAttribute="centerX" secondItem="Y04-TJ-VNM" secondAttribute="centerX" id="Tch-D9-5if"/>
+                            <constraint firstItem="5XC-se-Y6k" firstAttribute="centerY" secondItem="Y04-TJ-VNM" secondAttribute="centerY" id="la2-kL-adc"/>
+                            <constraint firstItem="mYe-9b-nlG" firstAttribute="top" secondItem="5XC-se-Y6k" secondAttribute="bottom" constant="158" id="z46-p2-PS5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="o1c-RJ-dyG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oZl-zM-pK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6290" y="-1256"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="BAa-MP-Nfr">
             <objects>
