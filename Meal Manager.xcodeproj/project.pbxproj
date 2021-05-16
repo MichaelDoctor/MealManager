@@ -39,9 +39,9 @@
 		CA8380FF2651922D002357E2 /* CuisineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8380FE2651922D002357E2 /* CuisineDetailViewController.swift */; };
 		CA83DF87264BD89100FFC7EB /* MealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF86264BD89100FFC7EB /* MealListViewController.swift */; };
 		CA83DF89264C828400FFC7EB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF88264C828400FFC7EB /* TestViewController.swift */; };
-		CA83DF8B264CC8D400FFC7EB /* CuisineLeftMenuControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuControllerTableViewController.swift */; };
+		CA83DF8B264CC8D400FFC7EB /* CuisineLeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuController.swift */; };
 		CA83DF8D264CC8E800FFC7EB /* MealLeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8C264CC8E800FFC7EB /* MealLeftMenuController.swift */; };
-		CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuControllerViewController.swift */; };
+		CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,9 +81,9 @@
 		CA8380FE2651922D002357E2 /* CuisineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineDetailViewController.swift; sourceTree = "<group>"; };
 		CA83DF86264BD89100FFC7EB /* MealListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewController.swift; sourceTree = "<group>"; };
 		CA83DF88264C828400FFC7EB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineLeftMenuControllerTableViewController.swift; sourceTree = "<group>"; };
+		CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineLeftMenuController.swift; sourceTree = "<group>"; };
 		CA83DF8C264CC8E800FFC7EB /* MealLeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLeftMenuController.swift; sourceTree = "<group>"; };
-		CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineRightMenuControllerViewController.swift; sourceTree = "<group>"; };
+		CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineRightMenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				CA4495362644DA280028F452 /* CuisineMainController.swift */,
-				CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuControllerTableViewController.swift */,
-				CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuControllerViewController.swift */,
+				CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuController.swift */,
+				CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */,
 				CA8380FE2651922D002357E2 /* CuisineDetailViewController.swift */,
 			);
 			path = Cuisine;
@@ -368,7 +368,7 @@
 				CA8380FA264F6C7B002357E2 /* Instruction+CoreDataProperties.swift in Sources */,
 				CA8380FB264F6C7B002357E2 /* OrderType+CoreDataClass.swift in Sources */,
 				CA8380F3264F6C7B002357E2 /* Meal+CoreDataClass.swift in Sources */,
-				CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuControllerViewController.swift in Sources */,
+				CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuController.swift in Sources */,
 				CA4494B626436C320028F452 /* AppDelegate.swift in Sources */,
 				CA4494C026436C320028F452 /* Meal_Manager.xcdatamodeld in Sources */,
 				CA8380F2264F6C7B002357E2 /* CookType+CoreDataProperties.swift in Sources */,
@@ -378,7 +378,7 @@
 				CA83DF8D264CC8E800FFC7EB /* MealLeftMenuController.swift in Sources */,
 				CA8380F5264F6C7B002357E2 /* Cuisine+CoreDataClass.swift in Sources */,
 				CA8380F8264F6C7B002357E2 /* Ingredient+CoreDataProperties.swift in Sources */,
-				CA83DF8B264CC8D400FFC7EB /* CuisineLeftMenuControllerTableViewController.swift in Sources */,
+				CA83DF8B264CC8D400FFC7EB /* CuisineLeftMenuController.swift in Sources */,
 				CA4494B826436C320028F452 /* SceneDelegate.swift in Sources */,
 				CA8380F9264F6C7B002357E2 /* Instruction+CoreDataClass.swift in Sources */,
 				CA8380F1264F6C7B002357E2 /* CookType+CoreDataClass.swift in Sources */,

@@ -7,9 +7,9 @@
 
 import UIKit
 import CoreData
-import SideMenu
+import ViewAnimator
 
-class CuisineRightMenuControllerViewController: UIViewController {
+class CuisineRightMenuController: UIViewController {
     var filterSetting = K.CuisineFilter.all
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -30,16 +30,12 @@ class CuisineRightMenuControllerViewController: UIViewController {
         // get Cuisines
         loadCuisines()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        loadCuisines()
-    }
 }
 
 //MARK: - Core Data CRUD
-extension CuisineRightMenuControllerViewController {
+extension CuisineRightMenuController {
     //MARK: - Read
-    func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil) {
+    func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil, doAnimate: Bool = true) {
         // fetch data from Core Data
         do {
             var filterPredicate: NSPredicate? = nil
@@ -70,6 +66,9 @@ extension CuisineRightMenuControllerViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                if doAnimate {
+                    self.animate()
+                }
             }
         } catch {
             print(error.localizedDescription)
@@ -81,7 +80,7 @@ extension CuisineRightMenuControllerViewController {
 }
 
 //MARK: - Filter Button
-extension CuisineRightMenuControllerViewController {
+extension CuisineRightMenuController {
     @IBAction func filterButtonTapped(_ sender: UIButton) {
         
         
@@ -113,6 +112,7 @@ extension CuisineRightMenuControllerViewController {
                 self.filterChanged(to: K.CuisineFilter.disable)
             }
         })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
     }
     
@@ -129,7 +129,7 @@ extension CuisineRightMenuControllerViewController {
 
 //MARK: - UITableView
 
-extension CuisineRightMenuControllerViewController: UITableViewDelegate, UITableViewDataSource {
+extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if cuisines.isEmpty {
             // Will return a cell to tell the user noting was found
@@ -161,11 +161,12 @@ extension CuisineRightMenuControllerViewController: UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisineRightDetail) as? CuisineDetailViewController {
-            
+
             detailViewController.cuisine = cuisines[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
-            
+
         }
+//        let cuisine = cuisines[indexPath.row]
 //        let alert = UIAlertController(title: cuisine.name!, message: nil, preferredStyle: .alert)
 //        alert.addAction(UIAlertAction(title: "OK", style: .default) {
 //            _ in
@@ -191,7 +192,7 @@ extension CuisineRightMenuControllerViewController: UITableViewDelegate, UITable
 }
 
 //MARK: - UISearchBarDelegate
-extension CuisineRightMenuControllerViewController: UISearchBarDelegate {
+extension CuisineRightMenuController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {
             loadCuisines()
@@ -214,5 +215,14 @@ extension CuisineRightMenuControllerViewController: UISearchBarDelegate {
         if text.isEmpty {
             loadCuisines()
         }
+    }
+}
+
+//MARK: - TableView Animation
+
+extension CuisineRightMenuController {
+    func animate() {
+        let animation = AnimationType.vector(CGVector(dx: self.view.frame.width / 2, dy: 0))
+        UIView.animate(views: tableView.visibleCells, animations: [animation])
     }
 }

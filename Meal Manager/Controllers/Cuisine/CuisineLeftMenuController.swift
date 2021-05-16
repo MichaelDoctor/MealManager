@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreData
+import ViewAnimator
 
-class CuisineLeftMenuControllerTableViewController: UITableViewController {
+class CuisineLeftMenuController: UITableViewController {
     
     let options = ["Enable All Cuisine", "Disable All Cuisine", "Reset All Eaten Data"]
     
@@ -18,10 +19,15 @@ class CuisineLeftMenuControllerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animate()
+    }
 }
 
 //MARK: - Core Data CRUD
-extension CuisineLeftMenuControllerTableViewController {
+extension CuisineLeftMenuController {
     //MARK: - Update
     func updateBatchActive(value isActive: Bool) {
         // batch update Cuisine
@@ -67,7 +73,7 @@ extension CuisineLeftMenuControllerTableViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension CuisineLeftMenuControllerTableViewController {
+extension CuisineLeftMenuController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
     }
@@ -81,7 +87,7 @@ extension CuisineLeftMenuControllerTableViewController {
 
 //MARK: - UITableViewDelegate
 
-extension CuisineLeftMenuControllerTableViewController {
+extension CuisineLeftMenuController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: options[indexPath.row], message: nil, preferredStyle: .alert)
@@ -117,5 +123,13 @@ extension CuisineLeftMenuControllerTableViewController {
         present(alert, animated: true)
     }
     
+}
+
+extension CuisineLeftMenuController {
+    func animate() {
+        let animation = AnimationType.vector(CGVector(dx: -self.view.frame.width / 2, dy: 0))
+        
+        UIView.animate(views: tableView.visibleCells, animations: [animation])
+    }
 }
 

@@ -32,13 +32,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Slogan here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
-                                <rect key="frame" x="105.5" y="350" width="203" height="29.5"/>
+                                <rect key="frame" x="101" y="344" width="212" height="34.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-oz-AmF">
-                                <rect key="frame" x="136" y="638.5" width="142" height="23.5"/>
+                                <rect key="frame" x="137" y="634.5" width="140" height="27.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
-                                <rect key="frame" x="79" y="229.5" width="256" height="47"/>
+                                <rect key="frame" x="58.5" y="228.5" width="297" height="49"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="40"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
@@ -125,15 +125,19 @@
             <objects>
                 <viewController id="2fm-nN-cn3" customClass="CuisineMainController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sr0-dx-ahP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-hj-VMY">
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-hj-VMY">
                                 <rect key="frame" x="0.0" y="763" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-Cs-MjZ">
-                                <rect key="frame" x="198" y="346.5" width="18.5" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-Cs-MjZ">
+                                <rect key="frame" x="157" y="390.5" width="100" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="9Y3-kV-ph8"/>
+                                    <constraint firstAttribute="width" constant="100" id="Icm-DE-D1Z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" image="play.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -146,16 +150,15 @@
                         <viewLayoutGuide key="safeArea" id="mdh-SV-bug"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SEP-Cs-MjZ" firstAttribute="centerX" secondItem="Sr0-dx-ahP" secondAttribute="centerX" id="5ux-ga-hh0"/>
                             <constraint firstItem="J3W-hj-VMY" firstAttribute="top" secondItem="Sr0-dx-ahP" secondAttribute="top" constant="763" id="DWA-Q2-uak"/>
-                            <constraint firstItem="J3W-hj-VMY" firstAttribute="centerX" secondItem="SEP-Cs-MjZ" secondAttribute="centerX" id="O3M-sz-NO9"/>
+                            <constraint firstItem="SEP-Cs-MjZ" firstAttribute="centerX" secondItem="mdh-SV-bug" secondAttribute="centerX" id="RiO-lD-qUX"/>
                             <constraint firstItem="J3W-hj-VMY" firstAttribute="leading" secondItem="mdh-SV-bug" secondAttribute="leading" id="UXO-ku-zmg"/>
-                            <constraint firstItem="SEP-Cs-MjZ" firstAttribute="centerY" secondItem="Sr0-dx-ahP" secondAttribute="centerY" id="ezd-Pg-AWg"/>
                             <constraint firstItem="J3W-hj-VMY" firstAttribute="bottom" secondItem="mdh-SV-bug" secondAttribute="bottom" id="g2d-q8-XAw"/>
+                            <constraint firstItem="SEP-Cs-MjZ" firstAttribute="centerY" secondItem="mdh-SV-bug" secondAttribute="centerY" id="gEG-ZW-bpN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cuisines" id="0fu-hB-XNF">
-                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="Dyi-3Y-Ufb">
+                        <barButtonItem key="leftBarButtonItem" image="gearshape.fill" catalog="system" id="Dyi-3Y-Ufb">
                             <color key="tintColor" name="MMWhiteColor"/>
                             <connections>
                                 <action selector="leftNavButtonTapped:" destination="2fm-nN-cn3" id="XQ0-Su-22g"/>
@@ -199,7 +202,7 @@
             <objects>
                 <viewController id="J8M-Pw-Brm" customClass="MealListViewController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b5h-fD-Hiz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="wX7-8b-Dkn">
@@ -435,7 +438,7 @@
         <!--Cuisines-->
         <scene sceneID="4ju-dM-QN5">
             <objects>
-                <viewController id="na3-vl-bfA" customClass="CuisineRightMenuControllerViewController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="na3-vl-bfA" customClass="CuisineRightMenuController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0fP-1U-SNp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,7 +560,7 @@
         <!--Root View Controller-->
         <scene sceneID="BAa-MP-Nfr">
             <objects>
-                <tableViewController id="U96-Bc-4Rw" customClass="CuisineLeftMenuControllerTableViewController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="U96-Bc-4Rw" customClass="CuisineLeftMenuController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uEM-UN-OtO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -604,6 +607,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
