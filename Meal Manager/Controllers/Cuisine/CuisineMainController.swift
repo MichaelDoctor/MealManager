@@ -22,14 +22,12 @@ class CuisineMainController: UIViewController {
     private let banner: GADBannerView = {
         let banner = GADBannerView()
         // replace later
-        //        banner.adUnitID = "ca-app-pub-2009699556932262/
+        //        banner.adUnitID = "ca-app-pub-2009699556932262/4104921805"
         // added to plist
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         DispatchQueue.global(qos: .background).async {
             banner.load(GADRequest())
         }
-//        banner.load(GADRequest())
-        //      banner.backgroundColor = .secondarySystemBackground
         banner.backgroundColor = .white
         return banner
     }()
@@ -119,52 +117,6 @@ extension CuisineMainController {
     }
     
     //MARK: - Update
-    
-//    func updateBatchActive(value isActive: Bool) {
-//        // batch update Cuisine
-//        let request = NSBatchUpdateRequest(entityName: "Cuisine")
-//        // where cuisine is opposite of parameter
-//        request.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: !isActive))
-//        // those that do not match the parameter are changed to mathc
-//        request.propertiesToUpdate = ["isActive": NSNumber(value: isActive)]
-//        request.resultType = .updatedObjectIDsResultType
-//
-//        do {
-//            // attempt to  execute request
-//            let result = try self.context.execute(request) as! NSBatchUpdateResult
-//            // grab any changes
-//            let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
-//            // merge changes to context
-//            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
-//            // reload data to match merged context changes if any
-//            self.filterChanged(to: K.CuisineFilter.all)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-//    func updateBatchNumEaten() {
-//        // batch update Cuisine
-//        let request = NSBatchUpdateRequest(entityName: "Cuisine")
-//        // where numberOfTimesEaten > 0
-//        request.predicate = NSPredicate(format: "numberOfTimesEaten > %i", Int64(0))
-//        // those that are greater than 0 are changed to 0
-//        request.propertiesToUpdate = ["numberOfTimesEaten": Int64(0)]
-//        request.resultType = .updatedObjectIDsResultType
-//
-//        do {
-//            // attempt to  execute request
-//            let result = try self.context.execute(request) as! NSBatchUpdateResult
-//            // grab any changes
-//            let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
-//            // merge changes to context
-//            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
-//            // reload data to match merged context changes if any
-//            self.filterChanged(to: K.CuisineFilter.all)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
     
     func updateCuisine(cuisine: Cuisine, newNum: Int) {
         cuisine.numberOfTimesEaten = Int64(newNum)

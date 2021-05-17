@@ -7,6 +7,7 @@
     </entity>
     <entity name="Cuisine" representedClassName="Cuisine" syncable="YES">
         <attribute name="isActive" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastAte" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="numberOfTimesEaten" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
@@ -43,7 +44,7 @@
     </entity>
     <elements>
         <element name="CookType" positionX="-301.9010620117188" positionY="206.8999328613281" width="128" height="74"/>
-        <element name="Cuisine" positionX="144.6185302734375" positionY="229.5565490722656" width="128" height="74"/>
+        <element name="Cuisine" positionX="144.6185302734375" positionY="229.5565490722656" width="128" height="89"/>
         <element name="Ingredient" positionX="36.220703125" positionY="54.13400268554688" width="128" height="89"/>
         <element name="Instruction" positionX="-78.21343994140625" positionY="305.1183471679688" width="128" height="119"/>
         <element name="Meal" positionX="-264.8759765625" positionY="-108.7994232177734" width="128" height="164"/>

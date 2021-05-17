@@ -2,7 +2,7 @@
 //  Cuisine+CoreDataProperties.swift
 //  Meal Manager
 //
-//  Created by Michael Doctor on 2021-05-14.
+//  Created by Michael Doctor on 2021-05-16.
 //
 //
 
@@ -19,6 +19,7 @@ extension Cuisine {
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
     @NSManaged public var numberOfTimesEaten: Int64
+    @NSManaged public var lastAte: Date?
 
 }
 
