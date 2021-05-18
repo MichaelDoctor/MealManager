@@ -37,13 +37,11 @@ class CuisineMainController: UIViewController {
         
         banner.rootViewController = self
         view.addSubview(banner)
-        
-        // get Cuisines
-        loadCuisines()
     }
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
         if let playViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisinePlay) as? CuisinePlayController {
+            loadCuisines()
             var cuisine: Cuisine?
             // Check if its empty
             if !activeCuisines.isEmpty {
@@ -55,19 +53,9 @@ class CuisineMainController: UIViewController {
                 playViewController.cuisine = nil
                 playViewController.message = "Please enable your preferred cuisines."
             }
+            playViewController.parentController = self
             navigationController?.showDetailViewController(playViewController, sender: self)
         }
-        
-//        alert.addAction(UIAlertAction(title: "Eat", style: .default) {
-//            _ in
-//            guard cuisine != nil else { return }
-//            self.updateCuisine(cuisine: cuisine!, newNum: Int(cuisine!.numberOfTimesEaten) + 1)
-//        })
-//        alert.addAction(UIAlertAction(title: "Try Again", style: .destructive) {
-//            _ in
-//            self.playButtonTapped(sender)
-//        })
-        
     }
 }
 
@@ -103,13 +91,9 @@ extension CuisineMainController {
             activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
             
             // set all cuisines
-//            self.cuisines = try context.fetch(request)
             
             // set all enabled cuisines
             self.activeCuisines = try context.fetch(activeRequest)
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
         } catch {
             print(error.localizedDescription)
         }

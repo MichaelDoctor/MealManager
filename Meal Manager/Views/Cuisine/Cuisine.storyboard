@@ -198,6 +198,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kng-CE-vJl">
+                                                    <rect key="frame" x="182" y="5.5" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -345,63 +349,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cuisine Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In5-Od-mjJ">
-                                <rect key="frame" x="87" y="236" width="255" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="In5-Od-mjJ">
+                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-en-d0d">
-                                <rect key="frame" x="105" y="579" width="87" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
-                                <state key="normal" title="Try Again"/>
-                                <connections>
-                                    <action selector="tryAgainButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="tPM-ka-UyA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v9e-49-eoI">
-                                <rect key="frame" x="26" y="44" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v9e-49-eoI">
+                                <rect key="frame" x="30" y="44" width="51" height="40"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="iSk-P3-fCD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-e5-34D">
-                                <rect key="frame" x="105" y="341" width="204" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-e5-34D">
+                                <rect key="frame" x="105" y="360.5" width="204" height="40"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <state key="normal" title="Find the best near me"/>
                                 <connections>
                                     <action selector="nearMeButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="Gm2-TM-og7"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Try Eating ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvE-E8-nkh">
-                                <rect key="frame" x="53" y="302" width="341" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try Eating ..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="SvE-E8-nkh">
+                                <rect key="frame" x="50" y="333" width="314" height="27.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-QB-z7m">
-                                <rect key="frame" x="271" y="579" width="30" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
-                                <state key="normal" title="Eat"/>
-                                <connections>
-                                    <action selector="eatButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="JSe-F4-WOh"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRR-s5-qIF">
+                                <rect key="frame" x="50" y="430.5" width="314" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-en-d0d">
+                                        <rect key="frame" x="52.5" y="-1" width="109" height="47"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
+                                        <state key="normal" title="Try Again"/>
+                                        <connections>
+                                            <action selector="tryAgainButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="tPM-ka-UyA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-QB-z7m">
+                                        <rect key="frame" x="211.5" y="-1" width="37" height="47"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
+                                        <state key="normal" title="Eat"/>
+                                        <connections>
+                                            <action selector="eatButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="JSe-F4-WOh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="7ad-Xw-7On"/>
+                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WRR-s5-qIF" secondAttribute="leading" constant="30" id="B6X-Uq-qiv"/>
+                                    <constraint firstItem="n1D-QB-z7m" firstAttribute="centerY" secondItem="WRR-s5-qIF" secondAttribute="centerY" id="C1s-lH-7uI"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n1D-QB-z7m" secondAttribute="trailing" constant="30" id="ERe-uE-up5"/>
+                                    <constraint firstItem="n1D-QB-z7m" firstAttribute="leading" secondItem="Jwt-en-d0d" secondAttribute="trailing" constant="50" id="H6q-jl-1EA"/>
+                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="centerY" secondItem="WRR-s5-qIF" secondAttribute="centerY" id="flP-hN-ljF"/>
+                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="centerX" secondItem="WRR-s5-qIF" secondAttribute="centerX" constant="-50" id="yvD-oR-GIP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RBw-y2-pDK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SvE-E8-nkh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="In5-Od-mjJ" secondAttribute="bottom" constant="30" id="2wt-GQ-R2H"/>
+                            <constraint firstItem="In5-Od-mjJ" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="7vc-VS-MVS"/>
+                            <constraint firstItem="WRR-s5-qIF" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="Bh6-tu-erl"/>
+                            <constraint firstItem="v9e-49-eoI" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="30" id="Dmj-iv-NlX"/>
+                            <constraint firstItem="vXF-e5-34D" firstAttribute="top" secondItem="SvE-E8-nkh" secondAttribute="bottom" id="Fpk-PX-hEf"/>
+                            <constraint firstItem="RBw-y2-pDK" firstAttribute="trailing" secondItem="SvE-E8-nkh" secondAttribute="trailing" constant="50" id="IUy-4m-SGP"/>
+                            <constraint firstItem="In5-Od-mjJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RBw-y2-pDK" secondAttribute="top" constant="30" id="PrL-SW-GFJ"/>
+                            <constraint firstItem="WRR-s5-qIF" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="Rj9-wk-8sa"/>
+                            <constraint firstItem="In5-Od-mjJ" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="30" id="TcJ-vc-xOO"/>
+                            <constraint firstItem="RBw-y2-pDK" firstAttribute="trailing" secondItem="WRR-s5-qIF" secondAttribute="trailing" constant="50" id="Xwj-mT-CqA"/>
+                            <constraint firstItem="vXF-e5-34D" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="aa4-W4-6KQ"/>
+                            <constraint firstItem="vXF-e5-34D" firstAttribute="top" secondItem="In5-Od-mjJ" secondAttribute="bottom" constant="100" id="dot-VI-jdQ"/>
+                            <constraint firstItem="SvE-E8-nkh" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="hIe-Ut-aDr"/>
+                            <constraint firstItem="WRR-s5-qIF" firstAttribute="top" secondItem="vXF-e5-34D" secondAttribute="bottom" constant="30" id="hkX-Xl-Z1n"/>
+                            <constraint firstItem="RBw-y2-pDK" firstAttribute="trailing" secondItem="In5-Od-mjJ" secondAttribute="trailing" constant="30" id="mb6-JF-Q5n"/>
+                            <constraint firstItem="v9e-49-eoI" firstAttribute="top" secondItem="RBw-y2-pDK" secondAttribute="top" id="mpF-dL-jB7"/>
+                            <constraint firstItem="WRR-s5-qIF" firstAttribute="centerY" secondItem="RBw-y2-pDK" secondAttribute="centerY" id="qqQ-tQ-lLI"/>
+                            <constraint firstItem="SvE-E8-nkh" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="vTd-wi-Ydo"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cuisineName" destination="In5-Od-mjJ" id="Jgn-DZ-u5s"/>
+                        <outlet property="eatButton" destination="n1D-QB-z7m" id="tHR-xs-vre"/>
+                        <outlet property="findButton" destination="vXF-e5-34D" id="eKn-oR-KJn"/>
                         <outlet property="messageLabel" destination="SvE-E8-nkh" id="NX4-YP-wd0"/>
+                        <outlet property="tryAgainButton" destination="Jwt-en-d0d" id="emM-av-Km9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsG-eY-hYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
