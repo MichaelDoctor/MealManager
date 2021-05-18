@@ -48,4 +48,12 @@ struct K {
         static let order = "Eat Out"
     }
     
+    //MARK: - Helper Functions
+    
+    static func formatDate(_ date: Date) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter
+    }
+    
 }

@@ -56,7 +56,7 @@ extension CuisineLeftMenuController {
         // where numberOfTimesEaten > 0
         request.predicate = NSPredicate(format: "numberOfTimesEaten > %i", Int64(0))
         // those that are greater than 0 are changed to 0
-        request.propertiesToUpdate = ["numberOfTimesEaten": Int64(0)]
+        request.propertiesToUpdate = ["numberOfTimesEaten": Int64(0), "lastAte": Optional<Date>.none as Any]
         request.resultType = .updatedObjectIDsResultType
         
         do {

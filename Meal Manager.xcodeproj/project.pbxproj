@@ -40,8 +40,6 @@
 		CA83810A265301AF002357E2 /* Cuisine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA838109265301AF002357E2 /* Cuisine.storyboard */; };
 		CA83810C265301CD002357E2 /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA83810B265301CD002357E2 /* Custom.storyboard */; };
 		CA83810E265301E2002357E2 /* Chart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA83810D265301E2002357E2 /* Chart.storyboard */; };
-		CA83811026534D62002357E2 /* CuisineLeft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA83810F26534D62002357E2 /* CuisineLeft.storyboard */; };
-		CA83811226534D6F002357E2 /* CuisineRight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA83811126534D6F002357E2 /* CuisineRight.storyboard */; };
 		CA83811726537B1A002357E2 /* CuisinePlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83811626537B1A002357E2 /* CuisinePlayController.swift */; };
 		CA83DF87264BD89100FFC7EB /* MealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF86264BD89100FFC7EB /* MealListViewController.swift */; };
 		CA83DF89264C828400FFC7EB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF88264C828400FFC7EB /* TestViewController.swift */; };
@@ -88,8 +86,6 @@
 		CA838109265301AF002357E2 /* Cuisine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cuisine.storyboard; sourceTree = "<group>"; };
 		CA83810B265301CD002357E2 /* Custom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
 		CA83810D265301E2002357E2 /* Chart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chart.storyboard; sourceTree = "<group>"; };
-		CA83810F26534D62002357E2 /* CuisineLeft.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CuisineLeft.storyboard; sourceTree = "<group>"; };
-		CA83811126534D6F002357E2 /* CuisineRight.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CuisineRight.storyboard; sourceTree = "<group>"; };
 		CA83811626537B1A002357E2 /* CuisinePlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinePlayController.swift; sourceTree = "<group>"; };
 		CA83DF86264BD89100FFC7EB /* MealListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewController.swift; sourceTree = "<group>"; };
 		CA83DF88264C828400FFC7EB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				CA4494BB26436C320028F452 /* Main.storyboard */,
-				CA83811326534D7A002357E2 /* Cuisine */,
+				CA838109265301AF002357E2 /* Cuisine.storyboard */,
 				CA83810B265301CD002357E2 /* Custom.storyboard */,
 				CA83810D265301E2002357E2 /* Chart.storyboard */,
 			);
@@ -255,16 +251,6 @@
 			path = Cuisine;
 			sourceTree = "<group>";
 		};
-		CA83811326534D7A002357E2 /* Cuisine */ = {
-			isa = PBXGroup;
-			children = (
-				CA838109265301AF002357E2 /* Cuisine.storyboard */,
-				CA83810F26534D62002357E2 /* CuisineLeft.storyboard */,
-				CA83811126534D6F002357E2 /* CuisineRight.storyboard */,
-			);
-			path = Cuisine;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,10 +318,8 @@
 				CA4494C526436C340028F452 /* LaunchScreen.storyboard in Resources */,
 				CA4494C226436C340028F452 /* Assets.xcassets in Resources */,
 				CA83810E265301E2002357E2 /* Chart.storyboard in Resources */,
-				CA83811226534D6F002357E2 /* CuisineRight.storyboard in Resources */,
 				CA83810A265301AF002357E2 /* Cuisine.storyboard in Resources */,
 				CA66943626488DB300722EA0 /* PreloadedCuisine.plist in Resources */,
-				CA83811026534D62002357E2 /* CuisineLeft.storyboard in Resources */,
 				CA4495352644AFF70028F452 /* OpenSans-Regular.ttf in Resources */,
 				CA4494BD26436C320028F452 /* Main.storyboard in Resources */,
 				CA83810C265301CD002357E2 /* Custom.storyboard in Resources */,

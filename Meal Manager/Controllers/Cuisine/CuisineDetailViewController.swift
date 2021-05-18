@@ -40,6 +40,14 @@ class CuisineDetailViewController: UIViewController {
         
         cuisineName.text = cuisine.name
         isActiveLabel.text = cuisine.isActive ? "Enabled" : "Disabled"
+        
+        if let date = cuisine.lastAte {
+            let dateFormatter = K.formatDate(date)
+            dateLabel.text = dateFormatter.string(from: date)
+        } else {
+            dateLabel.text = "--"
+        }
+        
         numLabel.text = String(cuisine.numberOfTimesEaten)
         navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
     }

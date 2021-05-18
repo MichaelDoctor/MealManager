@@ -28,13 +28,12 @@ class CuisinePlayController: UIViewController {
             findButton.isHidden = true
         }
     }
+}
+
+//MARK: - Buttons
+
+extension CuisinePlayController {
     
-    func setLabels() {
-        DispatchQueue.main.async {
-            self.cuisineName.text = self.cuisine?.name ?? "No Cuisines Found"
-            self.messageLabel.text = self.message
-        }
-    }
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
@@ -58,5 +57,15 @@ class CuisinePlayController: UIViewController {
             parentController?.navigationController?.pushViewController(detailViewController, animated: true)
         }
         dismiss(animated: true)
+    }
+}
+
+//MARK: - Helper Functions
+extension CuisinePlayController {
+    func setLabels() {
+        DispatchQueue.main.async {
+            self.cuisineName.text = self.cuisine?.name ?? "No Cuisines Found"
+            self.messageLabel.text = self.message
+        }
     }
 }
