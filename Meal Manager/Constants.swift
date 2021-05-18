@@ -17,8 +17,10 @@ struct K {
         static let cuisineRightCell = "CuisineRightCell"
         static let cuisineRightMenu = "CuisineRightMenu"
         static let cuisineRightDetail = "CuisineRightDetail"
+        static let cuisineRightEdit = "CuisineRightDetailEdit"
         static let cuisineLeftMenu = "CuisineLeftMenu"
         static let cuisineLeftCell = "CuisineLeftCell"
+        static let cuisinePlay = "CuisinePlay"
         
         static let mealRightMenu = "MealRightMenu"
         static let mealRightCell = "MealRightCell"

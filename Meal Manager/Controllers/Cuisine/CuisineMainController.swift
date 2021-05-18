@@ -43,32 +43,31 @@ class CuisineMainController: UIViewController {
     }
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
-        
-        // *****
-        // Change to view push later
-        // *****
-        
-        let alert: UIAlertController
-        var cuisine: Cuisine?
-        // Check if its empty
-        if !activeCuisines.isEmpty {
-            cuisine = activeCuisines.randomElement()
-            alert = UIAlertController(title: cuisine!.name, message: "Try eating \(cuisine!.name!)", preferredStyle: .alert)
-        } else {
-            // active cuisines are empty
-            alert = UIAlertController(title: "No Cuisines Found", message: "Please enable your preferred cuisines.", preferredStyle: .alert)
+        if let playViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisinePlay) as? CuisinePlayController {
+            var cuisine: Cuisine?
+            // Check if its empty
+            if !activeCuisines.isEmpty {
+                cuisine = activeCuisines.randomElement()
+                playViewController.cuisine = cuisine
+                playViewController.message = "Try eating \(cuisine!.name!)"
+            } else {
+                // active cuisines are empty
+                playViewController.cuisine = nil
+                playViewController.message = "Please enable your preferred cuisines."
+            }
+            navigationController?.showDetailViewController(playViewController, sender: self)
         }
-        alert.addAction(UIAlertAction(title: "Eat", style: .default) {
-            _ in
-            guard cuisine != nil else { return }
-            self.updateCuisine(cuisine: cuisine!, newNum: Int(cuisine!.numberOfTimesEaten) + 1)
-        })
-        alert.addAction(UIAlertAction(title: "Try Again", style: .destructive) {
-            _ in
-            self.playButtonTapped(sender)
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
+        
+//        alert.addAction(UIAlertAction(title: "Eat", style: .default) {
+//            _ in
+//            guard cuisine != nil else { return }
+//            self.updateCuisine(cuisine: cuisine!, newNum: Int(cuisine!.numberOfTimesEaten) + 1)
+//        })
+//        alert.addAction(UIAlertAction(title: "Try Again", style: .destructive) {
+//            _ in
+//            self.playButtonTapped(sender)
+//        })
+        
     }
 }
 
