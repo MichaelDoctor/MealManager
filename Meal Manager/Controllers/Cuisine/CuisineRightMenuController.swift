@@ -11,9 +11,7 @@ import ViewAnimator
 
 class CuisineRightMenuController: UIViewController {
     var filterSetting = K.CuisineFilter.all
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var cuisines = [Cuisine]()
     
     @IBOutlet var searchBar: UISearchBar!
@@ -24,6 +22,7 @@ class CuisineRightMenuController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: K.Views.cuisineRightNib, bundle: nil), forCellReuseIdentifier: K.Views.cuisineRightCell)
         
         searchBar.delegate = self
         
@@ -32,7 +31,7 @@ class CuisineRightMenuController: UIViewController {
     }
 }
 
-//MARK: - Core Data CRUD
+//MARK: - Core Data functions
 extension CuisineRightMenuController {
     //MARK: - Read
     func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil, doAnimate: Bool = true) {
@@ -57,10 +56,6 @@ extension CuisineRightMenuController {
             // sort ascending order
             request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
             
-            // fetch active cuisines. Used only for the play button.
-            let activeRequest: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
-            activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
-            
             // set all cuisines
             self.cuisines = try context.fetch(request)
             
@@ -75,8 +70,15 @@ extension CuisineRightMenuController {
         }
     }
     //MARK: - Update
-    
-    //MARK: - Delete
+    func updateActive(_ cuisine: Cuisine) {
+        cuisine.isActive = !cuisine.isActive
+        do {
+            try context.save()
+            searchBarSearchButtonClicked(searchBar)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 //MARK: - Filter Button
@@ -86,7 +88,7 @@ extension CuisineRightMenuController {
         
         
         // *****
-        // Change to drop down later or sidemenu later
+        // Change to popup later or style alert later
         // *****
         
         let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .alert)
@@ -140,20 +142,20 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cuisineRightCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cuisineRightCell, for: indexPath) as! CuisineCell
         // Empty array
         if cuisines.isEmpty {
-            cell.textLabel?.text = "No Results Found"
-            cell.detailTextLabel?.text = "No matching cuisine was found."
-            cell.textLabel?.textColor = .gray
-            cell.detailTextLabel?.textColor = .lightGray
+            cell.titleLabel.text = "No Results Found"
+            cell.titleLabel.textColor = .gray
+            cell.cuisineSwitch.isHidden = true
             cell.isUserInteractionEnabled = false
         } else {
             let cuisine = cuisines[indexPath.row]
-            cell.textLabel?.text = cuisine.name
-            cell.detailTextLabel?.text = cuisine.isActive ? "Enabled" : "Disabled"
-            cell.textLabel?.textColor = UIColor.init(named: K.Color.black)
-            cell.detailTextLabel?.textColor = .gray
+            cell.cuisine = cuisine
+            cell.titleLabel.text = cuisine.name
+            cell.titleLabel.textColor = UIColor.init(named: K.Color.black)
+            cell.cuisineSwitch.isHidden = false
+            cell.cuisineSwitch.isOn = cuisine.isActive
             cell.isUserInteractionEnabled = true
         }
         return cell
@@ -164,30 +166,7 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
 
             detailViewController.cuisine = cuisines[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
-
         }
-//        let cuisine = cuisines[indexPath.row]
-//        let alert = UIAlertController(title: cuisine.name!, message: nil, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default) {
-//            _ in
-//            self.tableView.deselectRow(at: indexPath, animated: true)
-//        })
-//        alert.addAction(UIAlertAction(title: cuisine.isActive ? "Disable" : "Enable" , style: cuisine.isActive ? .destructive : .default) {
-//            _ in
-//            // edit active property
-//            cuisine.isActive = !cuisine.isActive
-//
-//            // save
-//            do {
-//                try self.context.save()
-//                self.searchBarSearchButtonClicked(self.searchBar)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//            // reload table
-//            //            self.loadCuisines()
-//        })
-//        present(alert, animated: true)
     }
 }
 
@@ -201,8 +180,6 @@ extension CuisineRightMenuController: UISearchBarDelegate {
             loadCuisines()
             return
         }
-        
-        
         let request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -210,6 +187,7 @@ extension CuisineRightMenuController: UISearchBarDelegate {
         loadCuisines(with: request, predicate: NSPredicate(format: "name CONTAINS[cd] %@", text))
     }
     
+    // empty search bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
         if text.isEmpty {
@@ -218,7 +196,7 @@ extension CuisineRightMenuController: UISearchBarDelegate {
     }
 }
 
-//MARK: - TableView Animation
+//MARK: - Right Slide Animation
 
 extension CuisineRightMenuController {
     func animate() {

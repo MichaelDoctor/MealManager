@@ -10,10 +10,7 @@ import CoreData
 import ViewAnimator
 
 class CuisineLeftMenuController: UITableViewController {
-    
     let options = ["Enable All Cuisine", "Disable All Cuisine", "Reset All Eaten Data"]
-    
-    // Core Data Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -26,7 +23,7 @@ class CuisineLeftMenuController: UITableViewController {
     }
 }
 
-//MARK: - Core Data CRUD
+//MARK: - Core Data functions
 extension CuisineLeftMenuController {
     //MARK: - Update
     func updateBatchActive(value isActive: Bool) {
@@ -55,7 +52,7 @@ extension CuisineLeftMenuController {
         let request = NSBatchUpdateRequest(entityName: "Cuisine")
         // where numberOfTimesEaten > 0
         request.predicate = NSPredicate(format: "numberOfTimesEaten > %i", Int64(0))
-        // those that are greater than 0 are changed to 0
+        // those that are greater than 0 are changed to 0 and dates set to nil
         request.propertiesToUpdate = ["numberOfTimesEaten": Int64(0), "lastAte": Optional<Date>.none as Any]
         request.resultType = .updatedObjectIDsResultType
         
@@ -124,6 +121,8 @@ extension CuisineLeftMenuController {
     }
     
 }
+
+//MARK: - Left Slide Animation
 
 extension CuisineLeftMenuController {
     func animate() {

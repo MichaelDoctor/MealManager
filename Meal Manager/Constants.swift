@@ -21,6 +21,7 @@ struct K {
         static let cuisineLeftMenu = "CuisineLeftMenu"
         static let cuisineLeftCell = "CuisineLeftCell"
         static let cuisinePlay = "CuisinePlay"
+        static let cuisineRightNib = "CuisineCell"
         
         static let mealRightMenu = "MealRightMenu"
         static let mealRightCell = "MealRightCell"

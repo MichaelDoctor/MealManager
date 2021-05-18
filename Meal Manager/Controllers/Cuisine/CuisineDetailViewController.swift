@@ -15,7 +15,6 @@ class CuisineDetailViewController: UIViewController {
     @IBOutlet var numLabel: UILabel!
     
     var cuisine = Cuisine()
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // Google Admob banner
@@ -38,7 +37,7 @@ class CuisineDetailViewController: UIViewController {
         banner.rootViewController = self
         view.addSubview(banner)
         
-        cuisineName.text = cuisine.name
+        cuisineName.text = "\(cuisine.name!) Cuisine"
         isActiveLabel.text = cuisine.isActive ? "Enabled" : "Disabled"
         
         if let date = cuisine.lastAte {
@@ -50,8 +49,13 @@ class CuisineDetailViewController: UIViewController {
         
         numLabel.text = String(cuisine.numberOfTimesEaten)
         navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
     }
 
+    @objc func editTapped() {
+        print("edit")
+    }
 }
 
 //MARK: - Size and Place Ad Banner

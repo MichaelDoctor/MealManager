@@ -12,10 +12,7 @@ import SideMenu
 
 class CuisineMainController: UIViewController {
     var filterSetting = K.CuisineFilter.all
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    // used for play button only
     var activeCuisines = [Cuisine]()
     
     // Google Admob banner
@@ -40,38 +37,17 @@ class CuisineMainController: UIViewController {
     }
 }
 
-//MARK: - Core Data Related functions
+//MARK: - Core Data functions
 
 extension CuisineMainController {
     //MARK: - Read
     
-    func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil) {
+    func loadCuisines() {
         // fetch data from Core Data
         do {
-            var filterPredicate: NSPredicate? = nil
-            
-            if filterSetting != K.CuisineFilter.all {
-                let isActive = filterSetting == K.CuisineFilter.enable ? true : false
-                filterPredicate = NSPredicate(format: "isActive == %@", NSNumber(value: isActive))
-            }
-            
-            // Fetch for searchBar request, filterRequest, or both
-            if let additionalPredicate = predicate, let filter = filterPredicate {
-                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [filter, additionalPredicate])
-            } else if let additionalPredicate = predicate {
-                request.predicate = additionalPredicate
-            } else if let filter = filterPredicate {
-                request.predicate = filter
-            }
-            
-            // sort ascending order
-            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-            
             // fetch active cuisines. Used only for the play button.
             let activeRequest: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
             activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
-            
-            // set all cuisines
             
             // set all enabled cuisines
             self.activeCuisines = try context.fetch(activeRequest)
@@ -131,7 +107,7 @@ extension CuisineMainController {
             if !activeCuisines.isEmpty {
                 cuisine = activeCuisines.randomElement()
                 playViewController.cuisine = cuisine
-                playViewController.message = "Try eating \(cuisine!.name!)"
+                playViewController.message = "Try eating \(cuisine!.name!) Cuisine"
             } else {
                 // active cuisines are empty
                 playViewController.cuisine = nil

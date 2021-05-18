@@ -12,7 +12,7 @@ class CuisinePlayController: UIViewController {
     var cuisine: Cuisine?
     var parentController: CuisineMainController?
     var message = ""
-
+    
     @IBOutlet var cuisineName: UILabel!
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var tryAgainButton: UIButton!
@@ -33,26 +33,30 @@ class CuisinePlayController: UIViewController {
 //MARK: - Buttons
 
 extension CuisinePlayController {
-    
+    //MARK: - Cancel button
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
+    //MARK: - Near Me button
     @IBAction func nearMeButtonTapped(_ sender: UIButton) {
         print("Get Location and Google Search for now")
     }
     
+    //MARK: - Try Again button
     @IBAction func tryAgainButtonTapped(_ sender: UIButton) {
         cuisine = parentController?.activeCuisines.randomElement()
-        message = "Try eating \(cuisine!.name!)"
+        message = "Try eating \(cuisine!.name!) Cuisine"
         setLabels()
     }
+    
+    //MARK: - Eat button
     @IBAction func eatButtonTapped(_ sender: UIButton) {
         guard let cuisine = cuisine else { return }
         parentController?.updateCuisine(cuisine: cuisine, newNum: Int(cuisine.numberOfTimesEaten) + 1)
         if let detailViewController =
             storyboard?.instantiateViewController(identifier: K.Views.cuisineRightDetail) as? CuisineDetailViewController {
-
+            
             detailViewController.cuisine = cuisine
             parentController?.navigationController?.pushViewController(detailViewController, animated: true)
         }

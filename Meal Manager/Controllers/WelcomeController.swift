@@ -12,7 +12,12 @@ class WelcomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
 
+//MARK: - Button
+
+extension WelcomeController {
+    
     @IBAction func screenTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // create tab controller
@@ -22,6 +27,4 @@ class WelcomeController: UIViewController {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
         
     }
-    
 }
-

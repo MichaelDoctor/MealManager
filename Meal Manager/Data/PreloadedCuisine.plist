@@ -2,129 +2,129 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-    <string>Ainu cuisine</string>
-    <string>Albanian cuisine</string>
-    <string>Argentine cuisine</string>
-    <string>Andhra cuisine</string>
-    <string>American cuisine</string>
-    <string>Anglo-Indian cuisine</string>
-    <string>Arab cuisine</string>
-    <string>Armenian cuisine</string>
-    <string>Assyrian cuisine</string>
-    <string>Awadhi cuisine</string>
-    <string>Azerbaijani cuisine</string>
-    <string>Balochi cuisine</string>
-    <string>Bashkir cuisine</string>
-    <string>Belarusian cuisine</string>
-    <string>Bangladeshi cuisine</string>
-    <string>Bengali cuisine</string>
-    <string>Berber cuisine</string>
-    <string>Brazilian cuisine</string>
-    <string>British cuisine</string>
-    <string>Buddhist cuisine</string>
-    <string>Bulgarian cuisine</string>
-    <string>Cajun cuisine</string>
-    <string>Cantonese cuisine</string>
-    <string>Caribbean cuisine</string>
-    <string>Chechen cuisine</string>
-    <string>Chinese cuisine</string>
-    <string>Chinese Islamic cuisine</string>
-    <string>Circassian cuisine</string>
-    <string>Crimean Tatar cuisine</string>
-    <string>Cypriot cuisine</string>
-    <string>Czech cuisine</string>
-    <string>Danish cuisine</string>
-    <string>Egyptian cuisine</string>
-    <string>English cuisine</string>
-    <string>Ethiopian cuisine</string>
-    <string>Eritrean cuisine</string>
-    <string>Estonian cuisine</string>
-    <string>French cuisine</string>
-    <string>Filipino cuisine</string>
-    <string>Fusion cuisine</string>
-    <string>Georgian cuisine</string>
-    <string>German cuisine</string>
-    <string>Goan cuisine</string>
-    <string>Goan Catholic cuisine</string>
-    <string>Greek cuisine</string>
-    <string>Gujarati cuisine</string>
-    <string>Haute cuisine</string>
-    <string>Hyderabad cuisine</string>
-    <string>Indian cuisine</string>
-    <string>Indian Chinese cuisine</string>
-    <string>Indian Singaporean cuisine</string>
-    <string>Indonesian cuisine</string>
-    <string>Inuit cuisine</string>
-    <string>Irish cuisine</string>
-    <string>Israeli cuisine</string>
-    <string>Italian-American cuisine</string>
-    <string>Italian cuisine</string>
-    <string>Jamaican cuisine</string>
-    <string>Japanese cuisine</string>
-    <string>Jewish cuisine</string>
-    <string>Karnataka cuisine</string>
-    <string>Kazakh cuisine</string>
-    <string>Keralite cuisine</string>
-    <string>Korean cuisine</string>
-    <string>Kurdish cuisine</string>
-    <string>Laotian cuisine</string>
-    <string>Lebanese cuisine</string>
-    <string>Latvian cuisine</string>
-    <string>Lithuanian cuisine</string>
-    <string>Louisiana Creole cuisine</string>
-    <string>Maharashtrian cuisine</string>
-    <string>Mangalorean cuisine</string>
-    <string>Malay cuisine</string>
-    <string>Malaysian Chinese cuisine</string>
-    <string>Malaysian Indian cuisine</string>
-    <string>Mediterranean cuisine</string>
-    <string>Mennonite cuisine</string>
-    <string>Mexican cuisine</string>
-    <string>Mordovian cuisine</string>
-    <string>Mughal cuisine</string>
-    <string>Native American cuisine</string>
-    <string>Nepalese cuisine</string>
-    <string>New Mexican cuisine</string>
-    <string>Nouvelle cuisine</string>
-    <string>Odia cuisine</string>
-    <string>Parsi cuisine</string>
-    <string>Pashtun cuisine</string>
-    <string>Polish cuisine</string>
-    <string>Pennsylvania Dutch cuisine</string>
-    <string>Pakistani cuisine</string>
-    <string>Peranakan cuisine</string>
-    <string>Persian cuisine</string>
-    <string>Peruvian cuisine</string>
-    <string>Portuguese cuisine</string>
-    <string>Punjabi cuisine</string>
-    <string>Québécois cuisine</string>
-    <string>Rajasthani cuisine</string>
-    <string>Romani cuisine</string>
-    <string>Romanian cuisine</string>
-    <string>Russian cuisine</string>
-    <string>Sami cuisine</string>
-    <string>Serbian cuisine</string>
-    <string>Sindhi cuisine</string>
-    <string>Slovak cuisine</string>
-    <string>Slovenian cuisine</string>
-    <string>Somali cuisine</string>
-    <string>South Indian cuisine</string>
-    <string>Soviet cuisine</string>
-    <string>Spanish cuisine</string>
-    <string>Sri Lankan cuisine</string>
-    <string>Taiwanese cuisine</string>
-    <string>Tatar cuisine</string>
-    <string>Texan cuisine</string>
-    <string>Thai cuisine</string>
-    <string>Turkish cuisine</string>
-    <string>Tamil cuisine</string>
-    <string>Udupi cuisine</string>
-    <string>Ukrainian cuisine</string>
-    <string>Vegan cuisine</string>
-    <string>Vegetarian cuisine</string>
-    <string>Vietnamese cuisine</string>
-    <string>Yamal cuisine</string>
-    <string>Zambian cuisine</string>
-    <string>Zanzibari cuisine</string>
+    <string>Ainu</string>
+    <string>Albanian</string>
+    <string>Argentine</string>
+    <string>Andhra</string>
+    <string>American</string>
+    <string>Anglo-Indian</string>
+    <string>Arab</string>
+    <string>Armenian</string>
+    <string>Assyrian</string>
+    <string>Awadhi</string>
+    <string>Azerbaijani</string>
+    <string>Balochi</string>
+    <string>Bashkir</string>
+    <string>Belarusian</string>
+    <string>Bangladeshi</string>
+    <string>Bengali</string>
+    <string>Berber</string>
+    <string>Brazilian</string>
+    <string>British</string>
+    <string>Buddhist</string>
+    <string>Bulgarian</string>
+    <string>Cajun</string>
+    <string>Cantonese</string>
+    <string>Caribbean</string>
+    <string>Chechen</string>
+    <string>Chinese</string>
+    <string>Chinese Islamic</string>
+    <string>Circassian</string>
+    <string>Crimean Tatar</string>
+    <string>Cypriot</string>
+    <string>Czech</string>
+    <string>Danish</string>
+    <string>Egyptian</string>
+    <string>English</string>
+    <string>Ethiopian</string>
+    <string>Eritrean</string>
+    <string>Estonian</string>
+    <string>French</string>
+    <string>Filipino</string>
+    <string>Fusion</string>
+    <string>Georgian</string>
+    <string>German</string>
+    <string>Goan</string>
+    <string>Goan Catholic</string>
+    <string>Greek</string>
+    <string>Gujarati</string>
+    <string>Haute</string>
+    <string>Hyderabad</string>
+    <string>Indian</string>
+    <string>Indian Chinese</string>
+    <string>Indian Singaporean</string>
+    <string>Indonesian</string>
+    <string>Inuit</string>
+    <string>Irish</string>
+    <string>Israeli</string>
+    <string>Italian-American</string>
+    <string>Italian</string>
+    <string>Jamaican</string>
+    <string>Japanese</string>
+    <string>Jewish</string>
+    <string>Karnataka</string>
+    <string>Kazakh</string>
+    <string>Keralite</string>
+    <string>Korean</string>
+    <string>Kurdish</string>
+    <string>Laotian</string>
+    <string>Lebanese</string>
+    <string>Latvian</string>
+    <string>Lithuanian</string>
+    <string>Louisiana Creole</string>
+    <string>Maharashtrian</string>
+    <string>Mangalorean</string>
+    <string>Malay</string>
+    <string>Malaysian Chinese</string>
+    <string>Malaysian Indian</string>
+    <string>Mediterranean</string>
+    <string>Mennonite</string>
+    <string>Mexican</string>
+    <string>Mordovian</string>
+    <string>Mughal</string>
+    <string>Native American</string>
+    <string>Nepalese</string>
+    <string>New Mexican</string>
+    <string>Nouvelle</string>
+    <string>Odia</string>
+    <string>Parsi</string>
+    <string>Pashtun</string>
+    <string>Polish</string>
+    <string>Pennsylvania Dutch</string>
+    <string>Pakistani</string>
+    <string>Peranakan</string>
+    <string>Persian</string>
+    <string>Peruvian</string>
+    <string>Portuguese</string>
+    <string>Punjabi</string>
+    <string>Québécois</string>
+    <string>Rajasthani</string>
+    <string>Romani</string>
+    <string>Romanian</string>
+    <string>Russian</string>
+    <string>Sami</string>
+    <string>Serbian</string>
+    <string>Sindhi</string>
+    <string>Slovak</string>
+    <string>Slovenian</string>
+    <string>Somali</string>
+    <string>South Indian</string>
+    <string>Soviet</string>
+    <string>Spanish</string>
+    <string>Sri Lankan</string>
+    <string>Taiwanese</string>
+    <string>Tatar</string>
+    <string>Texan</string>
+    <string>Thai</string>
+    <string>Turkish</string>
+    <string>Tamil</string>
+    <string>Udupi</string>
+    <string>Ukrainian</string>
+    <string>Vegan</string>
+    <string>Vegetarian</string>
+    <string>Vietnamese</string>
+    <string>Yamal</string>
+    <string>Zambian</string>
+    <string>Zanzibari</string>
 </array>
 </plist>
