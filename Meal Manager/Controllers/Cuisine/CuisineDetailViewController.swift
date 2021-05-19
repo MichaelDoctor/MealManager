@@ -37,24 +37,35 @@ class CuisineDetailViewController: UIViewController {
         banner.rootViewController = self
         view.addSubview(banner)
         
-        cuisineName.text = "\(cuisine.name!) Cuisine"
-        isActiveLabel.text = cuisine.isActive ? "Enabled" : "Disabled"
-        
-        if let date = cuisine.lastAte {
-            let dateFormatter = K.formatDate(date)
-            dateLabel.text = dateFormatter.string(from: date)
-        } else {
-            dateLabel.text = "--"
-        }
-        
-        numLabel.text = String(cuisine.numberOfTimesEaten)
         navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    func loadData() {
+        DispatchQueue.main.async {
+            self.cuisineName.text = "\(self.cuisine.name!) Cuisine"
+            self.isActiveLabel.text = self.cuisine.isActive ? "Enabled" : "Disabled"
+            
+            if let date = self.cuisine.lastAte {
+                let dateFormatter = K.formatDate(date)
+                self.dateLabel.text = dateFormatter.string(from: date)
+            } else {
+                self.dateLabel.text = "--"
+            }
+            
+            self.numLabel.text = String(self.cuisine.numberOfTimesEaten)
+        }
+    }
 
     @objc func editTapped() {
-        print("edit")
+        let editController = CuisineEditController(style: .insetGrouped)
+        editController.cuisine = cuisine
+        navigationController?.pushViewController(editController, animated: true)
     }
 }
 

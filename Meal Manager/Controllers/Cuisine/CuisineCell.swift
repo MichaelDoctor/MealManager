@@ -22,18 +22,21 @@ class CuisineCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+}
+
+//MARK: - Enable/Disable Switch
+
+extension CuisineCell {
     @IBAction func cuisineSwitchTapped(_ sender: UISwitch) {
-        updateActive(cuisine)
-        
-        
+        updateActive()
     }
 }
+
 
 //MARK: - Core Data Function
 
 extension CuisineCell {
-    func updateActive(_ cuisine: Cuisine, context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext) {
+    func updateActive(context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext) {
         cuisine.isActive = !cuisine.isActive
         do {
             try context.save()
