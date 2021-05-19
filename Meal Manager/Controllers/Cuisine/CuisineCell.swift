@@ -9,33 +9,36 @@ import UIKit
 import CoreData
 
 class CuisineCell: UITableViewCell {
-
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cuisineSwitch: UISwitch!
+    
     var cuisine = Cuisine()
-     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 }
 
-//MARK: - Enable/Disable Switch
+//MARK: - Buttons
 
 extension CuisineCell {
+    //MARK: - Switch button
     @IBAction func cuisineSwitchTapped(_ sender: UISwitch) {
         updateActive()
     }
 }
 
 
-//MARK: - Core Data Function
+//MARK: - Core Data function
 
 extension CuisineCell {
+    //MARK: - Update
     func updateActive(context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext) {
         cuisine.isActive = !cuisine.isActive
         do {

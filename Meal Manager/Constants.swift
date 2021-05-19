@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import GoogleMobileAds
 
 struct K {
     
     static let preloadKey = "didPreloadCuisine"
     
+    //MARK: - Storyboard constants
     struct Views {
         static let tabBarCtr = "TabBarController"
         
@@ -30,6 +32,7 @@ struct K {
         static let mealLeftCell = "MealLeftCell"
     }
     
+    //MARK: - Colors
     struct Color {
         static let accent = "AccentColor"
         static let red = "MMRedColor"
@@ -37,6 +40,7 @@ struct K {
         static let white = "MMWhiteColor"
     }
     
+    //MARK: - Filters
     struct CuisineFilter {
         static let all = "ALL"
         static let enable = "ENABLE"
@@ -50,6 +54,19 @@ struct K {
     }
     
     //MARK: - Helper Functions
+    
+    static func createBanner() -> GADBannerView {
+        let banner = GADBannerView()
+        // replace later
+        //        banner.adUnitID = "ca-app-pub-2009699556932262/4104921805"
+        // added to plist
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        DispatchQueue.global(qos: .background).async {
+            banner.load(GADRequest())
+        }
+        banner.backgroundColor = .white
+        return banner
+    }
     
     static func formatDate(_ date: Date) -> DateFormatter {
         let dateFormatter = DateFormatter()

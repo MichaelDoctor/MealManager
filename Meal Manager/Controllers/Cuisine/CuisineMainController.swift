@@ -16,18 +16,7 @@ class CuisineMainController: UIViewController {
     var activeCuisines = [Cuisine]()
     
     // Google Admob banner
-    private let banner: GADBannerView = {
-        let banner = GADBannerView()
-        // replace later
-        //        banner.adUnitID = "ca-app-pub-2009699556932262/4104921805"
-        // added to plist
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        DispatchQueue.global(qos: .background).async {
-            banner.load(GADRequest())
-        }
-        banner.backgroundColor = .white
-        return banner
-    }()
+    private let banner: GADBannerView = K.createBanner()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +30,6 @@ class CuisineMainController: UIViewController {
 
 extension CuisineMainController {
     //MARK: - Read
-    
     func loadCuisines() {
         // fetch data from Core Data
         do {
@@ -57,7 +45,6 @@ extension CuisineMainController {
     }
     
     //MARK: - Update
-    
     func updateCuisine(cuisine: Cuisine, newNum: Int) {
         cuisine.numberOfTimesEaten = Int64(newNum)
         cuisine.lastAte = Date()
@@ -92,7 +79,6 @@ extension CuisineMainController {
     }
     
     //MARK: - Right Menu
-    
     @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
         let menu = storyboard!.instantiateViewController(withIdentifier: K.Views.cuisineRightMenu) as! SideMenuNavigationController
         present(menu, animated: true)

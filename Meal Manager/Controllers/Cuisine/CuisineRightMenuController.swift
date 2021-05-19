@@ -22,6 +22,7 @@ class CuisineRightMenuController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        // custom cell
         tableView.register(UINib(nibName: K.Views.cuisineRightNib, bundle: nil), forCellReuseIdentifier: K.Views.cuisineRightCell)
         
         searchBar.delegate = self
@@ -81,16 +82,13 @@ extension CuisineRightMenuController {
     }
 }
 
-//MARK: - Filter Button
+//MARK: - Buttons
 extension CuisineRightMenuController {
+    //MARK: - Filter button
     @IBAction func filterButtonTapped(_ sender: UIButton) {
-        
-        
-        
         // *****
         // Change to popup later or style alert later
         // *****
-        
         let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "All", style: .default) {
             _ in
@@ -130,7 +128,6 @@ extension CuisineRightMenuController {
 }
 
 //MARK: - UITableView
-
 extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if cuisines.isEmpty {
@@ -163,7 +160,7 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisineRightDetail) as? CuisineDetailViewController {
-
+            
             detailViewController.cuisine = cuisines[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
         }
@@ -197,7 +194,6 @@ extension CuisineRightMenuController: UISearchBarDelegate {
 }
 
 //MARK: - Right Slide Animation
-
 extension CuisineRightMenuController {
     func animate() {
         let animation = AnimationType.vector(CGVector(dx: self.view.frame.width / 2, dy: 0))

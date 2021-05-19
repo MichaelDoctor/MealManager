@@ -9,41 +9,32 @@ import UIKit
 import Eureka
 
 class CuisineEditController: FormViewController {
-
+    
     var cuisine = Cuisine()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = cuisine.name
+        title = "\(cuisine.name!) Settings"
         
+        //MARK: - Settings Form
         form +++ Section("Edit \(cuisine.name!) data")
+            //MARK: - Eaten On row
             <<< DateRow("lastAte") {
                 row in
                 row.title = "Eaten On"
                 row.noValueDisplayText = "--"
                 row.value = cuisine.lastAte
-                
             }.cellUpdate {
                 cell, row in
+                // Called when changed
                 if row.value != nil {
                     cell.textLabel?.textColor = .black
                 } else {
                     cell.textLabel?.textColor = .gray
                 }
             }
-            <<< ButtonRow(){
-                row in
-                row.title = "Empty Eaten On"
-                row.onCellSelection { _, _ in
-                    let lastAte: DateRow? = self.form.rowBy(tag: "lastAte")
-                    let numberOfTimesEaten: IntRow? = self.form.rowBy(tag: "numberOfTimesEaten")
-                    lastAte?.value = nil
-                    lastAte?.reload()
-                    numberOfTimesEaten?.value = 0
-                    numberOfTimesEaten?.reload()
-                }
-            }
+            //MARK: - #Eaten row
             <<< IntRow("numberOfTimesEaten") {
                 row in
                 row.title = "#Eaten"
@@ -53,7 +44,9 @@ class CuisineEditController: FormViewController {
                 row.add(rule: RuleGreaterOrEqualThan(min: 0))
             }.cellUpdate {
                 cell, row in
+                // Called when changed
                 let submitBtn = self.form.rowBy(tag: "submit") as! ButtonRow
+                // Input Validation
                 if !row.isValid{
                     cell.titleLabel?.textColor = UIColor(named: K.Color.white)
                     cell.backgroundColor = UIColor(named: K.Color.accent)
@@ -66,30 +59,49 @@ class CuisineEditController: FormViewController {
                 }
                 submitBtn.evaluateHidden()
             }
-        +++ Section()
-            <<< ButtonRow("submit"){
+            //MARK: - Reset button
+            <<< ButtonRow(){
                 row in
-                row.title = "Save"
+                row.title = "Reset Data"
+                // onClick
                 row.onCellSelection { _, _ in
                     let lastAte: DateRow? = self.form.rowBy(tag: "lastAte")
                     let numberOfTimesEaten: IntRow? = self.form.rowBy(tag: "numberOfTimesEaten")
+                    lastAte?.value = nil
+                    lastAte?.reload()
+                    numberOfTimesEaten?.value = 0
+                    numberOfTimesEaten?.reload()
+                }
+            }
+            +++ Section()
+            //MARK: - Submit button
+            <<< ButtonRow("submit"){
+                row in
+                row.title = "Save"
+                row.onCellSelection {
+                    _, _ in
+                    // Grab row data
+                    let lastAte: DateRow? = self.form.rowBy(tag: "lastAte")
+                    let numberOfTimesEaten: IntRow? = self.form.rowBy(tag: "numberOfTimesEaten")
+                    
+                    // can't be an Int
                     if numberOfTimesEaten != nil {
                         self.updateCuisine(newDate: lastAte?.value as Date?, newNum: (numberOfTimesEaten?.value)! as Int)
                     }
                 }
             }
     }
-
-
+    
+    
 }
 
 //MARK: - Core Data functions
 
 extension CuisineEditController {
+    //MARK: - Update
     func updateCuisine(newDate: Date?, newNum: Int) {
         cuisine.numberOfTimesEaten = Int64(newNum)
         cuisine.lastAte = newDate
-        
         do {
             try context.save()
             navigationController?.popViewController(animated: true)

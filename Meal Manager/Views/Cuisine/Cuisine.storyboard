@@ -72,19 +72,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Picker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-A9-HpX">
-                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
+                                <rect key="frame" x="30" y="219.5" width="354" height="41"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Play To Decide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-j3-FCb">
-                                <rect key="frame" x="70" y="702.5" width="274" height="20.5"/>
+                                <rect key="frame" x="70" y="705.5" width="274" height="17.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What type of cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
-                                <rect key="frame" x="70" y="326" width="274" height="54.5"/>
+                                <rect key="frame" x="70" y="333.5" width="274" height="47"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -218,25 +218,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpj-PH-69C">
-                                <rect key="frame" x="169.5" y="415" width="75.5" height="27.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-Jr-MBk">
-                                <rect key="frame" x="30" y="232" width="354" height="43"/>
+                                <rect key="frame" x="30" y="230" width="354" height="43"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6P-eG-DND">
-                                <rect key="frame" x="105" y="325" width="204" height="40"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
-                                <state key="normal" title="Find the best near me"/>
+                                <rect key="frame" x="111.5" y="323" width="191" height="40"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
+                                <state key="normal" title="Find the best near me">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvb-6A-bY6">
-                                <rect key="frame" x="50" y="442.5" width="314" height="290.5"/>
+                                <rect key="frame" x="50" y="444" width="314" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eaten On:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU3-jM-JCV">
                                         <rect key="frame" x="10" y="30" width="91.5" height="28"/>
@@ -270,6 +266,7 @@
                                     <constraint firstItem="PRb-bu-k8f" firstAttribute="top" secondItem="bvb-6A-bY6" secondAttribute="top" constant="30" id="CYT-dc-odE"/>
                                     <constraint firstItem="IU3-jM-JCV" firstAttribute="leading" secondItem="bvb-6A-bY6" secondAttribute="leading" constant="10" id="Htt-0h-MXl"/>
                                     <constraint firstItem="IU3-jM-JCV" firstAttribute="top" secondItem="bvb-6A-bY6" secondAttribute="top" constant="30" id="IGl-kh-YkC"/>
+                                    <constraint firstAttribute="height" constant="150" id="Qs6-wv-M5O"/>
                                     <constraint firstItem="PRb-bu-k8f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IU3-jM-JCV" secondAttribute="trailing" constant="10" id="VXX-Og-wv3"/>
                                     <constraint firstAttribute="trailing" secondItem="2HU-Mh-SUa" secondAttribute="trailing" constant="10" id="a6N-EY-O8i"/>
                                     <constraint firstAttribute="trailing" secondItem="PRb-bu-k8f" secondAttribute="trailing" constant="10" id="gii-Ht-Wkj"/>
@@ -277,24 +274,40 @@
                                     <constraint firstItem="2HU-Mh-SUa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0sJ-jH-Z5i" secondAttribute="trailing" constant="10" id="wZb-o6-ekj"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-3J-bRc">
+                                <rect key="frame" x="177" y="680" width="64" height="40"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editTapped:" destination="yJr-ZF-TId" eventType="touchUpInside" id="BVT-r5-P2n"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpR-QT-RRs">
+                                <rect key="frame" x="182.5" y="413" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchTapped:" destination="yJr-ZF-TId" eventType="valueChanged" id="2Zp-jz-zqb"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="leM-Iu-I0b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="leM-Iu-I0b" firstAttribute="bottom" secondItem="bvb-6A-bY6" secondAttribute="bottom" constant="80" id="4pd-x6-J1m"/>
+                            <constraint firstItem="bvb-6A-bY6" firstAttribute="top" secondItem="LpR-QT-RRs" secondAttribute="bottom" id="4nb-i1-3cv"/>
                             <constraint firstItem="et3-Jr-MBk" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="30" id="9h8-b3-9M4"/>
+                            <constraint firstItem="LpR-QT-RRs" firstAttribute="centerY" secondItem="leM-Iu-I0b" secondAttribute="centerY" id="Ceq-Bp-J6N"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="et3-Jr-MBk" secondAttribute="trailing" constant="30" id="EO2-AR-ZpJ"/>
                             <constraint firstItem="et3-Jr-MBk" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="FTV-Pb-K9O"/>
+                            <constraint firstItem="LpR-QT-RRs" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="GPs-Gg-Lta"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="bvb-6A-bY6" secondAttribute="trailing" constant="50" id="NcL-e8-jIF"/>
                             <constraint firstItem="et3-Jr-MBk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="leM-Iu-I0b" secondAttribute="top" constant="30" id="WaT-CV-DOc"/>
+                            <constraint firstItem="CL2-3J-bRc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bvb-6A-bY6" secondAttribute="bottom" constant="30" id="ZeJ-Xm-HCe"/>
                             <constraint firstItem="bvb-6A-bY6" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="cVX-NT-lGG"/>
                             <constraint firstItem="S6P-eG-DND" firstAttribute="top" secondItem="et3-Jr-MBk" secondAttribute="bottom" constant="50" id="cYA-PM-DNF"/>
-                            <constraint firstItem="mpj-PH-69C" firstAttribute="centerY" secondItem="leM-Iu-I0b" secondAttribute="centerY" id="gzu-jK-ePP"/>
+                            <constraint firstItem="CL2-3J-bRc" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="dYM-N1-6qC"/>
+                            <constraint firstItem="leM-Iu-I0b" firstAttribute="bottom" secondItem="CL2-3J-bRc" secondAttribute="bottom" constant="80" id="dj5-wx-Bih"/>
                             <constraint firstItem="S6P-eG-DND" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="lUl-fy-VaB"/>
+                            <constraint firstItem="LpR-QT-RRs" firstAttribute="top" secondItem="S6P-eG-DND" secondAttribute="bottom" constant="50" id="mU2-D5-zdL"/>
                             <constraint firstItem="bvb-6A-bY6" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="50" id="oaf-w3-SHJ"/>
-                            <constraint firstItem="bvb-6A-bY6" firstAttribute="top" secondItem="mpj-PH-69C" secondAttribute="bottom" id="rEK-66-Tga"/>
-                            <constraint firstItem="mpj-PH-69C" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="vIB-Ch-tp9"/>
-                            <constraint firstItem="mpj-PH-69C" firstAttribute="top" secondItem="S6P-eG-DND" secondAttribute="bottom" constant="50" id="yhr-D3-c57"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="lnk-fP-ALU"/>
@@ -303,9 +316,9 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activeSwitch" destination="LpR-QT-RRs" id="NQ4-GH-kSC"/>
                         <outlet property="cuisineName" destination="et3-Jr-MBk" id="x5u-py-UZw"/>
                         <outlet property="dateLabel" destination="PRb-bu-k8f" id="JD5-of-nLw"/>
-                        <outlet property="isActiveLabel" destination="mpj-PH-69C" id="orZ-zP-1Xa"/>
                         <outlet property="numLabel" destination="2HU-Mh-SUa" id="6os-aT-FAe"/>
                     </connections>
                 </viewController>
@@ -477,6 +490,9 @@
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
