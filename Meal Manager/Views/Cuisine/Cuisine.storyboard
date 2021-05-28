@@ -274,8 +274,8 @@
                                     <constraint firstItem="2HU-Mh-SUa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0sJ-jH-Z5i" secondAttribute="trailing" constant="10" id="wZb-o6-ekj"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-3J-bRc">
-                                <rect key="frame" x="177" y="680" width="64" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-3J-bRc">
+                                <rect key="frame" x="184.5" y="686" width="45" height="47"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>

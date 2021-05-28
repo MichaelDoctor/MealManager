@@ -27,6 +27,7 @@ class CuisineDetailViewController: UIViewController {
         banner.rootViewController = self
         view.addSubview(banner)
         
+        navigationItem.rightBarButtonItem = nil
         navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
     }
     

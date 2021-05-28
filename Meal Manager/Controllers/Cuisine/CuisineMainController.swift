@@ -26,6 +26,41 @@ class CuisineMainController: UIViewController {
     }
 }
 
+//MARK: - Buttons
+
+extension CuisineMainController {
+    //MARK: - Left Menu
+    @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
+        let menu = storyboard!.instantiateViewController(withIdentifier: K.Views.cuisineLeftMenu) as! SideMenuNavigationController
+        present(menu, animated: true)
+    }
+    
+    //MARK: - Right Menu
+    @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
+        let menu = storyboard!.instantiateViewController(withIdentifier: K.Views.cuisineRightMenu) as! SideMenuNavigationController
+        present(menu, animated: true)
+    }
+    
+    //MARK: - Play Button
+    @IBAction func playButtonTapped(_ sender: UIButton) {
+        if let playViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisinePlay) as? CuisinePlayController {
+            loadCuisines()
+            var cuisine: Cuisine?
+            // Check if its empty
+            if !activeCuisines.isEmpty {
+                cuisine = activeCuisines.randomElement()
+                playViewController.cuisine = cuisine
+                playViewController.message = "Try eating \(cuisine!.name!) Cuisine"
+            } else {
+                // active cuisines are empty
+                playViewController.cuisine = nil
+                playViewController.message = "Please enable your preferred cuisines."
+            }
+            playViewController.parentController = self
+            navigationController?.showDetailViewController(playViewController, sender: self)
+        }
+    }
+}
 //MARK: - Core Data functions
 
 extension CuisineMainController {
@@ -69,41 +104,7 @@ extension CuisineMainController {
     }
 }
 
-//MARK: - Buttons
 
-extension CuisineMainController {
-    //MARK: - Left Menu
-    @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
-        let menu = storyboard!.instantiateViewController(withIdentifier: K.Views.cuisineLeftMenu) as! SideMenuNavigationController
-        present(menu, animated: true)
-    }
-    
-    //MARK: - Right Menu
-    @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
-        let menu = storyboard!.instantiateViewController(withIdentifier: K.Views.cuisineRightMenu) as! SideMenuNavigationController
-        present(menu, animated: true)
-    }
-    
-    //MARK: - Play Button
-    @IBAction func playButtonTapped(_ sender: UIButton) {
-        if let playViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisinePlay) as? CuisinePlayController {
-            loadCuisines()
-            var cuisine: Cuisine?
-            // Check if its empty
-            if !activeCuisines.isEmpty {
-                cuisine = activeCuisines.randomElement()
-                playViewController.cuisine = cuisine
-                playViewController.message = "Try eating \(cuisine!.name!) Cuisine"
-            } else {
-                // active cuisines are empty
-                playViewController.cuisine = nil
-                playViewController.message = "Please enable your preferred cuisines."
-            }
-            playViewController.parentController = self
-            navigationController?.showDetailViewController(playViewController, sender: self)
-        }
-    }
-}
 
 
 

@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreData
+import SideMenu
 
-class TestViewController: UIViewController {
+class MealRightMenuController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     @IBOutlet var tableView: UITableView!
@@ -40,7 +41,7 @@ class TestViewController: UIViewController {
     
 }
 
-extension TestViewController {
+extension MealRightMenuController {
     //MARK: - Read
     func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest(), predicate: NSPredicate? = nil) {
         
@@ -86,7 +87,7 @@ extension TestViewController {
     }
 }
 
-extension TestViewController: UITableViewDataSource {
+extension MealRightMenuController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if meals.isEmpty {
             // To tell the user to add meals
@@ -117,13 +118,13 @@ extension TestViewController: UITableViewDataSource {
     }
 }
 
-extension TestViewController: UITableViewDelegate {
+extension MealRightMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
 }
 
-extension TestViewController: UISearchBarDelegate {
+extension MealRightMenuController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
         
