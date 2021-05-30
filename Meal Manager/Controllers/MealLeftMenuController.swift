@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class MealLeftMenuController: UITableViewController {
 
@@ -86,4 +87,14 @@ class MealLeftMenuController: UITableViewController {
     }
     */
 
+}
+
+//MARK: - Left Slide Animation
+
+extension MealLeftMenuController {
+    func animate() {
+        let animation = AnimationType.vector(CGVector(dx: -self.view.frame.width / 2, dy: 0))
+        
+        UIView.animate(views: tableView.visibleCells, animations: [animation])
+    }
 }

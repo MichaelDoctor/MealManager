@@ -9,8 +9,10 @@ import UIKit
 import GoogleMobileAds
 import CoreData
 import SideMenu
+import ViewAnimator
 
 class CuisineMainController: UIViewController {
+    @IBOutlet var titleLabel: UILabel!
     var filterSetting = K.CuisineFilter.all
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var activeCuisines = [Cuisine]()
@@ -23,6 +25,11 @@ class CuisineMainController: UIViewController {
         
         banner.rootViewController = self
         view.addSubview(banner)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animateTitle()
     }
 }
 
@@ -104,6 +111,14 @@ extension CuisineMainController {
     }
 }
 
+//MARK: - Animation
+
+extension CuisineMainController {
+    func animateTitle() {
+        let animation = AnimationType.zoom(scale: 0.3)
+        titleLabel.animate(animations: [animation])
+    }
+}
 
 
 

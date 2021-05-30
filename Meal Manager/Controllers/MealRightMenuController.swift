@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-import SideMenu
+import ViewAnimator
 
 class MealRightMenuController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
@@ -31,7 +31,7 @@ class MealRightMenuController: UIViewController {
         loadMeals()
     }
     @IBAction func filterButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "All", style: .default))
         alert.addAction(UIAlertAction(title: "Cook", style: .default))
         alert.addAction(UIAlertAction(title: "Order", style: .default))
@@ -43,7 +43,7 @@ class MealRightMenuController: UIViewController {
 
 extension MealRightMenuController {
     //MARK: - Read
-    func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest(), predicate: NSPredicate? = nil) {
+    func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest(), predicate: NSPredicate? = nil, doAnimate: Bool = true) {
         
         // fetch searchBar request
         if let additionalPredicate = predicate {
@@ -62,6 +62,9 @@ extension MealRightMenuController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                if doAnimate {
+                    self.animate()
+                }
             }
         } catch {
             print(error.localizedDescription)
@@ -141,5 +144,14 @@ extension MealRightMenuController: UISearchBarDelegate {
             // reload all meals
             loadMeals()
         }
+    }
+}
+
+//MARK: - Right Slide Animation
+
+extension MealRightMenuController {
+    func animate() {
+        let animation = AnimationType.vector(CGVector(dx: self.view.frame.width / 2, dy: 0))
+        UIView.animate(views: tableView.visibleCells, animations: [animation])
     }
 }

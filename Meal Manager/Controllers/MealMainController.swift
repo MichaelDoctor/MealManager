@@ -9,8 +9,10 @@ import UIKit
 import GoogleMobileAds
 import CoreData
 import SideMenu
+import ViewAnimator
 
 class MealMainController: UIViewController {
+    @IBOutlet var titleLabel: UILabel!
     
     // Core Data Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -30,6 +32,10 @@ class MealMainController: UIViewController {
         
         // get meals
         loadMeals()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animateTitle()
     }
 }
 
@@ -187,5 +193,13 @@ extension MealMainController {
         let bottom = view.window!.frame.size.height
         let tabBarHeight = tabBarController!.tabBar.frame.size.height
         banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
+    }
+}
+
+//MARK: - Animation
+extension MealMainController {
+    func animateTitle() {
+        let animation = AnimationType.zoom(scale: 0.3)
+        titleLabel.animate(animations: [animation])
     }
 }

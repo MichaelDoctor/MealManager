@@ -39,7 +39,6 @@
 		CA8381032651BBFA002357E2 /* Cuisine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8381012651BBFA002357E2 /* Cuisine+CoreDataProperties.swift */; };
 		CA83810A265301AF002357E2 /* Cuisine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA838109265301AF002357E2 /* Cuisine.storyboard */; };
 		CA83810C265301CD002357E2 /* Meal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA83810B265301CD002357E2 /* Meal.storyboard */; };
-		CA83810E265301E2002357E2 /* Chart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA83810D265301E2002357E2 /* Chart.storyboard */; };
 		CA83811726537B1A002357E2 /* CuisinePlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83811626537B1A002357E2 /* CuisinePlayController.swift */; };
 		CA83811A26545B05002357E2 /* CuisineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83811826545B05002357E2 /* CuisineCell.swift */; };
 		CA83811B26545B05002357E2 /* CuisineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA83811926545B05002357E2 /* CuisineCell.xib */; };
@@ -88,7 +87,6 @@
 		CA8381012651BBFA002357E2 /* Cuisine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cuisine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CA838109265301AF002357E2 /* Cuisine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cuisine.storyboard; sourceTree = "<group>"; };
 		CA83810B265301CD002357E2 /* Meal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meal.storyboard; sourceTree = "<group>"; };
-		CA83810D265301E2002357E2 /* Chart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chart.storyboard; sourceTree = "<group>"; };
 		CA83811626537B1A002357E2 /* CuisinePlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinePlayController.swift; sourceTree = "<group>"; };
 		CA83811826545B05002357E2 /* CuisineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineCell.swift; sourceTree = "<group>"; };
 		CA83811926545B05002357E2 /* CuisineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CuisineCell.xib; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 				CA4494BB26436C320028F452 /* Main.storyboard */,
 				CA83811C26545FDD002357E2 /* Cuisine */,
 				CA83810B265301CD002357E2 /* Meal.storyboard */,
-				CA83810D265301E2002357E2 /* Chart.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				CA4495302644AFE70028F452 /* Montserrat-Bold.ttf in Resources */,
 				CA4494C526436C340028F452 /* LaunchScreen.storyboard in Resources */,
 				CA4494C226436C340028F452 /* Assets.xcassets in Resources */,
-				CA83810E265301E2002357E2 /* Chart.storyboard in Resources */,
 				CA83810A265301AF002357E2 /* Cuisine.storyboard in Resources */,
 				CA66943626488DB300722EA0 /* PreloadedCuisine.plist in Resources */,
 				CA4495352644AFF70028F452 /* OpenSans-Regular.ttf in Resources */,

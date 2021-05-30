@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KjO-fe-i48">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -31,13 +31,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Slogan here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
-                                <rect key="frame" x="105.5" y="350" width="203" height="29.5"/>
+                                <rect key="frame" x="101" y="344" width="212" height="34.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-oz-AmF">
-                                <rect key="frame" x="136" y="638.5" width="142" height="23.5"/>
+                                <rect key="frame" x="137" y="634.5" width="140" height="27.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
-                                <rect key="frame" x="79" y="229.5" width="256" height="47"/>
+                                <rect key="frame" x="58.5" y="228.5" width="297" height="49"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="40"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,7 +92,6 @@
                     <connections>
                         <segue destination="8x0-Cf-EcR" kind="relationship" relationship="viewControllers" id="oje-9U-VbF"/>
                         <segue destination="zOB-m3-Pxj" kind="relationship" relationship="viewControllers" id="RWW-bu-wH4"/>
-                        <segue destination="31q-1z-WQW" kind="relationship" relationship="viewControllers" id="imm-eI-Gis"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4j-Pd-e4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,16 +117,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAE-Dn-GKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1767" y="538"/>
-        </scene>
-        <!--Chart-->
-        <scene sceneID="UAi-zk-UfQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Chart" id="31q-1z-WQW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="DhG-jQ-WmS"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f44-bh-TYW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2020" y="538"/>
         </scene>
     </scenes>
     <resources>

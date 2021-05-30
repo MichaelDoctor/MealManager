@@ -89,7 +89,7 @@ extension CuisineRightMenuController {
         // *****
         // Change to popup later or style alert later
         // *****
-        let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "All", style: .default) {
             _ in
             // if the filterSetting was not already set to all
