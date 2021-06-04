@@ -72,7 +72,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Cuisines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-A9-HpX">
-                                <rect key="frame" x="30" y="215.5" width="354" height="45"/>
+                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Play To Decide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-j3-FCb">
-                                <rect key="frame" x="70" y="701.5" width="274" height="21.5"/>
+                                <rect key="frame" x="70" y="704.5" width="274" height="18.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -88,7 +88,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What type of cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
-                                <rect key="frame" x="70" y="325" width="274" height="55.5"/>
+                                <rect key="frame" x="70" y="332.5" width="274" height="48"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -352,7 +352,7 @@
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v9e-49-eoI">
-                                <rect key="frame" x="30" y="44" width="51" height="40"/>
+                                <rect key="frame" x="50" y="44" width="51" height="40"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
@@ -379,21 +379,23 @@
                                 <rect key="frame" x="50" y="430.5" width="314" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-en-d0d">
-                                        <rect key="frame" x="52.5" y="-1" width="109" height="47"/>
+                                        <rect key="frame" x="20" y="-1" width="120" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="sou-3c-cZs"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
-                                        <state key="normal" title="Try Again">
-                                            <color key="titleColor" name="AccentColor"/>
-                                        </state>
+                                        <state key="normal" title="Try Again"/>
                                         <connections>
                                             <action selector="tryAgainButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="tPM-ka-UyA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-QB-z7m">
-                                        <rect key="frame" x="211.5" y="-1" width="37" height="47"/>
+                                        <rect key="frame" x="174" y="-1" width="120" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="JLQ-I0-Vh9"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
-                                        <state key="normal" title="Eat">
-                                            <color key="titleColor" systemColor="systemGreenColor"/>
-                                        </state>
+                                        <state key="normal" title="Eat"/>
                                         <connections>
                                             <action selector="eatButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="JSe-F4-WOh"/>
                                         </connections>
@@ -401,13 +403,12 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="leading" secondItem="WRR-s5-qIF" secondAttribute="leading" constant="20" id="34c-8x-tuM"/>
+                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="centerY" secondItem="WRR-s5-qIF" secondAttribute="centerY" id="3uV-ZM-57Z"/>
+                                    <constraint firstItem="n1D-QB-z7m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jwt-en-d0d" secondAttribute="trailing" constant="10" id="4d2-sw-HPU"/>
                                     <constraint firstAttribute="height" constant="45" id="7ad-Xw-7On"/>
-                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WRR-s5-qIF" secondAttribute="leading" constant="30" id="B6X-Uq-qiv"/>
-                                    <constraint firstItem="n1D-QB-z7m" firstAttribute="centerY" secondItem="WRR-s5-qIF" secondAttribute="centerY" id="C1s-lH-7uI"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n1D-QB-z7m" secondAttribute="trailing" constant="30" id="ERe-uE-up5"/>
-                                    <constraint firstItem="n1D-QB-z7m" firstAttribute="leading" secondItem="Jwt-en-d0d" secondAttribute="trailing" constant="50" id="H6q-jl-1EA"/>
-                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="centerY" secondItem="WRR-s5-qIF" secondAttribute="centerY" id="flP-hN-ljF"/>
-                                    <constraint firstItem="Jwt-en-d0d" firstAttribute="centerX" secondItem="WRR-s5-qIF" secondAttribute="centerX" constant="-50" id="yvD-oR-GIP"/>
+                                    <constraint firstAttribute="trailing" secondItem="n1D-QB-z7m" secondAttribute="trailing" constant="20" id="D3S-TF-ngK"/>
+                                    <constraint firstItem="n1D-QB-z7m" firstAttribute="centerY" secondItem="WRR-s5-qIF" secondAttribute="centerY" id="zRy-b3-m1G"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -417,7 +418,7 @@
                             <constraint firstItem="SvE-E8-nkh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="In5-Od-mjJ" secondAttribute="bottom" constant="30" id="2wt-GQ-R2H"/>
                             <constraint firstItem="In5-Od-mjJ" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="7vc-VS-MVS"/>
                             <constraint firstItem="WRR-s5-qIF" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="Bh6-tu-erl"/>
-                            <constraint firstItem="v9e-49-eoI" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="30" id="Dmj-iv-NlX"/>
+                            <constraint firstItem="v9e-49-eoI" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="Dmj-iv-NlX"/>
                             <constraint firstItem="vXF-e5-34D" firstAttribute="top" secondItem="SvE-E8-nkh" secondAttribute="bottom" id="Fpk-PX-hEf"/>
                             <constraint firstItem="RBw-y2-pDK" firstAttribute="trailing" secondItem="SvE-E8-nkh" secondAttribute="trailing" constant="50" id="IUy-4m-SGP"/>
                             <constraint firstItem="In5-Od-mjJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RBw-y2-pDK" secondAttribute="top" constant="30" id="PrL-SW-GFJ"/>
@@ -512,9 +513,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

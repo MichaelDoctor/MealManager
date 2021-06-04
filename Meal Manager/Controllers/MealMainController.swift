@@ -37,6 +37,8 @@ class MealMainController: UIViewController {
         super.viewWillAppear(animated)
         animateTitle()
     }
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+    }
 }
 
 //MARK: - Buttons

@@ -22,6 +22,8 @@ class CuisinePlayController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabels()
+        K.roundedButton(tryAgainButton, bg: UIColor.init(named: K.Color.red)!, tint: UIColor.init(named: K.Color.white)!)
+        K.roundedButton(eatButton, bg: UIColor.systemGreen, tint: UIColor.init(named: K.Color.black)!)
         if cuisine == nil {
             tryAgainButton.isHidden = true
             eatButton.isHidden = true

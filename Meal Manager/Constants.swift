@@ -76,8 +76,9 @@ struct K {
     
     static func roundedButton(_ button: UIButton, bg: UIColor, tint: UIColor) {
         button.backgroundColor = bg
-        button.layer.cornerRadius = 25.0
+        button.layer.cornerRadius = 15.0
         button.tintColor = tint
+//        button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
     }
     
 }

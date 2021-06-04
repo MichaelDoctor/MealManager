@@ -218,12 +218,20 @@
                                 <action selector="leftNavButtonTapped:" destination="UBk-1R-iMG" id="9cM-21-ERb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="list.bullet" catalog="system" id="XfG-Pc-rga">
-                            <color key="tintColor" name="MMWhiteColor"/>
-                            <connections>
-                                <action selector="rightNavButtonTapped:" destination="UBk-1R-iMG" id="F4B-Kb-HCk"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="list.bullet" catalog="system" id="XfG-Pc-rga">
+                                <color key="tintColor" name="MMWhiteColor"/>
+                                <connections>
+                                    <action selector="rightNavButtonTapped:" destination="UBk-1R-iMG" id="F4B-Kb-HCk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="plus" catalog="system" id="XZJ-At-1fT">
+                                <color key="tintColor" name="MMWhiteColor"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="UBk-1R-iMG" id="b18-eQ-6Dd"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="titleLabel" destination="n5h-6A-P2l" id="SS4-n4-FHA"/>
@@ -293,6 +301,7 @@
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
