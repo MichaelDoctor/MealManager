@@ -31,7 +31,7 @@ class MealRightMenuController: UIViewController {
         loadMeals()
     }
     @IBAction func filterButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .actionSheet)
+    let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "All", style: .default))
         alert.addAction(UIAlertAction(title: "Cook", style: .default))
         alert.addAction(UIAlertAction(title: "Order", style: .default))

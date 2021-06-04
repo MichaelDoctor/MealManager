@@ -29,9 +29,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PPc-el-UWx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="MMRedColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="MMWhiteColor"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -163,23 +163,29 @@
                                     <action selector="playButtonTapped:" destination="UBk-1R-iMG" eventType="touchUpInside" id="xry-Sk-kF2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Meal Picker" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-6A-P2l">
-                                <rect key="frame" x="30" y="219.5" width="354" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Meals" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-6A-P2l">
+                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Play To Decide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-tL-BcJ">
-                                <rect key="frame" x="70" y="705.5" width="274" height="17.5"/>
+                                <rect key="frame" x="70" y="704.5" width="274" height="18.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from your list of food!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-qH-eGM">
-                                <rect key="frame" x="70" y="357" width="274" height="23.5"/>
+                                <rect key="frame" x="70" y="355" width="274" height="25.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" name="MMBlackColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0z4-7b-yXb"/>
@@ -288,8 +294,11 @@
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <namedColor name="MMRedColor">
-            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="AccentColor">
+            <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MMBlackColor">
+            <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

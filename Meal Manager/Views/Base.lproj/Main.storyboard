@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -27,20 +27,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A0f-Ad-5LB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Slogan here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
-                                <rect key="frame" x="101" y="344" width="212" height="34.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to eat?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
+                                <rect key="frame" x="58.333333333333343" y="484.66666666666669" width="297.33333333333326" height="36.333333333333314"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
-                                <color key="textColor" name="MMBlackColor"/>
+                                <color key="textColor" name="MMWhiteColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-oz-AmF">
-                                <rect key="frame" x="137" y="634.5" width="140" height="27.5"/>
+                                <rect key="frame" x="136.66666666666666" y="683.66666666666663" width="140.99999999999997" height="28.333333333333371"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
-                                <color key="textColor" name="MMBlackColor"/>
+                                <color key="textColor" name="MMWhiteColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" name="MMBlackColor"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-Zf-0xW">
+                                <rect key="frame" x="150" y="313" width="114.33333333333331" height="58"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="45"/>
+                                <color key="textColor" name="MMWhiteColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
+                                <rect key="frame" x="89.666666666666671" y="371" width="234.66666666666663" height="64"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="50"/>
+                                <color key="textColor" name="MMWhiteColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="3"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-h7-5Ql">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -49,26 +66,19 @@
                                     <action selector="screenTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uRu-3j-OnQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
-                                <rect key="frame" x="58.5" y="228.5" width="297" height="49"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="40"/>
-                                <color key="textColor" name="MMBlackColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstItem="x72-IR-xhp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5fo-gJ-Xwr"/>
-                            <constraint firstItem="A0f-Ad-5LB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Oz9-QE-RiO"/>
-                            <constraint firstAttribute="bottom" secondItem="A0f-Ad-5LB" secondAttribute="bottom" id="Syf-pd-R2S"/>
                             <constraint firstItem="1h3-X1-RHy" firstAttribute="top" secondItem="x72-IR-xhp" secondAttribute="bottom" constant="-150" id="X8O-2O-Dem"/>
-                            <constraint firstItem="A0f-Ad-5LB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="a7b-md-Nzf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5iD-oz-AmF" secondAttribute="bottom" constant="200" id="aC3-Yl-6LN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5iD-oz-AmF" secondAttribute="bottom" constant="150" id="aC3-Yl-6LN"/>
                             <constraint firstItem="1h3-X1-RHy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b8e-Mf-5ZX"/>
+                            <constraint firstItem="w7i-Zf-0xW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lot-rh-pSJ"/>
                             <constraint firstItem="5iD-oz-AmF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nfw-Wq-7LH"/>
-                            <constraint firstItem="A0f-Ad-5LB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ocM-dB-HNt"/>
-                            <constraint firstItem="1h3-X1-RHy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-200" id="sIn-GQ-5Yg"/>
+                            <constraint firstItem="5iD-oz-AmF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="x72-IR-xhp" secondAttribute="bottom" constant="50" id="s0T-2i-RUe"/>
+                            <constraint firstItem="1h3-X1-RHy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="sIn-GQ-5Yg"/>
+                            <constraint firstItem="1h3-X1-RHy" firstAttribute="top" secondItem="w7i-Zf-0xW" secondAttribute="bottom" id="w7f-Xs-eOR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tpg-g8-ZOd"/>
@@ -86,12 +96,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" name="MMRedColor"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="AccentColor"/>
+                        <color key="selectedImageTintColor" name="MMWhiteColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8x0-Cf-EcR" kind="relationship" relationship="viewControllers" id="oje-9U-VbF"/>
-                        <segue destination="zOB-m3-Pxj" kind="relationship" relationship="viewControllers" id="RWW-bu-wH4"/>
+                        <segue destination="zOB-m3-Pxj" kind="relationship" relationship="viewControllers" id="XwG-HG-mY9"/>
+                        <segue destination="8x0-Cf-EcR" kind="relationship" relationship="viewControllers" id="t7t-Az-dle"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4j-Pd-e4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -106,7 +116,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGX-EJ-wEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="538"/>
+            <point key="canvasLocation" x="1962" y="467"/>
         </scene>
         <!--Meal-->
         <scene sceneID="acD-5d-tmK">
@@ -116,15 +126,18 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAE-Dn-GKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="538"/>
+            <point key="canvasLocation" x="1582" y="462"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="MMBlackColor">
             <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="MMRedColor">
-            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="MMWhiteColor">
+            <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

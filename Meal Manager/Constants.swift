@@ -74,4 +74,10 @@ struct K {
         return dateFormatter
     }
     
+    static func roundedButton(_ button: UIButton, bg: UIColor, tint: UIColor) {
+        button.backgroundColor = bg
+        button.layer.cornerRadius = 25.0
+        button.tintColor = tint
+    }
+    
 }

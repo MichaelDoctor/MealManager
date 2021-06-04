@@ -29,9 +29,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lo9-5G-gep">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="MMRedColor"/>
+                        <color key="barTintColor" name="AccentColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" name="MMWhiteColor"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -71,23 +71,29 @@
                                     <action selector="playButtonTapped:" destination="5xr-16-5eT" eventType="touchUpInside" id="I7C-K1-dPd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Picker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-A9-HpX">
-                                <rect key="frame" x="30" y="219.5" width="354" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Cuisines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-A9-HpX">
+                                <rect key="frame" x="30" y="215.5" width="354" height="45"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Play To Decide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-j3-FCb">
-                                <rect key="frame" x="70" y="705.5" width="274" height="17.5"/>
+                                <rect key="frame" x="70" y="701.5" width="274" height="21.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What type of cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
-                                <rect key="frame" x="70" y="333.5" width="274" height="47"/>
+                                <rect key="frame" x="70" y="325" width="274" height="55.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lsz-SP-LUi"/>
@@ -338,10 +344,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="In5-Od-mjJ">
-                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
+                                <rect key="frame" x="30" y="215.5" width="354" height="45"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v9e-49-eoI">
                                 <rect key="frame" x="30" y="44" width="51" height="40"/>
@@ -354,7 +362,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-e5-34D">
                                 <rect key="frame" x="105" y="360.5" width="204" height="40"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
-                                <state key="normal" title="Find the best near me"/>
+                                <state key="normal" title="Find the best near me">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
                                 <connections>
                                     <action selector="nearMeButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="Gm2-TM-og7"/>
                                 </connections>
@@ -371,7 +381,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-en-d0d">
                                         <rect key="frame" x="52.5" y="-1" width="109" height="47"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
-                                        <state key="normal" title="Try Again"/>
+                                        <state key="normal" title="Try Again">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="tryAgainButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="tPM-ka-UyA"/>
                                         </connections>
@@ -379,7 +391,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-QB-z7m">
                                         <rect key="frame" x="211.5" y="-1" width="37" height="47"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
-                                        <state key="normal" title="Eat"/>
+                                        <state key="normal" title="Eat">
+                                            <color key="titleColor" systemColor="systemGreenColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="eatButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="JSe-F4-WOh"/>
                                         </connections>
@@ -398,7 +412,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RBw-y2-pDK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SvE-E8-nkh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="In5-Od-mjJ" secondAttribute="bottom" constant="30" id="2wt-GQ-R2H"/>
                             <constraint firstItem="In5-Od-mjJ" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="7vc-VS-MVS"/>
@@ -487,8 +501,8 @@
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
-        <namedColor name="MMRedColor">
-            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="AccentColor">
+            <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -498,6 +512,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
