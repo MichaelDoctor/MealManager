@@ -18,7 +18,7 @@ class CuisineDetailViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // Google Admob banner
-    private let banner: GADBannerView = K.createBanner()
+    private let banner: GADBannerView = GoogleAdMobManager.sharedForDetail
     
     
     override func viewDidLoad() {
@@ -32,7 +32,13 @@ class CuisineDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController)
     }
 }
 
@@ -81,17 +87,5 @@ extension CuisineDetailViewController {
         } catch {
             print(error.localizedDescription)
         }
-    }
-}
-
-//MARK: - Size and Place Ad Banner
-
-extension CuisineDetailViewController {
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // Adjust size and position of ad banner
-        let bottom = view.window!.frame.size.height
-        let tabBarHeight = tabBarController!.tabBar.frame.size.height
-        banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
     }
 }

@@ -22,7 +22,7 @@ class MealMainController: UIViewController {
     var activeMeals = [Meal]()
     
     // Google Admob banner
-    private let banner: GADBannerView = K.createBanner()
+    private let banner: GADBannerView = GoogleAdMobManager.createBanner()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,12 @@ class MealMainController: UIViewController {
         super.viewWillAppear(animated)
         animateTitle()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController, banner: banner)
+    }
+
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
     }
 }
@@ -181,20 +187,6 @@ extension MealMainController {
         } catch {
             print(error.localizedDescription)
         }
-    }
-}
-
-
-
-//MARK: - Place Ad Banner
-
-extension MealMainController {
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // Adjust size and position of ad banner
-        let bottom = view.window!.frame.size.height
-        let tabBarHeight = tabBarController!.tabBar.frame.size.height
-        banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
     }
 }
 

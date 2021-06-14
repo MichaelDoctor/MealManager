@@ -18,18 +18,25 @@ class CuisineMainController: UIViewController {
     var activeCuisines = [Cuisine]()
     
     // Google Admob banner
-    private let banner: GADBannerView = K.createBanner()
+    private let banner = GoogleAdMobManager.createBanner()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         banner.rootViewController = self
         view.addSubview(banner)
+        
+        FindLocationManager.shared.start()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         animateTitle()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController, banner: banner)
     }
 }
 
@@ -64,7 +71,8 @@ extension CuisineMainController {
                 playViewController.message = "Please enable your preferred cuisines."
             }
             playViewController.parentController = self
-            navigationController?.showDetailViewController(playViewController, sender: self)
+            let navController = UINavigationController(rootViewController: playViewController)
+            present(navController, animated: true)
         }
     }
 }
@@ -96,18 +104,6 @@ extension CuisineMainController {
         } catch {
             print(error.localizedDescription)
         }
-    }
-}
-
-//MARK: - Size and Place Ad Banner
-
-extension CuisineMainController {
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // Adjust size and position of ad banner
-        let bottom = view.window!.frame.size.height
-        let tabBarHeight = tabBarController!.tabBar.frame.size.height
-        banner.frame = CGRect(x: 0, y: bottom-tabBarHeight-50, width: view.frame.size.width, height: 50).integral
     }
 }
 

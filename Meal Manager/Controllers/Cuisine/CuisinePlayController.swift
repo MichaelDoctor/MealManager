@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class CuisinePlayController: UIViewController {
+class CuisinePlayController: UIViewController, CLLocationManagerDelegate {
+    
+    let locationManager = FindLocationManager.shared
     
     var cuisine: Cuisine?
     var parentController: CuisineMainController?
@@ -22,6 +25,7 @@ class CuisinePlayController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabels()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         K.roundedButton(tryAgainButton, bg: UIColor.init(named: K.Color.red)!, tint: UIColor.init(named: K.Color.white)!)
         K.roundedButton(eatButton, bg: UIColor.systemGreen, tint: UIColor.init(named: K.Color.black)!)
         if cuisine == nil {
@@ -36,13 +40,23 @@ class CuisinePlayController: UIViewController {
 
 extension CuisinePlayController {
     //MARK: - Cancel button
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+    @objc func cancelButtonTapped() {
         dismiss(animated: true)
     }
     
     //MARK: - Near Me button
     @IBAction func nearMeButtonTapped(_ sender: UIButton) {
-        print("Get Location and Google Search for now")
+        guard let lat = locationManager.lat,
+              let long = locationManager.long else {
+            print("Locations needed")
+            return
+        }
+        guard let url = URL(string: "https://www.google.com/maps/search/\(cuisine?.name?.folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: " ", with: "+") ?? "")+restaurant+%40\(lat)%2C\(long)/@\(lat),\(long),11z/data=!4m4!2m3!5m1!4e3!6e5") else {
+            print("URL broke")
+            return
+        }
+        
+        presentSafariVC(with: url)
     }
     
     //MARK: - Try Again button

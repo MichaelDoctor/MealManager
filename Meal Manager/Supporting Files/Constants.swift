@@ -8,7 +8,7 @@
 import Foundation
 import GoogleMobileAds
 
-struct K {
+enum K {
     
     static let preloadKey = "didPreloadCuisine"
     
@@ -55,19 +55,6 @@ struct K {
     
     //MARK: - Helper Functions
     
-    static func createBanner() -> GADBannerView {
-        let banner = GADBannerView()
-        // replace later
-        //        banner.adUnitID = "ca-app-pub-2009699556932262/4104921805"
-        // added to plist
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        DispatchQueue.global(qos: .background).async {
-            banner.load(GADRequest())
-        }
-        banner.backgroundColor = .white
-        return banner
-    }
-    
     static func formatDate(_ date: Date) -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
@@ -76,8 +63,9 @@ struct K {
     
     static func roundedButton(_ button: UIButton, bg: UIColor, tint: UIColor) {
         button.backgroundColor = bg
-        button.layer.cornerRadius = 15.0
+        button.layer.cornerRadius = 12.0
         button.tintColor = tint
+        
 //        button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
     }
     

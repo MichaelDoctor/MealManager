@@ -10,9 +10,11 @@ import CoreData
 import ViewAnimator
 
 class CuisineRightMenuController: UIViewController {
-    var filterSetting = K.CuisineFilter.all
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var cuisines = [Cuisine]()
+    var filterSetting = K.CuisineFilter.all
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
@@ -23,7 +25,8 @@ class CuisineRightMenuController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         // custom cell
-        tableView.register(UINib(nibName: K.Views.cuisineRightNib, bundle: nil), forCellReuseIdentifier: K.Views.cuisineRightCell)
+//        tableView.register(UINib(nibName: K.Views.cuisineRightNib, bundle: nil), forCellReuseIdentifier: K.Views.cuisineRightCell)
+        tableView.register(CuisineCell.self, forCellReuseIdentifier: CuisineCell.reuseID)
         
         searchBar.delegate = self
         
@@ -142,17 +145,17 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cuisineRightCell, for: indexPath) as! CuisineCell
         // Empty array
         if cuisines.isEmpty {
-            cell.titleLabel.text = "No Results Found"
-            cell.titleLabel.textColor = .gray
-            cell.cuisineSwitch.isHidden = true
+            cell.title.text = "No Results Found"
+            cell.title.textColor = .gray
+            cell.uiSwitch.isHidden = true
             cell.isUserInteractionEnabled = false
         } else {
             let cuisine = cuisines[indexPath.row]
             cell.cuisine = cuisine
-            cell.titleLabel.text = cuisine.name
-            cell.titleLabel.textColor = UIColor.init(named: K.Color.black)
-            cell.cuisineSwitch.isHidden = false
-            cell.cuisineSwitch.isOn = cuisine.isActive
+            cell.title.text = cuisine.name
+            cell.title.textColor = UIColor.init(named: K.Color.black)
+            cell.uiSwitch.isHidden = false
+            cell.uiSwitch.isOn = cuisine.isActive
             cell.isUserInteractionEnabled = true
         }
         return cell

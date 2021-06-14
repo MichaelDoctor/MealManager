@@ -351,14 +351,6 @@
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v9e-49-eoI">
-                                <rect key="frame" x="50" y="44" width="51" height="40"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="cancelButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="iSk-P3-fCD"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-e5-34D">
                                 <rect key="frame" x="105" y="360.5" width="204" height="40"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
@@ -418,7 +410,6 @@
                             <constraint firstItem="SvE-E8-nkh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="In5-Od-mjJ" secondAttribute="bottom" constant="30" id="2wt-GQ-R2H"/>
                             <constraint firstItem="In5-Od-mjJ" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="7vc-VS-MVS"/>
                             <constraint firstItem="WRR-s5-qIF" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="Bh6-tu-erl"/>
-                            <constraint firstItem="v9e-49-eoI" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="Dmj-iv-NlX"/>
                             <constraint firstItem="vXF-e5-34D" firstAttribute="top" secondItem="SvE-E8-nkh" secondAttribute="bottom" id="Fpk-PX-hEf"/>
                             <constraint firstItem="RBw-y2-pDK" firstAttribute="trailing" secondItem="SvE-E8-nkh" secondAttribute="trailing" constant="50" id="IUy-4m-SGP"/>
                             <constraint firstItem="In5-Od-mjJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RBw-y2-pDK" secondAttribute="top" constant="30" id="PrL-SW-GFJ"/>
@@ -430,11 +421,11 @@
                             <constraint firstItem="SvE-E8-nkh" firstAttribute="leading" secondItem="RBw-y2-pDK" secondAttribute="leading" constant="50" id="hIe-Ut-aDr"/>
                             <constraint firstItem="WRR-s5-qIF" firstAttribute="top" secondItem="vXF-e5-34D" secondAttribute="bottom" constant="30" id="hkX-Xl-Z1n"/>
                             <constraint firstItem="RBw-y2-pDK" firstAttribute="trailing" secondItem="In5-Od-mjJ" secondAttribute="trailing" constant="30" id="mb6-JF-Q5n"/>
-                            <constraint firstItem="v9e-49-eoI" firstAttribute="top" secondItem="RBw-y2-pDK" secondAttribute="top" id="mpF-dL-jB7"/>
                             <constraint firstItem="WRR-s5-qIF" firstAttribute="centerY" secondItem="RBw-y2-pDK" secondAttribute="centerY" id="qqQ-tQ-lLI"/>
                             <constraint firstItem="SvE-E8-nkh" firstAttribute="centerX" secondItem="RBw-y2-pDK" secondAttribute="centerX" id="vTd-wi-Ydo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9j0-dz-YQ3"/>
                     <connections>
                         <outlet property="cuisineName" destination="In5-Od-mjJ" id="Jgn-DZ-u5s"/>
                         <outlet property="eatButton" destination="n1D-QB-z7m" id="tHR-xs-vre"/>
@@ -445,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsG-eY-hYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4334.7826086956529" y="-565.17857142857144"/>
+            <point key="canvasLocation" x="6155.072463768116" y="-565.17857142857144"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="tge-as-zX9">
