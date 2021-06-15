@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class CuisinePlayController: UIViewController, CLLocationManagerDelegate {
+class CuisinePlayController: UIViewController {
     
     let locationManager = FindLocationManager.shared
     
@@ -33,6 +33,7 @@ class CuisinePlayController: UIViewController, CLLocationManagerDelegate {
             eatButton.isHidden = true
             findButton.isHidden = true
         }
+        locationManager.getLocation()
     }
 }
 
@@ -46,17 +47,7 @@ extension CuisinePlayController {
     
     //MARK: - Near Me button
     @IBAction func nearMeButtonTapped(_ sender: UIButton) {
-        guard let lat = locationManager.lat,
-              let long = locationManager.long else {
-            print("Locations needed")
-            return
-        }
-        guard let url = URL(string: "https://www.google.com/maps/search/\(cuisine?.name?.folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: " ", with: "+") ?? "")+restaurant+%40\(lat)%2C\(long)/@\(lat),\(long),11z/data=!4m4!2m3!5m1!4e3!6e5") else {
-            print("URL broke")
-            return
-        }
-        
-        presentSafariVC(with: url)
+        locationManager.findBestNearMe(forVC: self, cuisine: cuisine)
     }
     
     //MARK: - Try Again button

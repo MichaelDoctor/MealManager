@@ -9,9 +9,11 @@ import UIKit
 import SafariServices
 
 extension UIViewController {
-    func presentSafariVC(with url: URL) {
+    func presentSafariVC(with url: URL, title: String) {
         let safariVC = SFSafariViewController(url: url)
-        safariVC.preferredControlTintColor = .systemGreen
-        present(safariVC, animated: true)
+        safariVC.preferredControlTintColor = UIColor(named: K.Color.accent)
+        let navController = UINavigationController(rootViewController: safariVC)
+        navController.navigationBar.isHidden = true
+        present(navController, animated: true)
     }
 }

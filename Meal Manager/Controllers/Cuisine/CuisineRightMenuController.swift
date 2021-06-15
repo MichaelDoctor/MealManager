@@ -163,7 +163,6 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisineRightDetail) as? CuisineDetailViewController {
-            
             detailViewController.cuisine = cuisines[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
         }

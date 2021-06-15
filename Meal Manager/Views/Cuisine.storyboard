@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="evc-m8-2xX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -27,9 +27,9 @@
                     <tabBarItem key="tabBarItem" title="Cuisines" image="list.bullet" catalog="system" id="1Nb-up-HFo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lo9-5G-gep">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="AccentColor"/>
+                        <color key="barTintColor" name="MMRedColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="MMWhiteColor"/>
                         </textAttributes>
@@ -47,18 +47,18 @@
             <objects>
                 <viewController id="5xr-16-5eT" customClass="CuisineMainController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="haJ-2W-B8O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQu-J8-p1y">
-                                <rect key="frame" x="0.0" y="763" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aTK-w3-byW"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61c-lS-gJ3">
-                                <rect key="frame" x="177" y="410.5" width="60" height="80"/>
+                                <rect key="frame" x="157.5" y="291" width="60" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="pGm-zN-Pvf"/>
                                     <constraint firstAttribute="height" constant="80" id="rwo-hb-ap2"/>
@@ -72,28 +72,28 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Cuisines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-A9-HpX">
-                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
+                                <rect key="frame" x="30" y="99" width="315" height="42"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="2"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Play To Decide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-j3-FCb">
-                                <rect key="frame" x="70" y="704.5" width="274" height="18.5"/>
+                                <rect key="frame" x="70" y="510.5" width="235" height="17.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What type of cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
-                                <rect key="frame" x="70" y="332.5" width="274" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
+                                <rect key="frame" x="70" y="214" width="235" height="47"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lsz-SP-LUi"/>
@@ -146,7 +146,7 @@
             <objects>
                 <navigationController storyboardIdentifier="CuisineRightMenu" id="Epj-Qf-sVa" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="PJZ-GH-w2z">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -162,18 +162,18 @@
             <objects>
                 <viewController id="ekO-uw-T8F" customClass="CuisineRightMenuController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bYh-ej-zdl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search Cuisine" translatesAutoresizingMaskIntoConstraints="NO" id="eet-0m-Xhu">
-                                <rect key="frame" x="0.0" y="88" width="370" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="331" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="m3g-Hw-wOh"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaZ-Y1-r4E">
-                                <rect key="frame" x="370" y="88" width="44" height="44"/>
+                                <rect key="frame" x="331" y="44" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="PJg-x6-D8J"/>
                                 </constraints>
@@ -183,7 +183,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-hT-l7n">
-                                <rect key="frame" x="0.0" y="131" width="414" height="731"/>
+                                <rect key="frame" x="0.0" y="87" width="375" height="580"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -219,50 +219,53 @@
             </objects>
             <point key="canvasLocation" x="3435" y="-1256"/>
         </scene>
-        <!--Item-->
+        <!--Cuisine Detail View Controller-->
         <scene sceneID="Bl8-Xp-9BL">
             <objects>
                 <viewController storyboardIdentifier="CuisineRightDetail" id="yJr-ZF-TId" customClass="CuisineDetailViewController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E1W-bR-THX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-Jr-MBk">
-                                <rect key="frame" x="30" y="230" width="354" height="43"/>
+                                <rect key="frame" x="30" y="116.5" width="315" height="41"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6P-eG-DND">
-                                <rect key="frame" x="111.5" y="323" width="191" height="40"/>
+                                <rect key="frame" x="89.5" y="207.5" width="196" height="36"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
                                 <state key="normal" title="Find the best near me">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="nearMeTapped:" destination="yJr-ZF-TId" eventType="touchUpInside" id="9eb-4Q-Wec"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvb-6A-bY6">
-                                <rect key="frame" x="50" y="444" width="314" height="150"/>
+                                <rect key="frame" x="50" y="324.5" width="275" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eaten On:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU3-jM-JCV">
-                                        <rect key="frame" x="10" y="30" width="91.5" height="28"/>
+                                        <rect key="frame" x="10" y="30" width="89" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep 28, 1997" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-bu-k8f">
-                                        <rect key="frame" x="185" y="30" width="119" height="28"/>
+                                        <rect key="frame" x="146" y="30" width="119" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HU-Mh-SUa">
-                                        <rect key="frame" x="292.5" y="88" width="11.5" height="27.5"/>
+                                        <rect key="frame" x="253.5" y="83.5" width="11.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Eaten:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sJ-jH-Z5i">
-                                        <rect key="frame" x="10" y="88" width="71.5" height="27.5"/>
+                                        <rect key="frame" x="10" y="83.5" width="68" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -284,7 +287,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-3J-bRc">
-                                <rect key="frame" x="184.5" y="686" width="45" height="47"/>
+                                <rect key="frame" x="165.5" y="504.5" width="44" height="33.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
@@ -292,7 +295,8 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpR-QT-RRs">
-                                <rect key="frame" x="182.5" y="413" width="51" height="31"/>
+                                <rect key="frame" x="163" y="293.5" width="51" height="31"/>
+                                <color key="onTintColor" name="AccentColor"/>
                                 <connections>
                                     <action selector="switchTapped:" destination="yJr-ZF-TId" eventType="valueChanged" id="2Zp-jz-zqb"/>
                                 </connections>
@@ -319,10 +323,7 @@
                             <constraint firstItem="bvb-6A-bY6" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="50" id="oaf-w3-SHJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="lnk-fP-ALU"/>
-                    <navigationItem key="navigationItem" id="c67-HX-BUY">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="4Ov-Hr-S1U"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="c67-HX-BUY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activeSwitch" destination="LpR-QT-RRs" id="NQ4-GH-kSC"/>
@@ -333,18 +334,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2N-8B-EJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5362.3188405797109" y="-1256.25"/>
+            <point key="canvasLocation" x="5412" y="-1272.4137931034484"/>
         </scene>
         <!--Cuisine Play Controller-->
         <scene sceneID="kF1-ud-wMn">
             <objects>
                 <viewController storyboardIdentifier="CuisinePlay" id="Y7G-Lg-aBr" customClass="CuisinePlayController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wzZ-iW-axV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="In5-Od-mjJ">
-                                <rect key="frame" x="30" y="215.5" width="354" height="45"/>
+                                <rect key="frame" x="30" y="96" width="315" height="45"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -352,7 +353,7 @@
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-e5-34D">
-                                <rect key="frame" x="105" y="360.5" width="204" height="40"/>
+                                <rect key="frame" x="85.5" y="241" width="204" height="40"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <state key="normal" title="Find the best near me">
                                     <color key="titleColor" systemColor="linkColor"/>
@@ -362,13 +363,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try Eating ..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="SvE-E8-nkh">
-                                <rect key="frame" x="50" y="333" width="314" height="27.5"/>
+                                <rect key="frame" x="50" y="213.5" width="275" height="27.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRR-s5-qIF">
-                                <rect key="frame" x="50" y="430.5" width="314" height="45"/>
+                                <rect key="frame" x="50" y="311" width="275" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-en-d0d">
                                         <rect key="frame" x="20" y="-1" width="120" height="47"/>
@@ -381,7 +382,7 @@
                                             <action selector="tryAgainButtonTapped:" destination="Y7G-Lg-aBr" eventType="touchUpInside" id="tPM-ka-UyA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-QB-z7m">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-QB-z7m">
                                         <rect key="frame" x="174" y="-1" width="120" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="JLQ-I0-Vh9"/>
@@ -436,22 +437,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsG-eY-hYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6155.072463768116" y="-565.17857142857144"/>
+            <point key="canvasLocation" x="4473" y="-565"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="tge-as-zX9">
             <objects>
                 <tableViewController id="1YZ-Ii-ipE" customClass="CuisineLeftMenuController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yVE-sr-yGU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CuisineLeftCell" id="ZY8-f6-52k">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZY8-f6-52k" id="Ck7-po-avY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -472,7 +473,7 @@
             <objects>
                 <navigationController storyboardIdentifier="CuisineLeftMenu" id="c1I-wT-QDS" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="umy-fi-fks">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -495,6 +496,9 @@
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MMRedColor">
+            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

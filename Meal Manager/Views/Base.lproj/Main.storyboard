@@ -27,65 +27,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to eat?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
-                                <rect key="frame" x="11.5" y="303.5" width="297" height="36"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to eat?" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
+                                <rect key="frame" x="21" y="332.5" width="278" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="Jdg-ht-WHF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="24"/>
                                 <color key="textColor" name="MMWhiteColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-oz-AmF">
-                                <rect key="frame" x="89.5" y="389.5" width="141" height="28.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-oz-AmF">
+                                <rect key="frame" x="88.5" y="473.5" width="143" height="24.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" name="MMWhiteColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" name="MMBlackColor"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-Zf-0xW">
-                                <rect key="frame" x="103" y="131.5" width="114" height="58"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-Zf-0xW">
+                                <rect key="frame" x="120" y="199" width="80.5" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="2UD-B5-3Ig"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
                                 <color key="textColor" name="MMWhiteColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="2" height="3"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
-                                <rect key="frame" x="42.5" y="189.5" width="235" height="89"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manager" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
+                                <rect key="frame" x="84" y="235" width="152" height="47.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="38"/>
                                 <color key="textColor" name="MMWhiteColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="2" height="3"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-h7-5Ql">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MMIcon" translatesAutoresizingMaskIntoConstraints="NO" id="W5v-MV-nhk">
+                                <rect key="frame" x="100" y="74" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="IDG-Lq-1RW"/>
+                                    <constraint firstAttribute="width" constant="120" id="rhh-b5-zzU"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmJ-h7-5Ql">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <action selector="screenTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uRu-3j-OnQ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="AccentColor"/>
+                        <color key="backgroundColor" name="MMRedColor"/>
                         <constraints>
-                            <constraint firstItem="x72-IR-xhp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5fo-gJ-Xwr"/>
-                            <constraint firstItem="1h3-X1-RHy" firstAttribute="top" secondItem="x72-IR-xhp" secondAttribute="bottom" constant="-150" id="X8O-2O-Dem"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5iD-oz-AmF" secondAttribute="bottom" constant="150" id="aC3-Yl-6LN"/>
-                            <constraint firstItem="1h3-X1-RHy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b8e-Mf-5ZX"/>
-                            <constraint firstItem="w7i-Zf-0xW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lot-rh-pSJ"/>
-                            <constraint firstItem="5iD-oz-AmF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nfw-Wq-7LH"/>
-                            <constraint firstItem="5iD-oz-AmF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="x72-IR-xhp" secondAttribute="bottom" constant="50" id="s0T-2i-RUe"/>
-                            <constraint firstItem="1h3-X1-RHy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="sIn-GQ-5Yg"/>
-                            <constraint firstItem="1h3-X1-RHy" firstAttribute="top" secondItem="w7i-Zf-0xW" secondAttribute="bottom" id="w7f-Xs-eOR"/>
+                            <constraint firstItem="w7i-Zf-0xW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="10g-G6-rRj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5iD-oz-AmF" secondAttribute="bottom" constant="70" id="133-lD-VyN"/>
+                            <constraint firstItem="W5v-MV-nhk" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-150" id="2mN-p5-a55"/>
+                            <constraint firstItem="w7i-Zf-0xW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3re-3K-fgy"/>
+                            <constraint firstItem="xmJ-h7-5Ql" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6Ze-Wv-H9F"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5iD-oz-AmF" secondAttribute="trailing" id="6sh-sb-XvN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xmJ-h7-5Ql" secondAttribute="trailing" id="8A8-zx-cO7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="w7i-Zf-0xW" secondAttribute="trailing" id="EAx-9g-XXf"/>
+                            <constraint firstItem="1h3-X1-RHy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N87-6b-rNB"/>
+                            <constraint firstItem="W5v-MV-nhk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OuA-1C-SiA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xmJ-h7-5Ql" secondAttribute="bottom" id="Qvj-c3-apG"/>
+                            <constraint firstItem="w7i-Zf-0xW" firstAttribute="top" secondItem="W5v-MV-nhk" secondAttribute="bottom" constant="5" id="UOI-hX-x7c"/>
+                            <constraint firstItem="5iD-oz-AmF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V0z-J1-Ypx"/>
+                            <constraint firstItem="x72-IR-xhp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aBG-69-RbW"/>
+                            <constraint firstItem="1h3-X1-RHy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cbd-KC-8ap"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x72-IR-xhp" secondAttribute="trailing" id="gen-Cj-2vj"/>
+                            <constraint firstItem="xmJ-h7-5Ql" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hkG-8I-INJ"/>
+                            <constraint firstItem="1h3-X1-RHy" firstAttribute="top" secondItem="w7i-Zf-0xW" secondAttribute="bottom" id="jCD-vI-Mta"/>
+                            <constraint firstItem="5iD-oz-AmF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="x72-IR-xhp" secondAttribute="bottom" constant="30" id="mEr-ZS-HCr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1h3-X1-RHy" secondAttribute="trailing" id="nhM-aE-hZu"/>
+                            <constraint firstItem="x72-IR-xhp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sH2-9u-PyU"/>
+                            <constraint firstItem="x72-IR-xhp" firstAttribute="top" secondItem="1h3-X1-RHy" secondAttribute="bottom" constant="50" id="vyy-JM-zpD"/>
+                            <constraint firstItem="5iD-oz-AmF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="z8b-7F-mko"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tpg-g8-ZOd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="989.85507246376824" y="69.642857142857139"/>
+            <point key="canvasLocation" x="988.125" y="68.661971830985919"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="p6p-uG-QfN">
@@ -96,7 +122,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" name="AccentColor"/>
+                        <color key="barTintColor" name="MMRedColor"/>
                         <color key="selectedImageTintColor" name="MMWhiteColor"/>
                     </tabBar>
                     <connections>
@@ -130,11 +156,12 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
+        <image name="MMIcon" width="166.5" height="166.5"/>
         <namedColor name="MMBlackColor">
             <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MMRedColor">
+            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -15,7 +15,6 @@ class WelcomeController: UIViewController {
 }
 
 //MARK: - Button
-
 extension WelcomeController {
     
     @IBAction func screenTapped(_ sender: UIButton) {

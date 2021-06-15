@@ -9,16 +9,18 @@ import UIKit
 import GoogleMobileAds
 
 class CuisineDetailViewController: UIViewController {
+    
+    private let banner: GADBannerView = GoogleAdMobManager.sharedForDetail
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let locationManager = FindLocationManager.shared
+    
+    var cuisine = Cuisine()
+    
     @IBOutlet var cuisineName: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var numLabel: UILabel!
     @IBOutlet var activeSwitch: UISwitch!
-    
-    var cuisine = Cuisine()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    // Google Admob banner
-    private let banner: GADBannerView = GoogleAdMobManager.sharedForDetail
     
     
     override func viewDidLoad() {
@@ -45,14 +47,18 @@ class CuisineDetailViewController: UIViewController {
 //MARK: - Buttons
 
 extension CuisineDetailViewController {
-    //MARK: - Edit button
+    @IBAction func nearMeTapped(_ sender: UIButton) {
+        locationManager.findBestNearMe(forVC: self, cuisine: cuisine)
+    }
+    
+    
     @IBAction func editTapped(_ sender: UIButton) {
         let editController = CuisineEditController(style: .insetGrouped)
         editController.cuisine = cuisine
         navigationController?.pushViewController(editController, animated: true)
     }
     
-    //MARK: - Switch button
+    
     @IBAction func switchTapped(_ sender: UISwitch) {
         updateActive()
     }
