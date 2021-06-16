@@ -51,6 +51,7 @@
 		CACCFA8B2677B24000C93244 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8A2677B24000C93244 /* UIView+Ext.swift */; };
 		CACCFA8D2677C54B00C93244 /* UIViewContoller+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */; };
 		CACCFA8F2677D11900C93244 /* FindLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8E2677D11900C93244 /* FindLocationManager.swift */; };
+		CACCFA9126797C2300C93244 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA9026797C2300C93244 /* UIButton+Ext.swift */; };
 		CAD3F3D8266AAD2400960F03 /* MealAddMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3F3D7266AAD2400960F03 /* MealAddMenuController.swift */; };
 		CAD3F3DA266AAD4E00960F03 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3F3D9266AAD4E00960F03 /* MealDetailViewController.swift */; };
 		CAD3F3DC266AAD6F00960F03 /* MealPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3F3DB266AAD6F00960F03 /* MealPlayController.swift */; };
@@ -106,6 +107,7 @@
 		CACCFA8A2677B24000C93244 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContoller+Ext.swift"; sourceTree = "<group>"; };
 		CACCFA8E2677D11900C93244 /* FindLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationManager.swift; sourceTree = "<group>"; };
+		CACCFA9026797C2300C93244 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		CAD3F3D7266AAD2400960F03 /* MealAddMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAddMenuController.swift; sourceTree = "<group>"; };
 		CAD3F3D9266AAD4E00960F03 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		CAD3F3DB266AAD6F00960F03 /* MealPlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlayController.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				CACCFA8A2677B24000C93244 /* UIView+Ext.swift */,
 				CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */,
+				CACCFA9026797C2300C93244 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				CA8380FB264F6C7B002357E2 /* OrderType+CoreDataClass.swift in Sources */,
 				CA8380F3264F6C7B002357E2 /* Meal+CoreDataClass.swift in Sources */,
 				CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuController.swift in Sources */,
+				CACCFA9126797C2300C93244 /* UIButton+Ext.swift in Sources */,
 				CA4494B626436C320028F452 /* AppDelegate.swift in Sources */,
 				CA4494C026436C320028F452 /* Meal_Manager.xcdatamodeld in Sources */,
 				CA8380F2264F6C7B002357E2 /* CookType+CoreDataProperties.swift in Sources */,

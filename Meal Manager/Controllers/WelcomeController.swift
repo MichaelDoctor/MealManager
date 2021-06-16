@@ -9,21 +9,28 @@ import UIKit
 
 class WelcomeController: UIViewController {
 
+    @IBOutlet var getStartedButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
     }
 }
 
-//MARK: - Button
+//MARK: - Configurations
+extension WelcomeController {
+    private func configure() {
+        getStartedButton.roundedButton(bg: UIColor(named: K.Color.accent)!, tint: .white)
+    }
+}
+
+//MARK: - Buttons
 extension WelcomeController {
     
-    @IBAction func screenTapped(_ sender: UIButton) {
+    @IBAction func getStartedTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        // create tab controller
         let mainTabBarController = storyboard.instantiateViewController(identifier: K.Views.tabBarCtr)
-        
-        // UIApplication.shared.connectedScenes.first gets first scene connected to the app
+
+        // UIApplication.shared.connectedScenes.first gets first scene connected to the app. Change scene
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-        
     }
 }

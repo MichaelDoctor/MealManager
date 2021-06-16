@@ -26,8 +26,8 @@ class CuisinePlayController: UIViewController {
         super.viewDidLoad()
         setLabels()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
-        K.roundedButton(tryAgainButton, bg: UIColor.init(named: K.Color.red)!, tint: UIColor.init(named: K.Color.white)!)
-        K.roundedButton(eatButton, bg: UIColor.systemGreen, tint: UIColor.init(named: K.Color.black)!)
+        tryAgainButton.roundedButton(bg: UIColor.init(named: K.Color.red)!, tint: UIColor.init(named: K.Color.white)!)
+        eatButton.roundedButton(bg: UIColor.systemGreen, tint: UIColor.init(named: K.Color.black)!)
         if cuisine == nil {
             tryAgainButton.isHidden = true
             eatButton.isHidden = true

@@ -13,7 +13,7 @@ enum K {
     static let preloadKey = "didPreloadCuisine"
     
     //MARK: - Storyboard constants
-    struct Views {
+    enum Views {
         static let tabBarCtr = "TabBarController"
         
         static let cuisineRightCell = "CuisineRightCell"
@@ -33,21 +33,29 @@ enum K {
     }
     
     //MARK: - Colors
-    struct Color {
+    enum Color {
         static let accent = "AccentColor"
         static let red = "MMRedColor"
         static let black = "MMBlackColor"
         static let white = "MMWhiteColor"
     }
     
+    //MARK: - Images
+    enum Images {
+        static let icon = "MMIcon"
+        static let welcomeScreen = "WelcomeScreen"
+        static let customScreen = "CustomScreen"
+        static let cuisineScreen = "CuisineScreen"
+    }
+    
     //MARK: - Filters
-    struct CuisineFilter {
+    enum CuisineFilter {
         static let all = "ALL"
         static let enable = "ENABLE"
         static let disable = "DISABLE"
     }
     
-    struct MealFilter {
+    enum MealFilter {
         static let all = "ALL"
         static let cook = "Eat In"
         static let order = "Eat Out"
@@ -60,13 +68,4 @@ enum K {
         dateFormatter.dateFormat = "MMM dd, yyyy"
         return dateFormatter
     }
-    
-    static func roundedButton(_ button: UIButton, bg: UIColor, tint: UIColor) {
-        button.backgroundColor = bg
-        button.layer.cornerRadius = 12.0
-        button.tintColor = tint
-        
-//        button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
-    }
-    
 }
