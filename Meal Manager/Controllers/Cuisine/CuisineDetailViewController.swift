@@ -15,22 +15,16 @@ class CuisineDetailViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let locationManager = FindLocationManager.shared
     
-    var cuisine = Cuisine()
-    
     @IBOutlet var cuisineName: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var numLabel: UILabel!
     @IBOutlet var activeSwitch: UISwitch!
+    var cuisine = Cuisine()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        banner.rootViewController = self
-        view.addSubview(banner)
-        
-        navigationItem.rightBarButtonItem = nil
-        navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +41,7 @@ class CuisineDetailViewController: UIViewController {
 //MARK: - Buttons
 
 extension CuisineDetailViewController {
+    
     @IBAction func nearMeTapped(_ sender: UIButton) {
         locationManager.findBestNearMe(forVC: self, cuisine: cuisine)
     }
@@ -71,7 +66,6 @@ extension CuisineDetailViewController {
     func loadData() {
         DispatchQueue.main.async {
             self.cuisineName.text = "\(self.cuisine.name!) Cuisine"
-            
             self.activeSwitch.isOn = self.cuisine.isActive
             
             if let date = self.cuisine.lastAte {
@@ -93,5 +87,16 @@ extension CuisineDetailViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+}
+
+//MARK: - Configure Functions
+extension CuisineDetailViewController {
+    
+    private func configure() {
+        banner.rootViewController = self
+        view.addSubview(banner)
+        
+        navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
     }
 }

@@ -17,6 +17,7 @@ class CuisineCell: UITableViewCell {
     
     var cuisine: Cuisine!
     
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -25,6 +26,7 @@ class CuisineCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -41,7 +43,6 @@ extension CuisineCell {
         cuisine.isActive = !cuisine.isActive
         do {
             try context.save()
-            
         } catch {
             print(error.localizedDescription)
         }
@@ -57,6 +58,7 @@ extension CuisineCell {
         configureTitle(withPadding: 10)
     }
     
+    
     private func configureUISwitch(withPadding padding: CGFloat) {
         accessoryView = uiSwitch
         
@@ -71,6 +73,7 @@ extension CuisineCell {
             uiSwitch.widthAnchor.constraint(equalToConstant: 50),
         ])
     }
+    
     
     private func configureTitle(withPadding padding: CGFloat) {
         title.textAlignment = .left

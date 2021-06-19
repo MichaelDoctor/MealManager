@@ -28,9 +28,8 @@ extension WelcomeController {
     
     @IBAction func getStartedTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainTabBarController = storyboard.instantiateViewController(identifier: K.Views.tabBarCtr)
-
-        // UIApplication.shared.connectedScenes.first gets first scene connected to the app. Change scene
+        let mainTabBarController = storyboard.instantiateViewController(identifier: K.Views.tabBarCtr) as! UITabBarController
+        
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
     }
 }

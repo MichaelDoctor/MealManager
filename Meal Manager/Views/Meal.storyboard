@@ -164,28 +164,28 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Meals" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-6A-P2l">
-                                <rect key="frame" x="30" y="217.5" width="354" height="43"/>
+                                <rect key="frame" x="30" y="218.5" width="354" height="42"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="2"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Play To Decide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-tL-BcJ">
-                                <rect key="frame" x="70" y="704.5" width="274" height="18.5"/>
+                                <rect key="frame" x="70" y="705.5" width="274" height="17.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from your list of food!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-qH-eGM">
-                                <rect key="frame" x="70" y="355" width="274" height="25.5"/>
+                                <rect key="frame" x="70" y="357" width="274" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" name="MMBlackColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="2"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0z4-7b-yXb"/>

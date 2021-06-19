@@ -10,14 +10,36 @@ import Eureka
 
 class CuisineEditController: FormViewController {
     
-    var cuisine = Cuisine()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var cuisine = Cuisine()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(cuisine.name!) Settings"
-        
-        //MARK: - Settings Form
+        createEditForm()
+    }
+}
+
+//MARK: - Core Data functions
+extension CuisineEditController {
+    //MARK: - Update
+    func updateCuisine(newDate: Date?, newNum: Int) {
+        cuisine.numberOfTimesEaten = Int64(newNum)
+        cuisine.lastAte = newDate
+        do {
+            try context.save()
+            navigationController?.popViewController(animated: true)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+//MARK: - Edit Form
+extension CuisineEditController {
+    func createEditForm() {
         form +++ Section("Edit \(cuisine.name!) data")
             //MARK: - Eaten On row
             <<< DateRow("lastAte") {
@@ -90,23 +112,5 @@ class CuisineEditController: FormViewController {
                     }
                 }
             }
-    }
-    
-    
-}
-
-//MARK: - Core Data functions
-
-extension CuisineEditController {
-    //MARK: - Update
-    func updateCuisine(newDate: Date?, newNum: Int) {
-        cuisine.numberOfTimesEaten = Int64(newNum)
-        cuisine.lastAte = newDate
-        do {
-            try context.save()
-            navigationController?.popViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }

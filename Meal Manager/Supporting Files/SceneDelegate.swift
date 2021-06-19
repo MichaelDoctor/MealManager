@@ -35,6 +35,6 @@ extension SceneDelegate {
         guard let window = self.window else { return }
         
         window.rootViewController = vc
-        UIView.transition(with: window, duration: 0.5, options: [.transitionCurlUp], animations: nil, completion: nil)
+        UIView.transition(with: window, duration: 0.3, options: [.transitionCurlUp], animations: nil, completion: nil)
     }
 }

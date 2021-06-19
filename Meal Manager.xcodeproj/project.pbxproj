@@ -56,6 +56,7 @@
 		CAD3F3DA266AAD4E00960F03 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3F3D9266AAD4E00960F03 /* MealDetailViewController.swift */; };
 		CAD3F3DC266AAD6F00960F03 /* MealPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3F3DB266AAD6F00960F03 /* MealPlayController.swift */; };
 		CAD3F3DE266AAD9600960F03 /* MealEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3F3DD266AAD9600960F03 /* MealEditController.swift */; };
+		CADF4EA4267D81D600D37815 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADF4EA3267D81D600D37815 /* UITableView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		CAD3F3D9266AAD4E00960F03 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		CAD3F3DB266AAD6F00960F03 /* MealPlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlayController.swift; sourceTree = "<group>"; };
 		CAD3F3DD266AAD9600960F03 /* MealEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealEditController.swift; sourceTree = "<group>"; };
+		CADF4EA3267D81D600D37815 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				CACCFA8A2677B24000C93244 /* UIView+Ext.swift */,
 				CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */,
 				CACCFA9026797C2300C93244 /* UIButton+Ext.swift */,
+				CADF4EA3267D81D600D37815 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				CA8380FB264F6C7B002357E2 /* OrderType+CoreDataClass.swift in Sources */,
 				CA8380F3264F6C7B002357E2 /* Meal+CoreDataClass.swift in Sources */,
 				CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuController.swift in Sources */,
+				CADF4EA4267D81D600D37815 /* UITableView+Ext.swift in Sources */,
 				CACCFA9126797C2300C93244 /* UIButton+Ext.swift in Sources */,
 				CA4494B626436C320028F452 /* AppDelegate.swift in Sources */,
 				CA4494C026436C320028F452 /* Meal_Manager.xcdatamodeld in Sources */,

@@ -13,24 +13,15 @@ class CuisineRightMenuController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
     var cuisines = [Cuisine]()
     var filterSetting = K.CuisineFilter.all
     
-    @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        // custom cell
-//        tableView.register(UINib(nibName: K.Views.cuisineRightNib, bundle: nil), forCellReuseIdentifier: K.Views.cuisineRightCell)
-        tableView.register(CuisineCell.self, forCellReuseIdentifier: CuisineCell.reuseID)
-        
-        searchBar.delegate = self
-        
-        // get Cuisines
+        configureTableAndSearch()
         loadCuisines()
     }
 }
@@ -39,28 +30,25 @@ class CuisineRightMenuController: UIViewController {
 extension CuisineRightMenuController {
     //MARK: - Read
     func loadCuisines(with request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest(), predicate: NSPredicate? = nil, doAnimate: Bool = true) {
-        // fetch data from Core Data
+        
+        var filterPredicate: NSPredicate? = nil
+        
+        if filterSetting != K.CuisineFilter.all {
+            let isActive = filterSetting == K.CuisineFilter.enable ? true : false
+            filterPredicate = NSPredicate(format: "isActive == %@", NSNumber(value: isActive))
+        }
+        
+        // Fetch for searchBar request, filterRequest, or both
+        if let additionalPredicate = predicate, let filter = filterPredicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [filter, additionalPredicate])
+        } else if let additionalPredicate = predicate {
+            request.predicate = additionalPredicate
+        } else if let filter = filterPredicate {
+            request.predicate = filter
+        }
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         do {
-            var filterPredicate: NSPredicate? = nil
-            
-            if filterSetting != K.CuisineFilter.all {
-                let isActive = filterSetting == K.CuisineFilter.enable ? true : false
-                filterPredicate = NSPredicate(format: "isActive == %@", NSNumber(value: isActive))
-            }
-            
-            // Fetch for searchBar request, filterRequest, or both
-            if let additionalPredicate = predicate, let filter = filterPredicate {
-                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [filter, additionalPredicate])
-            } else if let additionalPredicate = predicate {
-                request.predicate = additionalPredicate
-            } else if let filter = filterPredicate {
-                request.predicate = filter
-            }
-            
-            // sort ascending order
-            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-            
-            // set all cuisines
             self.cuisines = try context.fetch(request)
             
             DispatchQueue.main.async {
@@ -73,6 +61,7 @@ extension CuisineRightMenuController {
             print(error.localizedDescription)
         }
     }
+    
     //MARK: - Update
     func updateActive(_ cuisine: Cuisine) {
         cuisine.isActive = !cuisine.isActive
@@ -89,28 +78,25 @@ extension CuisineRightMenuController {
 extension CuisineRightMenuController {
     //MARK: - Filter button
     @IBAction func filterButtonTapped(_ sender: UIButton) {
-        // *****
-        // Change to popup later or style alert later
-        // *****
         let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "All", style: .default) {
-            _ in
-            // if the filterSetting was not already set to all
+            [weak self] _ in
+            guard let self = self else { return }
             if self.filterSetting != K.CuisineFilter.all {
                 self.filterChanged(to: K.CuisineFilter.all)
             }
         })
         alert.addAction(UIAlertAction(title: "Enabled", style: .default) {
-            _ in
-            // if the filterSetting was not already set to enable
+            [weak self] _ in
+            guard let self = self else { return }
             if self.filterSetting != K.CuisineFilter.enable {
                 self.filterChanged(to: K.CuisineFilter.enable)
             }
             
         })
         alert.addAction(UIAlertAction(title: "Disabled", style: .default) {
-            _ in
-            // if the filterSetting was not already set to disable
+            [weak self] _ in
+            guard let self = self else { return }
             if self.filterSetting != K.CuisineFilter.disable {
                 self.filterChanged(to: K.CuisineFilter.disable)
             }
@@ -119,7 +105,7 @@ extension CuisineRightMenuController {
         present(alert, animated: true)
     }
     
-    // Called when the filter setting is changed
+    
     func filterChanged(to filter: String) {
         self.filterSetting = filter
         self.searchBar.text = ""
@@ -132,9 +118,9 @@ extension CuisineRightMenuController {
 
 //MARK: - UITableView
 extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if cuisines.isEmpty {
-            // Will return a cell to tell the user noting was found
             return 1
         } else {
             return cuisines.count
@@ -143,7 +129,7 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.cuisineRightCell, for: indexPath) as! CuisineCell
-        // Empty array
+        
         if cuisines.isEmpty {
             cell.title.text = "No Results Found"
             cell.title.textColor = .gray
@@ -171,6 +157,7 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
 
 //MARK: - UISearchBarDelegate
 extension CuisineRightMenuController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {
             loadCuisines()
@@ -180,13 +167,12 @@ extension CuisineRightMenuController: UISearchBarDelegate {
             return
         }
         let request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
-        
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         loadCuisines(with: request, predicate: NSPredicate(format: "name CONTAINS[cd] %@", text))
     }
     
-    // empty search bar
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
         if text.isEmpty {
@@ -195,8 +181,22 @@ extension CuisineRightMenuController: UISearchBarDelegate {
     }
 }
 
+//MARK: - Configure Functions
+extension CuisineRightMenuController {
+    
+    private func configureTableAndSearch() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CuisineCell.self, forCellReuseIdentifier: CuisineCell.reuseID)
+        tableView.removeExcessCells()
+        
+        searchBar.delegate = self
+    }
+}
+
 //MARK: - Right Slide Animation
 extension CuisineRightMenuController {
+    
     func animate() {
         let animation = AnimationType.vector(CGVector(dx: self.view.frame.width / 2, dy: 0))
         UIView.animate(views: tableView.visibleCells, animations: [animation])

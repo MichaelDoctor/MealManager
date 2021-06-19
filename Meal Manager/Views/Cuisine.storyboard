@@ -439,54 +439,6 @@
             </objects>
             <point key="canvasLocation" x="4473" y="-565"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="tge-as-zX9">
-            <objects>
-                <tableViewController id="1YZ-Ii-ipE" customClass="CuisineLeftMenuController" customModule="Meal_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yVE-sr-yGU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CuisineLeftCell" id="ZY8-f6-52k">
-                                <rect key="frame" x="0.0" y="24.5" width="375" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZY8-f6-52k" id="Ck7-po-avY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1YZ-Ii-ipE" id="gW6-Of-e4D"/>
-                            <outlet property="delegate" destination="1YZ-Ii-ipE" id="fCP-SN-CO1"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="bZu-rO-3gX"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zx0-7V-dpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3412" y="234"/>
-        </scene>
-        <!--Side Menu Navigation Controller-->
-        <scene sceneID="lzc-ib-YKs">
-            <objects>
-                <navigationController storyboardIdentifier="CuisineLeftMenu" id="c1I-wT-QDS" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="umy-fi-fks">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="1YZ-Ii-ipE" kind="relationship" relationship="rootViewController" id="SB3-nx-kal"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aTJ-55-AEL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2686" y="233"/>
-        </scene>
     </scenes>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
