@@ -25,4 +25,9 @@ extension UIView {
             bottomAnchor.constraint(equalTo: superview.bottomAnchor)
         ])
     }
+    
+    func roundedView() {
+        layer.cornerRadius = 12.0
+        backgroundColor = UIColor.white.withAlphaComponent(0.75)
+    }
 }

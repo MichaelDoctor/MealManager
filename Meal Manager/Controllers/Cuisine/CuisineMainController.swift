@@ -16,7 +16,10 @@ class CuisineMainController: UIViewController {
     private let banner = GoogleAdMobManager.createBanner()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    @IBOutlet var overlayView: UIView!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var bodyLabel: UILabel!
+    @IBOutlet var playButton: UIButton!
     var filterSetting = K.CuisineFilter.all
     var activeCuisines = [Cuisine]()
     
@@ -24,6 +27,7 @@ class CuisineMainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBanner()
+        overlayView.roundedView()
         FindLocationManager.shared.start()
     }
     
@@ -122,7 +126,10 @@ extension CuisineMainController {
     
     func animateTitle() {
         let animation = AnimationType.zoom(scale: 0.3)
+        overlayView.animate(animations: [animation])
         titleLabel.animate(animations: [animation])
+        bodyLabel.animate(animations: [animation])
+        playButton.animate(animations: [animation])
     }
 }
 

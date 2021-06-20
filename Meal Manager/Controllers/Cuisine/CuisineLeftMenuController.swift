@@ -71,6 +71,7 @@ extension CuisineLeftMenuController {
         let cell = UITableViewCell(style: .default, reuseIdentifier: K.Views.cuisineLeftCell)
         cell.textLabel?.text = options[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        cell.textLabel?.textColor = UIColor(named: K.Color.accent)
         return cell
     }
 }

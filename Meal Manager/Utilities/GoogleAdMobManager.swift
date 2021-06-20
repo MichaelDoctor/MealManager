@@ -16,7 +16,6 @@ enum GoogleAdMobManager {
         let banner = GADBannerView()
         banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         banner.load(GADRequest())
-        banner.backgroundColor = .white
         return banner
     }
     

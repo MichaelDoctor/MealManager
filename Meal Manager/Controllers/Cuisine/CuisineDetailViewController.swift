@@ -19,6 +19,7 @@ class CuisineDetailViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var numLabel: UILabel!
     @IBOutlet var activeSwitch: UISwitch!
+    @IBOutlet var editButton: UIButton!
     var cuisine = Cuisine()
     
     
@@ -36,6 +37,7 @@ class CuisineDetailViewController: UIViewController {
         super.viewWillLayoutSubviews()
         GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController)
     }
+   
 }
 
 //MARK: - Buttons
@@ -56,6 +58,9 @@ extension CuisineDetailViewController {
     
     @IBAction func switchTapped(_ sender: UISwitch) {
         updateActive()
+    }
+    
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
     }
 }
 
@@ -97,6 +102,6 @@ extension CuisineDetailViewController {
         banner.rootViewController = self
         view.addSubview(banner)
         
-        navigationController?.navigationBar.tintColor = UIColor(named: K.Color.white)
+        editButton.roundedButton(bg: UIColor(named: K.Color.accent)!, tint: UIColor(named: K.Color.white)!)
     }
 }

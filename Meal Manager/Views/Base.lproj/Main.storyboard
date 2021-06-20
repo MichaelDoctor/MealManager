@@ -36,10 +36,10 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to eat?" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
                                         <rect key="frame" x="20" y="108" width="335" height="28.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
+                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="-1" height="1"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-Zf-0xW">
                                         <rect key="frame" x="20" y="20" width="335" height="38"/>
@@ -47,10 +47,10 @@
                                             <constraint firstAttribute="height" constant="38" id="fl1-cY-l1d"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" name="MMRedColor"/>
-                                        <size key="shadowOffset" width="2" height="3"/>
+                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="-2" height="2"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manager" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h3-X1-RHy">
                                         <rect key="frame" x="20" y="58" width="335" height="50"/>
@@ -58,13 +58,13 @@
                                             <constraint firstAttribute="height" constant="50" id="Rz8-IS-SNB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" name="MMRedColor"/>
-                                        <size key="shadowOffset" width="2" height="3"/>
+                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="-2" height="2"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="w7i-Zf-0xW" secondAttribute="trailing" constant="20" id="6WY-hH-nvh"/>
                                     <constraint firstItem="x72-IR-xhp" firstAttribute="leading" secondItem="mWv-en-Se5" secondAttribute="leading" constant="20" id="IWL-37-Tbw"/>
@@ -123,8 +123,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" name="MMRedColor"/>
-                        <color key="selectedImageTintColor" name="MMWhiteColor"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="zOB-m3-Pxj" kind="relationship" relationship="viewControllers" id="XwG-HG-mY9"/>
@@ -158,11 +158,14 @@
     </scenes>
     <resources>
         <image name="WelcomeScreen" width="1088" height="1632.5"/>
+        <namedColor name="AccentColor">
+            <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MMBlackColor">
+            <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="MMRedColor">
             <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MMWhiteColor">
-            <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

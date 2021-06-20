@@ -29,9 +29,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PPc-el-UWx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="MMRedColor"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="MMWhiteColor"/>
+                            <color key="textColor" name="AccentColor"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -213,20 +214,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="msT-QN-K7D">
                         <barButtonItem key="leftBarButtonItem" image="gearshape.fill" catalog="system" id="uPE-ft-cxf">
-                            <color key="tintColor" name="MMWhiteColor"/>
                             <connections>
                                 <action selector="leftNavButtonTapped:" destination="UBk-1R-iMG" id="9cM-21-ERb"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="list.bullet" catalog="system" id="XfG-Pc-rga">
-                                <color key="tintColor" name="MMWhiteColor"/>
                                 <connections>
                                     <action selector="rightNavButtonTapped:" destination="UBk-1R-iMG" id="F4B-Kb-HCk"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="plus" catalog="system" id="XZJ-At-1fT">
-                                <color key="tintColor" name="MMWhiteColor"/>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="UBk-1R-iMG" id="b18-eQ-6Dd"/>
                                 </connections>
@@ -303,11 +301,11 @@
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.80800002813339233" green="0.071000002324581146" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="MMBlackColor">
             <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MMRedColor">
-            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

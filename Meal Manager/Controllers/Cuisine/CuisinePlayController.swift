@@ -26,14 +26,16 @@ class CuisinePlayController: UIViewController {
         super.viewDidLoad()
         setLabels()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
-        tryAgainButton.roundedButton(bg: UIColor.init(named: K.Color.red)!, tint: UIColor.init(named: K.Color.white)!)
-        eatButton.roundedButton(bg: UIColor.systemGreen, tint: UIColor.init(named: K.Color.black)!)
+        tryAgainButton.roundedButton(bg: .white, tint: UIColor.init(named: K.Color.accent)!)
+        eatButton.roundedButton(bg: UIColor.init(named: K.Color.accent)!, tint: UIColor.init(named: K.Color.white)!)
         if cuisine == nil {
             tryAgainButton.isHidden = true
             eatButton.isHidden = true
             findButton.isHidden = true
         }
         locationManager.getLocation()
+    }
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
     }
 }
 
