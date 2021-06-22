@@ -15,9 +15,6 @@
         <array key="OpenSans-Bold.ttf">
             <string>OpenSans-Bold</string>
         </array>
-        <array key="OpenSans-Italic.ttf">
-            <string>OpenSans-Italic</string>
-        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
@@ -93,7 +90,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
                                 <rect key="frame" x="50" y="203.5" width="275" height="25"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,6 +231,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GeneralScreen" translatesAutoresizingMaskIntoConstraints="NO" id="JrU-OL-6Tm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-Jr-MBk">
                                 <rect key="frame" x="30" y="100" width="315" height="50"/>
                                 <constraints>
@@ -246,12 +246,11 @@
                                 <size key="shadowOffset" width="-1" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-jc-nag">
-                                <rect key="frame" x="77" y="200" width="221" height="30"/>
+                                <rect key="frame" x="70.5" y="200" width="234" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6P-eG-DND">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="30"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
-                                        <size key="titleShadowOffset" width="-1" height="1"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="30"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <state key="normal" title="Find the best near me">
                                             <color key="titleColor" name="AccentColor"/>
                                             <color key="titleShadowColor" name="MMBlackColor"/>
@@ -261,7 +260,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPV-p7-8Gt">
-                                        <rect key="frame" x="201" y="0.0" width="20" height="30"/>
+                                        <rect key="frame" x="214" y="0.0" width="20" height="30"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="questionmark.circle.fill" catalog="system"/>
                                         <connections>
@@ -357,10 +356,14 @@
                             <constraint firstItem="LpR-QT-RRs" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="GPs-Gg-Lta"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="bvb-6A-bY6" secondAttribute="trailing" constant="30" id="NcL-e8-jIF"/>
                             <constraint firstItem="et3-Jr-MBk" firstAttribute="top" secondItem="leM-Iu-I0b" secondAttribute="top" constant="100" id="WaT-CV-DOc"/>
+                            <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="JrU-OL-6Tm" secondAttribute="trailing" id="awd-NT-T4I"/>
                             <constraint firstItem="LpR-QT-RRs" firstAttribute="top" secondItem="AgP-jc-nag" secondAttribute="bottom" constant="50" id="e37-Ir-Oz2"/>
                             <constraint firstItem="CL2-3J-bRc" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="30" id="ged-oA-iLO"/>
                             <constraint firstItem="AgP-jc-nag" firstAttribute="top" secondItem="et3-Jr-MBk" secondAttribute="bottom" constant="50" id="hqj-8S-OKA"/>
+                            <constraint firstItem="JrU-OL-6Tm" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" id="lCq-vg-uXi"/>
+                            <constraint firstItem="leM-Iu-I0b" firstAttribute="bottom" secondItem="JrU-OL-6Tm" secondAttribute="bottom" id="nbF-vH-pB0"/>
                             <constraint firstItem="bvb-6A-bY6" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="30" id="oaf-w3-SHJ"/>
+                            <constraint firstItem="JrU-OL-6Tm" firstAttribute="top" secondItem="leM-Iu-I0b" secondAttribute="top" id="qFc-Al-99S"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="CL2-3J-bRc" secondAttribute="trailing" constant="30" id="tLZ-oN-f1E"/>
                         </constraints>
                     </view>
@@ -501,7 +504,7 @@
     </scenes>
     <resources>
         <image name="CuisineScreen" width="1097" height="1371.5"/>
-        <image name="GeneralScreen" width="1088" height="1833"/>
+        <image name="GeneralScreen" width="1152" height="1536"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>

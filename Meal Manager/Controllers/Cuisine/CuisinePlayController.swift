@@ -24,18 +24,8 @@ class CuisinePlayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabels()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
-        tryAgainButton.roundedButton(bg: .white, tint: UIColor.init(named: K.Color.accent)!)
-        eatButton.roundedButton(bg: UIColor.init(named: K.Color.accent)!, tint: UIColor.init(named: K.Color.white)!)
-        if cuisine == nil {
-            tryAgainButton.isHidden = true
-            eatButton.isHidden = true
-            findButton.isHidden = true
-        }
+        configure()
         locationManager.getLocation()
-    }
-    @IBAction func infoButtonTapped(_ sender: UIButton) {
     }
 }
 
@@ -71,10 +61,28 @@ extension CuisinePlayController {
         }
         dismiss(animated: true)
     }
+    
+    
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
+        locationManager.presentInfo(forVC: self)
+    }
 }
 
-//MARK: - Helper Functions
+//MARK: - Configure and Helper Functions
 extension CuisinePlayController {
+    private func configure() {
+        setLabels()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
+        tryAgainButton.roundedButton(bg: .white, tint: UIColor.init(named: K.Color.accent)!)
+        eatButton.roundedButton(bg: UIColor.init(named: K.Color.accent)!, tint: UIColor.init(named: K.Color.white)!)
+        if cuisine == nil {
+            tryAgainButton.isHidden = true
+            eatButton.isHidden = true
+            findButton.isHidden = true
+        }
+    }
+    
+    
     func setLabels() {
         DispatchQueue.main.async {
             self.cuisineName.text = self.cuisine?.name ?? "No Cuisines Found"

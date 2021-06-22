@@ -9,7 +9,7 @@ import UIKit
 import SafariServices
 
 extension UIViewController {
-    func presentSafariVC(with url: URL, title: String) {
+    func presentSafariVC(with url: URL) {
         let safariVC = SFSafariViewController(url: url)
         safariVC.preferredControlTintColor = UIColor(named: K.Color.accent)
         let navController = UINavigationController(rootViewController: safariVC)

@@ -28,16 +28,17 @@ class CuisineDetailViewController: UIViewController {
         configure()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
     }
     
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController)
     }
-   
 }
 
 //MARK: - Buttons
@@ -60,7 +61,9 @@ extension CuisineDetailViewController {
         updateActive()
     }
     
+    
     @IBAction func infoButtonTapped(_ sender: UIButton) {
+        locationManager.presentInfo(forVC: self)
     }
 }
 

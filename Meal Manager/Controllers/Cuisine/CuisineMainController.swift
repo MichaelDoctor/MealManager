@@ -28,7 +28,6 @@ class CuisineMainController: UIViewController {
         super.viewDidLoad()
         configureBanner()
         overlayView.roundedView()
-        FindLocationManager.shared.start()
     }
     
     
