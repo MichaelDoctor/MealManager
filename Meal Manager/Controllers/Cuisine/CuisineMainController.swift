@@ -45,7 +45,7 @@ class CuisineMainController: UIViewController {
 
 //MARK: - Buttons
 
-extension CuisineMainController {
+extension CuisineMainController: CuisinePlayControllerDelegate {
     //MARK: - Left Side Menu
     @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
         let sideMenuController = SideMenuNavigationController(rootViewController: CuisineLeftMenuController())
@@ -73,20 +73,14 @@ extension CuisineMainController {
                 playViewController.cuisine = nil
                 playViewController.message = "Please enable your preferred cuisines."
             }
-            //
-            
-            
-            // Change this to delegate
-            
-            //
-            playViewController.parentController = self
+            playViewController.delegate = self
             let navController = UINavigationController(rootViewController: playViewController)
             present(navController, animated: true)
         }
     }
 }
-//MARK: - Core Data functions
 
+//MARK: - Core Data functions
 extension CuisineMainController {
     //MARK: - Read
     func loadCuisines() {
@@ -113,7 +107,6 @@ extension CuisineMainController {
 
 //MARK: - Configure Functions
 extension CuisineMainController {
-    
     private func configureBanner() {
         banner.rootViewController = self
         view.addSubview(banner)
@@ -122,7 +115,6 @@ extension CuisineMainController {
 
 //MARK: - Animation
 extension CuisineMainController {
-    
     func animateTitle() {
         let animation = AnimationType.zoom(scale: 0.3)
         overlayView.animate(animations: [animation])

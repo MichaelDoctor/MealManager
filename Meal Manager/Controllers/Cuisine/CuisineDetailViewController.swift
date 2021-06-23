@@ -42,9 +42,7 @@ class CuisineDetailViewController: UIViewController {
 }
 
 //MARK: - Buttons
-
 extension CuisineDetailViewController {
-    
     @IBAction func nearMeTapped(_ sender: UIButton) {
         locationManager.findBestNearMe(forVC: self, cuisine: cuisine)
     }
@@ -68,7 +66,6 @@ extension CuisineDetailViewController {
 }
 
 //MARK: - Core Data and UI functions
-
 extension CuisineDetailViewController {
     //MARK: - Reload UI
     func loadData() {
@@ -90,6 +87,7 @@ extension CuisineDetailViewController {
     //MARK: - Update
     func updateActive() {
         cuisine.isActive = !cuisine.isActive
+        
         do {
             try context.save()
         } catch {
@@ -100,7 +98,6 @@ extension CuisineDetailViewController {
 
 //MARK: - Configure Functions
 extension CuisineDetailViewController {
-    
     private func configure() {
         banner.rootViewController = self
         view.addSubview(banner)

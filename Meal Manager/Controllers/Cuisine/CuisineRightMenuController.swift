@@ -48,6 +48,7 @@ extension CuisineRightMenuController {
         }
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
         do {
             self.cuisines = try context.fetch(request)
             
@@ -144,6 +145,7 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
             cell.uiSwitch.isOn = cuisine.isActive
             cell.isUserInteractionEnabled = true
         }
+        
         return cell
     }
     
@@ -157,15 +159,16 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
 
 //MARK: - UISearchBarDelegate
 extension CuisineRightMenuController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {
             loadCuisines()
             return }
+        
         if text.isEmpty {
             loadCuisines()
             return
         }
+        
         let request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
@@ -183,7 +186,6 @@ extension CuisineRightMenuController: UISearchBarDelegate {
 
 //MARK: - Configure Functions
 extension CuisineRightMenuController {
-    
     private func configureTableAndSearch() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -196,7 +198,6 @@ extension CuisineRightMenuController {
 
 //MARK: - Right Slide Animation
 extension CuisineRightMenuController {
-    
     func animate() {
         let animation = AnimationType.vector(CGVector(dx: self.view.frame.width / 2, dy: 0))
         UIView.animate(views: tableView.visibleCells, animations: [animation])

@@ -8,12 +8,19 @@
 import UIKit
 import CoreLocation
 
+protocol CuisinePlayControllerDelegate: AnyObject {
+    var activeCuisines: [Cuisine] { get }
+    var navigationController: UINavigationController? { get }
+    func updateCuisine(cuisine: Cuisine, newNum: Int)
+}
+
+
 class CuisinePlayController: UIViewController {
     
     let locationManager = FindLocationManager.shared
     
     var cuisine: Cuisine?
-    var parentController: CuisineMainController?
+    var delegate: CuisineMainController!
     var message = ""
     
     @IBOutlet var cuisineName: UILabel!
@@ -21,6 +28,7 @@ class CuisinePlayController: UIViewController {
     @IBOutlet var tryAgainButton: UIButton!
     @IBOutlet var eatButton: UIButton!
     @IBOutlet var findButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +38,6 @@ class CuisinePlayController: UIViewController {
 }
 
 //MARK: - Buttons
-
 extension CuisinePlayController {
     //MARK: - Cancel button
     @objc func cancelButtonTapped() {
@@ -44,7 +51,7 @@ extension CuisinePlayController {
     
     //MARK: - Try Again button
     @IBAction func tryAgainButtonTapped(_ sender: UIButton) {
-        cuisine = parentController?.activeCuisines.randomElement()
+        cuisine = delegate.activeCuisines.randomElement()
         message = "Try eating \(cuisine!.name!) Cuisine"
         setLabels()
     }
@@ -52,12 +59,14 @@ extension CuisinePlayController {
     //MARK: - Eat button
     @IBAction func eatButtonTapped(_ sender: UIButton) {
         guard let cuisine = cuisine else { return }
-        parentController?.updateCuisine(cuisine: cuisine, newNum: Int(cuisine.numberOfTimesEaten) + 1)
+        
+        delegate.updateCuisine(cuisine: cuisine, newNum: Int(cuisine.numberOfTimesEaten) + 1)
+        
         if let detailViewController =
             storyboard?.instantiateViewController(identifier: K.Views.cuisineRightDetail) as? CuisineDetailViewController {
             
             detailViewController.cuisine = cuisine
-            parentController?.navigationController?.pushViewController(detailViewController, animated: true)
+            delegate.navigationController?.pushViewController(detailViewController, animated: true)
         }
         dismiss(animated: true)
     }
@@ -75,6 +84,7 @@ extension CuisinePlayController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         tryAgainButton.roundedButton(bg: .white, tint: UIColor.init(named: K.Color.accent)!)
         eatButton.roundedButton(bg: UIColor.init(named: K.Color.accent)!, tint: UIColor.init(named: K.Color.white)!)
+        
         if cuisine == nil {
             tryAgainButton.isHidden = true
             eatButton.isHidden = true

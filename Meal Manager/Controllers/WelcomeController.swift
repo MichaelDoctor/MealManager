@@ -25,7 +25,6 @@ extension WelcomeController {
 
 //MARK: - Buttons
 extension WelcomeController {
-    
     @IBAction func getStartedTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabBarController = storyboard.instantiateViewController(identifier: K.Views.tabBarCtr) as! UITabBarController

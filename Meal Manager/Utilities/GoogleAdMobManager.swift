@@ -19,6 +19,7 @@ enum GoogleAdMobManager {
         return banner
     }
     
+    
     static func layoutAd(forView view: UIView, tabBarController: UITabBarController?, banner: GADBannerView = sharedForDetail) {
         let bottom = view.window!.frame.size.height
         let tabBarHeight = tabBarController!.tabBar.frame.size.height

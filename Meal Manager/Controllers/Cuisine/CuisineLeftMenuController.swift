@@ -104,7 +104,6 @@ extension CuisineLeftMenuController {
 
 //MARK: - Configure and helper Functions
 extension CuisineLeftMenuController {
-    
     private func configure() {
         tableView.removeExcessCells()
         navigationController?.isNavigationBarHidden = true
@@ -146,7 +145,6 @@ extension CuisineLeftMenuController {
 
 //MARK: - Left Slide Animation
 extension CuisineLeftMenuController  {
-    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.alpha = 0
         UIView.animate(

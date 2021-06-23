@@ -58,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //MARK: - Custom
 extension AppDelegate {
-    
     //MARK: - PreloadedData
     private func preloadData() {
         let userDefaults = UserDefaults.standard

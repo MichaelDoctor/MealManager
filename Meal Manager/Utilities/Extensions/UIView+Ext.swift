@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIView {
-    
     func addSubviews(_ views: UIView...) {
         for view in views {
             addSubview(view)
@@ -25,6 +24,7 @@ extension UIView {
             bottomAnchor.constraint(equalTo: superview.bottomAnchor)
         ])
     }
+    
     
     func roundedView() {
         layer.cornerRadius = 12.0

@@ -62,7 +62,6 @@ enum K {
     }
     
     //MARK: - Helper Functions
-    
     static func formatDate(_ date: Date) -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"

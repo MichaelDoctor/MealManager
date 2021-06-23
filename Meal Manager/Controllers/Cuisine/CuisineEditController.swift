@@ -8,6 +8,7 @@
 import UIKit
 import Eureka
 
+
 class CuisineEditController: FormViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -28,6 +29,7 @@ extension CuisineEditController {
     func updateCuisine(newDate: Date?, newNum: Int) {
         cuisine.numberOfTimesEaten = Int64(newNum)
         cuisine.lastAte = newDate
+        
         do {
             try context.save()
             navigationController?.popViewController(animated: true)

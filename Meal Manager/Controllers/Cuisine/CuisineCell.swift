@@ -11,7 +11,6 @@ import CoreData
 class CuisineCell: UITableViewCell {
     
     static let reuseID = K.Views.cuisineRightCell
-    
     let title = UILabel()
     let uiSwitch = UISwitch()
     
@@ -23,13 +22,9 @@ class CuisineCell: UITableViewCell {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 }
 
@@ -41,6 +36,7 @@ extension CuisineCell {
     @objc func updateActive() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         cuisine.isActive = !cuisine.isActive
+        
         do {
             try context.save()
         } catch {
@@ -51,7 +47,6 @@ extension CuisineCell {
 
 //MARK: - Configure functions
 extension CuisineCell {
-    
     private func configure() {
         addSubviews(uiSwitch, title)
         configureUISwitch(withPadding: 10)
