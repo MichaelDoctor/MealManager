@@ -183,7 +183,6 @@
 			children = (
 				CA4494B526436C320028F452 /* AppDelegate.swift */,
 				CA4494B726436C320028F452 /* SceneDelegate.swift */,
-				CA4494D22644A1050028F452 /* Constants.swift */,
 				CA44952F2644AF3D0028F452 /* Fonts */,
 				CA4494C126436C340028F452 /* Assets.xcassets */,
 				CA4494C326436C340028F452 /* LaunchScreen.storyboard */,
@@ -277,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				CACCFA892677B22600C93244 /* Extensions */,
+				CA4494D22644A1050028F452 /* Constants.swift */,
 				CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */,
 				CACCFA8E2677D11900C93244 /* FindLocationManager.swift */,
 			);

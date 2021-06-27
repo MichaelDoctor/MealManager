@@ -8,7 +8,6 @@
 import UIKit
 import CoreData
 import ViewAnimator
-import SideMenu
 
 class CuisineLeftMenuController: UITableViewController {
     
@@ -61,7 +60,6 @@ extension CuisineLeftMenuController {
 
 //MARK: - UITableViewDataSource
 extension CuisineLeftMenuController {
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
     }
@@ -77,9 +75,7 @@ extension CuisineLeftMenuController {
 }
 
 //MARK: - UITableViewDelegate
-
 extension CuisineLeftMenuController {
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: options[indexPath.row], message: nil, preferredStyle: .alert)
         

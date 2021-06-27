@@ -12,142 +12,68 @@ import SideMenu
 import ViewAnimator
 
 class MealMainController: UIViewController {
-    @IBOutlet var titleLabel: UILabel!
-    
-    // Core Data Context
+    private let banner: GADBannerView = GoogleAdMobManager.createBanner()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    // meals = tableView, activeMeals for play button
+    @IBOutlet var overlayView: UIView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var bodyLabel: UILabel!
+    @IBOutlet var playButton: UIButton!
     var meals = [Meal]()
     var activeMeals = [Meal]()
     
-    // Google Admob banner
-    private let banner: GADBannerView = GoogleAdMobManager.createBanner()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        banner.rootViewController = self
-        view.addSubview(banner)
-        
-        // get meals
-        loadMeals()
+        configureBanner()
+        overlayView.roundedView()
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animateTitle()
+        animateView()
     }
+    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController, banner: banner)
-    }
-
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
     }
 }
 
 //MARK: - Buttons
 
 extension MealMainController {
-    //MARK: - Play Button
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        let sideMenuController = SideMenuNavigationController(rootViewController: MealAddMenuController())
+        present(sideMenuController, animated: true)
+    }
+    
+    
     @IBAction func playButtonTapped(_ sender: UIButton) {
-//        if let playViewController = storyboard?.instantiateViewController(identifier: K.Views.cuisinePlay) as? CuisinePlayController {
-//            loadCuisines()
-//            var cuisine: Cuisine?
-//            // Check if its empty
-//            if !activeCuisines.isEmpty {
-//                cuisine = activeCuisines.randomElement()
-//                playViewController.cuisine = cuisine
-//                playViewController.message = "Try eating \(cuisine!.name!) Cuisine"
-//            } else {
-//                // active cuisines are empty
-//                playViewController.cuisine = nil
-//                playViewController.message = "Please enable your preferred cuisines."
-//            }
-//            playViewController.parentController = self
-//            navigationController?.showDetailViewController(playViewController, sender: self)
-//        }
+        loadMeals()
+        print("\(meals.count) meals loaded")
     }
     
-    //MARK: - Left Navbar Button
-    @IBAction func leftNavButtonTapped(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Add Eat In Meal", style: .default) {
-            _ in
-            self.addMeal(type: K.MealFilter.cook)
-        })
-        alert.addAction(UIAlertAction(title: "Add Eat Out Meal", style: .default) {
-            _ in
-            self.addMeal(type: K.MealFilter.order)
-        })
-        alert.addAction(UIAlertAction(title: "Reset Eaten", style: .default))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
-    }
     
-    //MARK: - Right Navbar Button
-    @IBAction func rightNavButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func menuButtonTapped(_ sender: UIBarButtonItem) {
         let menu = storyboard!.instantiateViewController(withIdentifier: K.Views.mealRightMenu) as! SideMenuNavigationController
-        
         present(menu, animated: true)
     }
+    
+    
+    @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
+        let sideMenuController = SideMenuNavigationController(rootViewController: MealLeftMenuController())
+        sideMenuController.leftSide = true
+        present(sideMenuController, animated: true)
+    }
 }
+
 //MARK: - Core Data CRUD
 extension MealMainController {
-    //MARK: - Create
-    func addMeal(type: String) {
-        // add drop down to choose from list of cuisine types
-        let alert = UIAlertController(title: "\(type) Meal Creation", message: "Add a name for a basic meal", preferredStyle: .alert)
-        alert.addTextField()
-        alert.addAction(UIAlertAction(title: "Add", style: .default) {
-            _ in
-            guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else { return }
-            self.createMeal(name: text, type: type)
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
-    }
-    
-    func createMeal(name: String, type: String, cuisineType: String = "Any") {
-        let newMeal = Meal(context: context)
-        newMeal.name = name
-        newMeal.type = type
-        // add image later
-        newMeal.numberOfTimesEaten = 0
-        newMeal.didEat = false
-        newMeal.cuisineType = cuisineType
-        
-        if type == K.MealFilter.cook {
-            newMeal.cookType = createCookType()
-            newMeal.orderType = nil
-        } else {
-            newMeal.orderType = createOrderType()
-            newMeal.cookType = nil
-        }
-        
-        do {
-            try context.save()
-            loadMeals()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func createCookType() -> CookType {
-        let cookType = CookType(context: context)
-        cookType.ingredients = NSSet(array: [Ingredient]())
-        cookType.instructions = NSSet(array: [Instruction]())
-        return cookType
-    }
-    
-    func createOrderType() -> OrderType {
-        let orderType = OrderType(context: context)
-        return orderType
-    }
     //MARK: - Read
     func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest(), predicate: NSPredicate? = nil) {
-        
         // fetch searchBar request
         if let additionalPredicate = predicate {
             request.predicate = additionalPredicate
@@ -168,32 +94,23 @@ extension MealMainController {
             print(error.localizedDescription)
         }
     }
-    //MARK: - Update
-    
-    //MARK: - Delete
-    func deleteMeal(_ meal: Meal) {
-        if meal.type == K.MealFilter.cook {
-            context.delete(meal.cookType!)
-        } else {
-            context.delete(meal.orderType!)
-        }
-        
-        context.delete(meal)
-        
-        // save the data
-        do {
-            try context.save()
-            loadMeals()
-        } catch {
-            print(error.localizedDescription)
-        }
+}
+
+//MARK: - Configure Functions
+extension MealMainController {
+    private func configureBanner() {
+        banner.rootViewController = self
+        view.addSubview(banner)
     }
 }
 
 //MARK: - Animation
 extension MealMainController {
-    func animateTitle() {
+    func animateView() {
         let animation = AnimationType.zoom(scale: 0.3)
+        overlayView.animate(animations: [animation])
         titleLabel.animate(animations: [animation])
+        bodyLabel.animate(animations: [animation])
+        playButton.animate(animations: [animation])
     }
 }

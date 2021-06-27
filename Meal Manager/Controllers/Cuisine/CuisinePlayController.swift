@@ -19,17 +19,16 @@ class CuisinePlayController: UIViewController {
     
     let locationManager = FindLocationManager.shared
     
-    var cuisine: Cuisine?
-    var delegate: CuisineMainController!
-    var message = ""
-    
     @IBOutlet var cuisineName: UILabel!
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var tryAgainButton: UIButton!
     @IBOutlet var eatButton: UIButton!
     @IBOutlet var findButton: UIButton!
+    var cuisine: Cuisine?
+    var delegate: CuisineMainController!
+    var message = ""
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

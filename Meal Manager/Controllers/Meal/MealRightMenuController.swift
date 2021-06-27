@@ -10,41 +10,36 @@ import CoreData
 import ViewAnimator
 
 class MealRightMenuController: UIViewController {
-    @IBOutlet var searchBar: UISearchBar!
     
-    @IBOutlet var tableView: UITableView!
-    
-    // Core Data context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    // meals = tableView, activeMeals for play button
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
     var meals = [Meal]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        searchBar.delegate = self
-        
-        // get meals
-        loadMeals()
+        configure()
     }
+}
+
+//MARK: - Buttons
+extension MealRightMenuController {
     @IBAction func filterButtonTapped(_ sender: UIButton) {
-    let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "All", style: .default))
-        alert.addAction(UIAlertAction(title: "Cook", style: .default))
-        alert.addAction(UIAlertAction(title: "Order", style: .default))
+        alert.addAction(UIAlertAction(title: "Cooked", style: .default))
+        alert.addAction(UIAlertAction(title: "Ordered", style: .default))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
     }
-    
 }
 
+//MARK: - Core Data
 extension MealRightMenuController {
     //MARK: - Read
     func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest(), predicate: NSPredicate? = nil, doAnimate: Bool = true) {
-        
         // fetch searchBar request
         if let additionalPredicate = predicate {
             request.predicate = additionalPredicate
@@ -70,6 +65,7 @@ extension MealRightMenuController {
             print(error.localizedDescription)
         }
     }
+    
     //MARK: - Delete
     func deleteMeal(_ meal: Meal) {
         if meal.type == K.MealFilter.cook {
@@ -90,6 +86,7 @@ extension MealRightMenuController {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension MealRightMenuController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if meals.isEmpty {
@@ -121,12 +118,21 @@ extension MealRightMenuController: UITableViewDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension MealRightMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        deleteMeal(meals[indexPath.row])
+        tableView.deleteRows(at: [indexPath], with: .left)
     }
 }
 
+//MARK: - UISearchBarDelegate
 extension MealRightMenuController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
@@ -147,8 +153,17 @@ extension MealRightMenuController: UISearchBarDelegate {
     }
 }
 
-//MARK: - Right Slide Animation
+//MARK: - Configure Functions
+extension MealRightMenuController {
+    private func configure() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        searchBar.delegate = self
+        loadMeals()
+    }
+}
 
+//MARK: - Right Slide Animation
 extension MealRightMenuController {
     func animate() {
         let animation = AnimationType.vector(CGVector(dx: self.view.frame.width / 2, dy: 0))

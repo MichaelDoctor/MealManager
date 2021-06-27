@@ -57,8 +57,10 @@ enum K {
     
     enum MealFilter {
         static let all = "ALL"
-        static let cook = "Eat In"
-        static let order = "Eat Out"
+        //        static let cook = "Eat In"
+        //        static let order = "Eat Out"
+        static let cook = "Cooked"
+        static let order = "Ordered"
     }
     
     //MARK: - Helper Functions

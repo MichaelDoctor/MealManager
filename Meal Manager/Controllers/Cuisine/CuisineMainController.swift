@@ -33,7 +33,7 @@ class CuisineMainController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animateTitle()
+        animateView()
     }
     
     
@@ -115,7 +115,7 @@ extension CuisineMainController {
 
 //MARK: - Animation
 extension CuisineMainController {
-    func animateTitle() {
+    func animateView() {
         let animation = AnimationType.zoom(scale: 0.3)
         overlayView.animate(animations: [animation])
         titleLabel.animate(animations: [animation])
