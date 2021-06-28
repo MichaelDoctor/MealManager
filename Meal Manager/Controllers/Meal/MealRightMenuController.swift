@@ -90,7 +90,6 @@ extension MealRightMenuController {
 extension MealRightMenuController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if meals.isEmpty {
-            // To tell the user to add meals
             return 1
         } else {
             return meals.count
@@ -102,7 +101,7 @@ extension MealRightMenuController: UITableViewDataSource {
         // Empty array
         if meals.isEmpty {
             cell.textLabel?.text = "No Meals Found"
-            cell.detailTextLabel?.text = "Add Meals Using The Top Left Button or Edit Search."
+            cell.detailTextLabel?.text = "No meals found or match"
             cell.textLabel?.textColor = .gray
             cell.detailTextLabel?.textColor = .lightGray
             cell.isUserInteractionEnabled = false
@@ -128,7 +127,12 @@ extension MealRightMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         deleteMeal(meals[indexPath.row])
-        tableView.deleteRows(at: [indexPath], with: .left)
+        
+        if meals.isEmpty {
+            tableView.reloadData()
+        } else {
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
     }
 }
 
@@ -147,7 +151,6 @@ extension MealRightMenuController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
         if text.isEmpty {
-            // reload all meals
             loadMeals()
         }
     }
@@ -159,6 +162,7 @@ extension MealRightMenuController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        navigationController?.isToolbarHidden = true
         loadMeals()
     }
 }

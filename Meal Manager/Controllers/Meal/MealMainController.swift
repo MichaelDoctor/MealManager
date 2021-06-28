@@ -19,14 +19,15 @@ class MealMainController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var bodyLabel: UILabel!
     @IBOutlet var playButton: UIButton!
+    @IBOutlet var playFilter: UIButton!
+    @IBOutlet var infoButton: UIButton!
     var meals = [Meal]()
     var activeMeals = [Meal]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureBanner()
-        overlayView.roundedView()
+        configure()
     }
     
     
@@ -68,6 +69,16 @@ extension MealMainController {
         sideMenuController.leftSide = true
         present(sideMenuController, animated: true)
     }
+    
+    
+    @IBAction func filterTapped(_ sender: UIButton) {
+        print("Filter tapped")
+    }
+    
+    
+    @IBAction func infoTapped(_ sender: UIButton) {
+        
+    }
 }
 
 //MARK: - Core Data CRUD
@@ -98,6 +109,13 @@ extension MealMainController {
 
 //MARK: - Configure Functions
 extension MealMainController {
+    private func configure() {
+        configureBanner()
+        overlayView.roundedView()
+        playFilter.roundedButton(bg: UIColor(named: K.Color.accent)!, tint: .white)
+    }
+    
+    
     private func configureBanner() {
         banner.rootViewController = self
         view.addSubview(banner)
@@ -112,5 +130,7 @@ extension MealMainController {
         titleLabel.animate(animations: [animation])
         bodyLabel.animate(animations: [animation])
         playButton.animate(animations: [animation])
+        playFilter.animate(animations: [animation])
+        infoButton.animate(animations: [animation])
     }
 }
