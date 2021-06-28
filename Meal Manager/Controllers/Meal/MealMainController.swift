@@ -77,7 +77,42 @@ extension MealMainController {
     
     
     @IBAction func infoTapped(_ sender: UIButton) {
-        
+        let messageStyle = NSMutableParagraphStyle()
+        messageStyle.alignment = .left
+        let messageText = NSAttributedString(
+            string: """
+Add a custom meal:
+    - Press the '+ icon' on the top right
+
+Change the play filter:
+    - Tap the button beside the '? icon' to return:
+        - 'ALL' meals
+        - only 'Cooked' type meals
+        - or only 'Ordered' type meals
+
+Play Button:
+    - Tap the 'PLAY icon' to return a random meal that you have not eaten recently
+
+Reset Recently Eaten:
+    - Tap the 'GEAR icon' on the top left
+    - Select 'Reset Eaten'
+
+View Your Meals:
+    - Tap the 'LIST icon' on the top right to view your meals
+""",
+            attributes: [
+                NSAttributedString.Key.paragraphStyle: messageStyle,
+                NSAttributedString.Key.foregroundColor : UIColor.black,
+                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)
+            ]
+        )
+        let alert = UIAlertController(
+            title: "About 'My Meals' tab",
+            message: nil,
+            preferredStyle: .alert)
+        alert.setValue(messageText, forKey: "attributedMessage")
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }
 
