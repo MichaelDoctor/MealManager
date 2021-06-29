@@ -22,8 +22,7 @@ class MealMainController: UIViewController {
     @IBOutlet var playFilter: UIButton!
     @IBOutlet var infoButton: UIButton!
     var meals = [Meal]()
-    var activeMeals = [Meal]()
-    
+    var filterSetting = K.MealFilter.all
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +52,16 @@ extension MealMainController {
     
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
+        // basic functionality
         loadMeals()
-        print("\(meals.count) meals loaded")
+        var meal: Meal?
+        
+        if !meals.isEmpty {
+            meal = meals.randomElement()
+            print(meal!.name ?? "No Name")
+        } else {
+            print("Add meals")
+        }
     }
     
     
@@ -72,7 +79,21 @@ extension MealMainController {
     
     
     @IBAction func filterTapped(_ sender: UIButton) {
-        print("Filter tapped")
+        let alert = UIAlertController(title: "Change Play Filter", message: "Return ALL uneaten meals or only a specific type.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: K.MealFilter.all.uppercased(), style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.changeFilter(to: K.MealFilter.all)
+        }))
+        alert.addAction(UIAlertAction(title: K.MealFilter.cook.uppercased(), style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.changeFilter(to: K.MealFilter.cook)
+        })
+        alert.addAction(UIAlertAction(title: K.MealFilter.order.uppercased(), style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.changeFilter(to: K.MealFilter.order)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
     }
     
     
@@ -119,22 +140,23 @@ View Your Meals:
 //MARK: - Core Data CRUD
 extension MealMainController {
     //MARK: - Read
-    func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest(), predicate: NSPredicate? = nil) {
-        // fetch searchBar request
-        if let additionalPredicate = predicate {
-            request.predicate = additionalPredicate
+    func loadMeals(with request: NSFetchRequest<Meal> = Meal.fetchRequest()) {
+        var filterPredicate: NSPredicate? = nil
+        
+        if filterSetting != K.MealFilter.all {
+            filterPredicate = NSPredicate(format: "type == %@", filterSetting)
         }
         
-        // sort
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        let notEatenPredicate = NSPredicate(format: "didEat == %@", NSNumber(value: false))
         
-        // fetch only meals that have not yet been eaten
-        let notEatenRequest: NSFetchRequest<Meal> = Meal.fetchRequest()
-        notEatenRequest.predicate = NSPredicate(format: "didEat == %@", NSNumber(value: false))
+        if let filterPredicate = filterPredicate {
+            request.predicate = NSCompoundPredicate(type: .and, subpredicates: [notEatenPredicate, filterPredicate])
+        } else {
+            request.predicate = notEatenPredicate
+        }
         
         do {
             self.meals = try context.fetch(request)
-            self.activeMeals = try context.fetch(notEatenRequest)
             
         } catch {
             print(error.localizedDescription)
@@ -142,7 +164,7 @@ extension MealMainController {
     }
 }
 
-//MARK: - Configure Functions
+//MARK: - Configure and Helper Functions
 extension MealMainController {
     private func configure() {
         configureBanner()
@@ -154,6 +176,13 @@ extension MealMainController {
     private func configureBanner() {
         banner.rootViewController = self
         view.addSubview(banner)
+    }
+    
+    func changeFilter(to filter: String) {
+        filterSetting = filter
+        DispatchQueue.main.async {
+            self.playFilter.setTitle(filter.uppercased(), for: .normal)
+        }
     }
 }
 
