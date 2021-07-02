@@ -13,6 +13,13 @@ extension UIView {
             addSubview(view)
         }
     }
+    
+    
+    func enableAutoLayout(_ views: UIView...) {
+        for view in views {
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
 
     
     func pinToEdges(of superview: UIView) {

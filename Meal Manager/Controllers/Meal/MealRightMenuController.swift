@@ -97,20 +97,28 @@ extension MealRightMenuController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.mealRightCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Views.mealRightCell, for: indexPath) as! MealCell
         // Empty array
         if meals.isEmpty {
-            cell.textLabel?.text = "No Meals Found"
-            cell.detailTextLabel?.text = "No meals found or match"
-            cell.textLabel?.textColor = .gray
-            cell.detailTextLabel?.textColor = .lightGray
+            cell.title.text = "No Meals Found"
+            cell.subtitle.text = "No meals found or match"
+            cell.eaten.isHidden = true
+            cell.title.textColor = .gray
+            cell.subtitle.textColor = .lightGray
+            cell.uiSwitch.isHidden = true
             cell.isUserInteractionEnabled = false
         } else {
             let meal = meals[indexPath.row]
-            cell.textLabel?.text = meal.name
-            cell.detailTextLabel?.text = meal.type
-            cell.textLabel?.textColor = UIColor.init(named: K.Color.black)
-            cell.detailTextLabel?.textColor = .gray
+            cell.meal = meal
+            cell.title.text = meal.name
+            cell.subtitle.text = meal.type
+            cell.eaten.text = "Recently Eaten:"
+            cell.title.textColor = meal.didEat ? UIColor.init(named: K.Color.black) : UIColor.init(named: K.Color.accent)
+            cell.subtitle.textColor = .gray
+            cell.eaten.textColor = .gray
+            cell.eaten.isHidden = false
+            cell.uiSwitch.isHidden = false
+            cell.uiSwitch.isOn = !meal.didEat
             cell.isUserInteractionEnabled = true
         }
         return cell
@@ -120,7 +128,7 @@ extension MealRightMenuController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension MealRightMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print(meals[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -161,6 +169,9 @@ extension MealRightMenuController {
     private func configure() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(MealCell.self, forCellReuseIdentifier: MealCell.reuseID)
+        tableView.removeExcessCells()
+        
         searchBar.delegate = self
         navigationController?.isToolbarHidden = true
         loadMeals()

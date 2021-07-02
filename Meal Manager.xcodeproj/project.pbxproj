@@ -47,6 +47,7 @@
 		CA83DF8B264CC8D400FFC7EB /* CuisineLeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuController.swift */; };
 		CA83DF8D264CC8E800FFC7EB /* MealLeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8C264CC8E800FFC7EB /* MealLeftMenuController.swift */; };
 		CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */; };
+		CAB65615268F944B007DC9BA /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB65614268F944B007DC9BA /* MealCell.swift */; };
 		CACCFA88267799A000C93244 /* GoogleAdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */; };
 		CACCFA8B2677B24000C93244 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8A2677B24000C93244 /* UIView+Ext.swift */; };
 		CACCFA8D2677C54B00C93244 /* UIViewContoller+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */; };
@@ -104,6 +105,7 @@
 		CA83DF8A264CC8D400FFC7EB /* CuisineLeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineLeftMenuController.swift; sourceTree = "<group>"; };
 		CA83DF8C264CC8E800FFC7EB /* MealLeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLeftMenuController.swift; sourceTree = "<group>"; };
 		CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineRightMenuController.swift; sourceTree = "<group>"; };
+		CAB65614268F944B007DC9BA /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAdMobManager.swift; sourceTree = "<group>"; };
 		CACCFA8A2677B24000C93244 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContoller+Ext.swift"; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				CAD3F3D9266AAD4E00960F03 /* MealDetailViewController.swift */,
 				CAD3F3DB266AAD6F00960F03 /* MealPlayController.swift */,
 				CAD3F3DD266AAD9600960F03 /* MealEditController.swift */,
+				CAB65614268F944B007DC9BA /* MealCell.swift */,
 			);
 			path = Meal;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				CA83811E26548C3E002357E2 /* CuisineEditController.swift in Sources */,
 				CA8380F8264F6C7B002357E2 /* Ingredient+CoreDataProperties.swift in Sources */,
 				CA83DF8B264CC8D400FFC7EB /* CuisineLeftMenuController.swift in Sources */,
+				CAB65615268F944B007DC9BA /* MealCell.swift in Sources */,
 				CACCFA8B2677B24000C93244 /* UIView+Ext.swift in Sources */,
 				CA4494B826436C320028F452 /* SceneDelegate.swift in Sources */,
 				CACCFA8D2677C54B00C93244 /* UIViewContoller+Ext.swift in Sources */,

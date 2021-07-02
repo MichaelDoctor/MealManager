@@ -30,7 +30,6 @@ class CuisineCell: UITableViewCell {
 
 
 //MARK: - Core Data function
-
 extension CuisineCell {
     //MARK: - Update
     @objc func updateActive() {
