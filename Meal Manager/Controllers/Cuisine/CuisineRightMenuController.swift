@@ -80,6 +80,7 @@ extension CuisineRightMenuController {
     //MARK: - Filter button
     @IBAction func filterButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .actionSheet)
+        alert.redActions()
         alert.addAction(UIAlertAction(title: "All", style: .default) {
             [weak self] _ in
             guard let self = self else { return }

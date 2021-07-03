@@ -28,6 +28,7 @@ class MealRightMenuController: UIViewController {
 extension MealRightMenuController {
     @IBAction func filterButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Filter", message: "Filter meals by type.", preferredStyle: .actionSheet)
+        alert.redActions()
         alert.addAction(UIAlertAction(title: "All", style: .default))
         alert.addAction(UIAlertAction(title: "Cooked", style: .default))
         alert.addAction(UIAlertAction(title: "Ordered", style: .default))
@@ -113,7 +114,7 @@ extension MealRightMenuController: UITableViewDataSource {
             cell.title.text = meal.name
             cell.subtitle.text = meal.type
             cell.eaten.text = "Recently Eaten:"
-            cell.title.textColor = meal.didEat ? UIColor.init(named: K.Color.black) : UIColor.init(named: K.Color.accent)
+            cell.title.textColor = meal.didEat ? UIColor.init(named: K.Color.black) : UIColor.init(named: K.Color.red)
             cell.subtitle.textColor = .gray
             cell.eaten.textColor = .gray
             cell.eaten.isHidden = false

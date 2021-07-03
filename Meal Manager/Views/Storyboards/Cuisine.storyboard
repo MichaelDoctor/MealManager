@@ -59,9 +59,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Cuisines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-A9-HpX">
-                                <rect key="frame" x="40" y="145.5" width="295" height="38"/>
+                                <rect key="frame" x="40" y="151.5" width="295" height="36"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="30"/>
-                                <color key="textColor" name="MMBlackColor"/>
+                                <color key="textColor" name="MMRedColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="-1" height="1"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What cuisine should you eat?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-jv-LTc">
-                                <rect key="frame" x="50" y="203.5" width="275" height="25"/>
+                                <rect key="frame" x="50" y="207.5" width="275" height="21"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="MMBlackColor"/>
                                 <nil key="highlightedColor"/>
@@ -240,16 +240,16 @@
                                     <constraint firstAttribute="height" constant="50" id="Bq2-vv-VXW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
-                                <color key="textColor" name="MMBlackColor"/>
+                                <color key="textColor" name="MMRedColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" name="MMWhiteColor"/>
                                 <size key="shadowOffset" width="-1" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AgP-jc-nag">
-                                <rect key="frame" x="70.5" y="150" width="234" height="30"/>
+                                <rect key="frame" x="74.5" y="150" width="226" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6P-eG-DND">
-                                        <rect key="frame" x="0.0" y="0.0" width="204" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="30"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <state key="normal" title="Find the best near me">
                                             <color key="titleColor" name="AccentColor"/>
@@ -260,7 +260,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPV-p7-8Gt">
-                                        <rect key="frame" x="214" y="0.0" width="20" height="30"/>
+                                        <rect key="frame" x="206" y="0.0" width="20" height="30"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="questionmark.circle.fill" catalog="system"/>
                                         <connections>
@@ -276,7 +276,7 @@
                                 <rect key="frame" x="30" y="261" width="315" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eaten On:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU3-jM-JCV">
-                                        <rect key="frame" x="10" y="30" width="98" height="28.5"/>
+                                        <rect key="frame" x="10" y="30" width="90" height="24.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -284,7 +284,7 @@
                                         <size key="shadowOffset" width="-1" height="1"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep 28, 1997" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-bu-k8f">
-                                        <rect key="frame" x="183.5" y="30" width="121.5" height="28.5"/>
+                                        <rect key="frame" x="185" y="30" width="120" height="24.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
                                         <size key="shadowOffset" width="-1" height="1"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HU-Mh-SUa">
-                                        <rect key="frame" x="292.5" y="88.5" width="12.5" height="28.5"/>
+                                        <rect key="frame" x="292.5" y="84.5" width="12.5" height="24.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -300,7 +300,7 @@
                                         <size key="shadowOffset" width="-1" height="1"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Times Eaten:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sJ-jH-Z5i">
-                                        <rect key="frame" x="10" y="88.5" width="128" height="28.5"/>
+                                        <rect key="frame" x="10" y="84.5" width="117" height="24.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -398,7 +398,7 @@
                                     <constraint firstAttribute="height" constant="50" id="kdE-Au-zL1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="35"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MMRedColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="-1" height="1"/>
@@ -415,10 +415,10 @@
                                 <size key="shadowOffset" width="-1" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CaG-og-LJs">
-                                <rect key="frame" x="70.5" y="300" width="234" height="40"/>
+                                <rect key="frame" x="74.5" y="300" width="226" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-e5-34D">
-                                        <rect key="frame" x="0.0" y="0.0" width="204" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="36"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="20"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
                                         <state key="normal" title="Find the best near me">
@@ -430,7 +430,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXy-eg-aYf">
-                                        <rect key="frame" x="214" y="0.0" width="20" height="40"/>
+                                        <rect key="frame" x="206" y="0.0" width="20" height="36"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="questionmark.circle.fill" catalog="system"/>
                                         <connections>
@@ -440,7 +440,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hqL-UN-Sdg">
-                                <rect key="frame" x="50" y="390" width="275" height="45"/>
+                                <rect key="frame" x="50" y="386" width="275" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-en-d0d">
                                         <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
@@ -517,6 +517,9 @@
         </namedColor>
         <namedColor name="MMBlackColor">
             <color red="0.10599999874830246" green="0.090000003576278687" blue="0.090000003576278687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MMRedColor">
+            <color red="0.50599998235702515" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MMWhiteColor">
             <color red="0.93300002813339233" green="0.92199999094009399" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

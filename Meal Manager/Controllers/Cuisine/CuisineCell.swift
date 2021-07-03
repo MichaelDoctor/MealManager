@@ -38,6 +38,7 @@ extension CuisineCell {
         
         do {
             try context.save()
+            title.textColor = cuisine.isActive ? UIColor.init(named: K.Color.red) : UIColor.init(named: K.Color.black)
         } catch {
             print(error.localizedDescription)
         }

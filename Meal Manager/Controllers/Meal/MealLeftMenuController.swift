@@ -29,7 +29,7 @@ extension MealLeftMenuController {
         let cell = UITableViewCell(style: .default, reuseIdentifier: K.Views.cuisineLeftCell)
         cell.textLabel?.text = options[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        cell.textLabel?.textColor = UIColor(named: K.Color.accent)
+        cell.textLabel?.textColor = UIColor(named: K.Color.red)
         return cell
     }
 }
@@ -38,6 +38,7 @@ extension MealLeftMenuController {
 extension MealLeftMenuController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: options[indexPath.row], message: nil, preferredStyle: .alert)
+        alert.redActions()
         
         switch indexPath.row {
         case 0:

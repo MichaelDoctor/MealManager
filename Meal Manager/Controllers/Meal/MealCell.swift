@@ -37,7 +37,7 @@ extension MealCell {
         
         do {
             try context.save()
-            title.textColor = meal.didEat ? UIColor.init(named: K.Color.black) : UIColor.init(named: K.Color.accent)
+            title.textColor = meal.didEat ? UIColor.init(named: K.Color.black) : UIColor.init(named: K.Color.red)
         } catch {
             print(error.localizedDescription)
         }

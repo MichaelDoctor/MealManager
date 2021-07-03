@@ -78,6 +78,7 @@ extension CuisineLeftMenuController {
 extension CuisineLeftMenuController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: options[indexPath.row], message: nil, preferredStyle: .alert)
+        alert.redActions()
         
         switch indexPath.row {
         case 0:

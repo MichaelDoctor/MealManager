@@ -31,7 +31,7 @@ extension MealAddMenuController {
         let cell = UITableViewCell(style: .default, reuseIdentifier: K.Views.cuisineLeftCell)
         cell.textLabel?.text = options[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        cell.textLabel?.textColor = UIColor(named: K.Color.accent)
+        cell.textLabel?.textColor = UIColor(named: K.Color.red)
         return cell
     }
 }
@@ -65,6 +65,7 @@ extension MealAddMenuController {
     
     func addMeal(type: String) {
         let alert = UIAlertController(title: "\(type) Meal Creation", message: "Add the name of your meal", preferredStyle: .alert)
+        alert.redActions()
         alert.addTextField()
         alert.addAction(UIAlertAction(title: "Add", style: .default) {
             [weak self] _ in

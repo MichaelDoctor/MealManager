@@ -10,15 +10,15 @@ import UIKit
 class MealPlayController: UIViewController {
     
     let bgImage = UIImageView(image: UIImage(named: K.Images.generalScreen))
-    let mealLabel = UILabel()
-    let typeLabel = UILabel()
-    let dateStack = HorizontalLabelsStack(leftText: "Eaten On:", rightText: "--")
-    let eatenStack = HorizontalLabelsStack(leftText: "Times Eaten:", rightText: "0")
+    var mealLabel: HeaderLabel!
+    var typeLabel: HeaderLabel!
+    var dateStack: HorizontalLabelsStack!
+    var eatenStack: HorizontalLabelsStack!
     let retryButton = UIButton()
     let eatButton = UIButton()
     let buttonStack = UIStackView()
     
-    var meal: Meal!
+    var meal: Meal?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,8 @@ extension MealPlayController {
 extension MealPlayController {
     private func configure() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
+        configureUIData()
+        
         view.enableAutoLayout(bgImage, mealLabel, typeLabel, dateStack, eatenStack, retryButton, eatButton, buttonStack)
         view.addSubviews(bgImage, mealLabel, typeLabel, dateStack, eatenStack, buttonStack)
         
@@ -59,6 +61,33 @@ extension MealPlayController {
         configureEatenStack()
         configureButtonStack()
     }
+    
+    
+    private func configureUIData() {
+        if let meal = meal {
+            mealLabel = HeaderLabel(labelText: meal.name ?? "Name Not Found", labelFont: UIFont(name: K.Fonts.montserrat + K.Fonts.weight.bold, size: 32)!, wordWrap: true, color: UIColor(named: K.Color.red)!)
+            typeLabel = HeaderLabel(labelText: meal.type ?? "Type Not Found", labelFont: UIFont(name: K.Fonts.openSans + K.Fonts.weight.bold, size: 20)!)
+            
+            if let date = meal.lastAte {
+                let dateFormatter = K.formatDate(date)
+                dateStack = HorizontalLabelsStack(leftText: "Eaten On:", rightText: dateFormatter.string(from: date))
+            } else {
+                dateStack = HorizontalLabelsStack(leftText: "Eaten On:", rightText: "--")
+            }
+            
+            eatenStack = HorizontalLabelsStack(leftText: "Times Eaten:", rightText: "\(meal.numberOfTimesEaten)")
+        } else {
+            mealLabel = HeaderLabel(labelText: "No Meals Found", labelFont: UIFont(name: K.Fonts.montserrat + K.Fonts.weight.bold, size: 32)!, wordWrap: true, color: UIColor(named: K.Color.red)!)
+            typeLabel = HeaderLabel(labelText: "Add meals or change play filter settings.", labelFont: UIFont(name: K.Fonts.openSans + K.Fonts.weight.bold, size: 20)!, wordWrap: true)
+            dateStack = HorizontalLabelsStack(leftText: "Eaten On:", rightText: "--")
+            eatenStack = HorizontalLabelsStack(leftText: "Times Eaten:", rightText: "0")
+            dateStack.isHidden = true
+            eatenStack.isHidden = true
+            buttonStack.isHidden = true
+        }
+        
+    }
+    
     
     private func configureBgImage() {
         bgImage.contentMode = .scaleAspectFill
@@ -71,16 +100,8 @@ extension MealPlayController {
         ])
     }
     
+    
     private func configureTitle(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
-        mealLabel.text = "Wow Chicken"
-        mealLabel.font = UIFont(name: K.Fonts.montserrat + K.Fonts.weight.bold, size: 32)
-        mealLabel.textColor = UIColor(named: K.Color.black)
-        mealLabel.textAlignment = .center
-        mealLabel.shadowColor = .white
-        mealLabel.shadowOffset = CGSize(width: -1, height: 1)
-        mealLabel.numberOfLines = 0
-        mealLabel.lineBreakMode = .byWordWrapping
-        
         NSLayoutConstraint.activate([
             mealLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 75),
             mealLabel.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
@@ -89,22 +110,16 @@ extension MealPlayController {
         ])
     }
     
+    
     private func configureType(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
-        typeLabel.text = "Ordered"
-        typeLabel.font = UIFont(name: K.Fonts.openSans + K.Fonts.weight.bold, size: 20)
-        typeLabel.textColor = UIColor(named: K.Color.black)
-        typeLabel.textAlignment = .center
-        typeLabel.shadowColor = .white
-        typeLabel.shadowOffset = CGSize(width: -1, height: 1)
-        typeLabel.minimumScaleFactor = 0.75
-        
         NSLayoutConstraint.activate([
             typeLabel.topAnchor.constraint(equalTo: mealLabel.bottomAnchor, constant: padding),
-            typeLabel.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
-            typeLabel.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding),
-            typeLabel.heightAnchor.constraint(equalToConstant: 25)
+            typeLabel.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
+            typeLabel.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            typeLabel.heightAnchor.constraint(equalToConstant: (meal != nil) ? 25 : 75)
         ])
     }
+    
     
     private func configureDateStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
@@ -115,6 +130,7 @@ extension MealPlayController {
         ])
     }
     
+    
     private func configureEatenStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
             eatenStack.topAnchor.constraint(equalTo: dateStack.bottomAnchor, constant: padding),
@@ -123,6 +139,7 @@ extension MealPlayController {
             eatenStack.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
     
     private func configureButtonStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         retryButton.setImage(UIImage(systemName: K.Images.retryImage), for: .normal)

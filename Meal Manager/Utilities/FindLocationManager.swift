@@ -72,7 +72,8 @@ class FindLocationManager: NSObject, CLLocationManagerDelegate {
     
     
     func presentInfo(forVC vc: UIViewController) {
-        let alert = UIAlertController(title: "Find the best near me", message: "1. Location service must be enabled.\n2. If there are restaurants near you, click the \"SHOW LIST\" near the bottom.\n3. If none are found, \"No results found for your search\" will be displayed near the bottom.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Find the best near me", message: "☝️ Location service must be enabled.\n\n✌️ If there are restaurants near you, click the \"SHOW LIST\" near the bottom.\n\n🤟 If none are found, \"No results found for your search\" will be displayed near the bottom.", preferredStyle: .alert)
+        alert.redActions()
         alert.addAction(UIAlertAction(title: "Enable Location", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             if CLLocationManager.locationServicesEnabled() {
@@ -97,6 +98,7 @@ class FindLocationManager: NSObject, CLLocationManagerDelegate {
     
     private func locationDisabled(_ vc: UIViewController) {
         let ac = UIAlertController( title: "No Access to Location Services", message: "In order to find the best near you:\nOpen Settings > Privacy > Location Services > Meal Manager > Select \"While Using the App\"", preferredStyle: .alert)
+        ac.redActions()
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
             if let url = NSURL(string: UIApplication.openSettingsURLString) {
@@ -109,6 +111,7 @@ class FindLocationManager: NSObject, CLLocationManagerDelegate {
     
     private func locationEnabled(_ vc: UIViewController) {
         let ac = UIAlertController(title: "Enabled", message: "Location services has already been successfully enabled", preferredStyle: .alert)
+        ac.redActions()
         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             self.locationManager.startUpdatingLocation()

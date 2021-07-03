@@ -58,11 +58,13 @@ extension MealMainController {
         
         if !meals.isEmpty {
             meal = meals.randomElement()
-            print(meal!.name ?? "No Name")
-            let nav = UINavigationController(rootViewController: MealPlayController())
+            let playController = MealPlayController()
+            playController.meal = meal
+            let nav = UINavigationController(rootViewController: playController)
             present(nav, animated: true)
         } else {
-            print("Add meals")
+            let nav = UINavigationController(rootViewController: MealPlayController())
+            present(nav, animated: true)
         }
     }
     
@@ -82,6 +84,7 @@ extension MealMainController {
     
     @IBAction func filterTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Change Play Filter", message: "Return ALL uneaten meals or only a specific type.", preferredStyle: .actionSheet)
+        alert.redActions()
         alert.addAction(UIAlertAction(title: K.MealFilter.all.uppercased(), style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             self.changeFilter(to: K.MealFilter.all)
@@ -104,24 +107,15 @@ extension MealMainController {
         messageStyle.alignment = .left
         let messageText = NSAttributedString(
             string: """
-Add a custom meal:
-    - Press the '+ icon' on the top right
+➕ Add a custom meal.
 
-Change the play filter:
-    - Tap the button beside the '? icon' to return:
-        - 'ALL' meals
-        - only 'Cooked' type meals
-        - or only 'Ordered' type meals
+🤷 Change the play filter.
 
-Play Button:
-    - Tap the 'PLAY icon' to return a random meal that you have not eaten recently
+▶️ Randomly select a meal that has not been recently eaten.
 
-Reset Recently Eaten:
-    - Tap the 'GEAR icon' on the top left
-    - Select 'Reset Eaten'
+⚙️ Reset recently eaten meals.
 
-View Your Meals:
-    - Tap the 'LIST icon' on the top right to view your meals
+🧐 View you list of meals.
 """,
             attributes: [
                 NSAttributedString.Key.paragraphStyle: messageStyle,
@@ -130,9 +124,10 @@ View Your Meals:
             ]
         )
         let alert = UIAlertController(
-            title: "About 'My Meals' tab",
+            title: "My Meals Functionality",
             message: nil,
             preferredStyle: .alert)
+        alert.redActions()
         alert.setValue(messageText, forKey: "attributedMessage")
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
