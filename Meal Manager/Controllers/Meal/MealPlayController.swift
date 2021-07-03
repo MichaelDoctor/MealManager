@@ -12,12 +12,8 @@ class MealPlayController: UIViewController {
     let bgImage = UIImageView(image: UIImage(named: K.Images.generalScreen))
     let mealLabel = UILabel()
     let typeLabel = UILabel()
-    let lastAteLabel = UILabel()
-    let dateLabel = UILabel()
-    let dateStack = UIStackView()
-    let eatenLabel = UILabel()
-    let numEatenLabel = UILabel()
-    let eatenStack = UIStackView()
+    let dateStack = HorizontalLabelsStack(leftText: "Eaten On:", rightText: "--")
+    let eatenStack = HorizontalLabelsStack(leftText: "Times Eaten:", rightText: "0")
     let retryButton = UIButton()
     let eatButton = UIButton()
     let buttonStack = UIStackView()
@@ -29,13 +25,31 @@ class MealPlayController: UIViewController {
         configure()
     }
     
+    
+}
+
+//MARK: - Buttons
+extension MealPlayController {
     @objc func cancelTapped() {
         dismiss(animated: true)
     }
     
+    
+    @objc func retryTapped() {
+        print("retry tapped")
+    }
+    
+    
+    @objc func eatTapped() {
+        print("Eat tapped")
+    }
+}
+
+//MARK: - Configure Functions
+extension MealPlayController {
     private func configure() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
-        view.enableAutoLayout(bgImage, mealLabel, typeLabel, lastAteLabel, dateLabel, dateStack, eatenLabel, numEatenLabel, eatenStack, retryButton, eatButton, buttonStack)
+        view.enableAutoLayout(bgImage, mealLabel, typeLabel, dateStack, eatenStack, retryButton, eatButton, buttonStack)
         view.addSubviews(bgImage, mealLabel, typeLabel, dateStack, eatenStack, buttonStack)
         
         configureBgImage()
@@ -57,7 +71,7 @@ class MealPlayController: UIViewController {
         ])
     }
     
-    private func configureTitle(withPadding padding: CGFloat = 10) {
+    private func configureTitle(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         mealLabel.text = "Wow Chicken"
         mealLabel.font = UIFont(name: K.Fonts.montserrat + K.Fonts.weight.bold, size: 32)
         mealLabel.textColor = UIColor(named: K.Color.black)
@@ -75,7 +89,7 @@ class MealPlayController: UIViewController {
         ])
     }
     
-    private func configureType(withPadding padding: CGFloat = 10) {
+    private func configureType(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         typeLabel.text = "Ordered"
         typeLabel.font = UIFont(name: K.Fonts.openSans + K.Fonts.weight.bold, size: 20)
         typeLabel.textColor = UIColor(named: K.Color.black)
@@ -89,42 +103,50 @@ class MealPlayController: UIViewController {
             typeLabel.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
             typeLabel.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding),
             typeLabel.heightAnchor.constraint(equalToConstant: 25)
-//            typeLabel.bottomAnchor.constraint(equalTo: bgImage.bottomAnchor, constant: -padding)
         ])
     }
     
-    private func configureDateStack(withPadding padding: CGFloat = 10) {
-        dateStack.backgroundColor = .black
-        
+    private func configureDateStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
             dateStack.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 50),
-            dateStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
-            dateStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding),
-            dateStack.heightAnchor.constraint(equalToConstant: 75)
-//            dateStack.bottomAnchor.constraint(equalTo: bgImage.bottomAnchor, constant: -padding)
+            dateStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
+            dateStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            dateStack.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    private func configureEatenStack(withPadding padding: CGFloat = 10) {
-        eatenStack.backgroundColor = .green
-        
+    private func configureEatenStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
             eatenStack.topAnchor.constraint(equalTo: dateStack.bottomAnchor, constant: padding),
-            eatenStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
-            eatenStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding),
-            eatenStack.heightAnchor.constraint(equalToConstant: 75)
-//            typeLabel.bottomAnchor.constraint(equalTo: bgImage.bottomAnchor, constant: -padding)
+            eatenStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
+            eatenStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            eatenStack.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    private func configureButtonStack(withPadding padding: CGFloat = 10) {
-        buttonStack.backgroundColor = .blue
+    private func configureButtonStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
+        retryButton.setImage(UIImage(systemName: K.Images.retryImage), for: .normal)
+        retryButton.roundedButton(bg: .white, tint: UIColor(named: K.Color.accent)!)
+        retryButton.addTarget(self, action: #selector(retryTapped), for: .touchUpInside)
+        
+        eatButton.setTitle("Eat", for: .normal)
+        eatButton.titleLabel?.font = UIFont(name: K.Fonts.openSans+K.Fonts.weight.bold, size: 20)
+        eatButton.setTitleColor(.gray, for: .highlighted)
+        eatButton.roundedButton(bg: UIColor(named: K.Color.accent)!, tint: .white)
+        eatButton.addTarget(self, action: #selector(eatTapped), for: .touchUpInside)
+        
+        
+        buttonStack.spacing = 10
+        buttonStack.axis = .horizontal
+        buttonStack.distribution = .fillEqually
+        buttonStack.addArrangedSubview(retryButton)
+        buttonStack.addArrangedSubview(eatButton)
         
         NSLayoutConstraint.activate([
             buttonStack.topAnchor.constraint(equalTo: eatenStack.bottomAnchor, constant: padding),
-            buttonStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
-            buttonStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding),
-            buttonStack.heightAnchor.constraint(equalToConstant: 100),
+            buttonStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
+            buttonStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            buttonStack.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }

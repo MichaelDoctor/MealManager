@@ -47,6 +47,8 @@ enum K {
         static let customScreen = "CustomScreen"
         static let cuisineScreen = "CuisineScreen"
         static let generalScreen = "GeneralScreen"
+        
+        static let retryImage = "arrow.clockwise"
     }
     
     //MARK: - Filters

@@ -201,7 +201,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="E4P-lp-IuF">
-                                <rect key="frame" x="87" y="388.5" width="238" height="37"/>
+                                <rect key="frame" x="87" y="408.5" width="238" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XX-WZ-nmY">
                                         <rect key="frame" x="0.0" y="0.0" width="201" height="37"/>
@@ -245,7 +245,7 @@
                             <constraint firstItem="0ds-8R-6T9" firstAttribute="centerY" secondItem="M9q-2H-xZk" secondAttribute="centerY" constant="30" id="Arg-Rg-Xje"/>
                             <constraint firstItem="6az-0C-CrE" firstAttribute="bottom" secondItem="M9q-2H-xZk" secondAttribute="bottom" multiplier="1.3" id="I5Q-KO-ZBG"/>
                             <constraint firstItem="pS9-5X-XBg" firstAttribute="leading" secondItem="M9q-2H-xZk" secondAttribute="leading" constant="10" id="MjZ-P2-1oh"/>
-                            <constraint firstItem="E4P-lp-IuF" firstAttribute="bottom" secondItem="M9q-2H-xZk" secondAttribute="bottom" constant="-50" id="O2X-5d-YdC"/>
+                            <constraint firstItem="E4P-lp-IuF" firstAttribute="bottom" secondItem="M9q-2H-xZk" secondAttribute="bottom" constant="-30" id="O2X-5d-YdC"/>
                             <constraint firstItem="pS9-5X-XBg" firstAttribute="bottom" secondItem="FjC-gZ-C6S" secondAttribute="top" constant="-20" id="PHA-lD-lXX"/>
                             <constraint firstItem="6az-0C-CrE" firstAttribute="bottom" secondItem="3a0-xr-Tjw" secondAttribute="bottom" id="Qqe-s4-Dp5"/>
                             <constraint firstItem="M9q-2H-xZk" firstAttribute="top" secondItem="6az-0C-CrE" secondAttribute="top" multiplier="2.3" id="ROk-LB-L4g"/>

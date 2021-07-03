@@ -48,6 +48,7 @@
 		CA83DF8D264CC8E800FFC7EB /* MealLeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8C264CC8E800FFC7EB /* MealLeftMenuController.swift */; };
 		CA83DF8F264CCD4500FFC7EB /* CuisineRightMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */; };
 		CAB65615268F944B007DC9BA /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB65614268F944B007DC9BA /* MealCell.swift */; };
+		CAB656172690CA0E007DC9BA /* HorizontalLabelsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB656162690CA0E007DC9BA /* HorizontalLabelsStack.swift */; };
 		CACCFA88267799A000C93244 /* GoogleAdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */; };
 		CACCFA8B2677B24000C93244 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8A2677B24000C93244 /* UIView+Ext.swift */; };
 		CACCFA8D2677C54B00C93244 /* UIViewContoller+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */; };
@@ -106,6 +107,7 @@
 		CA83DF8C264CC8E800FFC7EB /* MealLeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLeftMenuController.swift; sourceTree = "<group>"; };
 		CA83DF8E264CCD4500FFC7EB /* CuisineRightMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineRightMenuController.swift; sourceTree = "<group>"; };
 		CAB65614268F944B007DC9BA /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		CAB656162690CA0E007DC9BA /* HorizontalLabelsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLabelsStack.swift; sourceTree = "<group>"; };
 		CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAdMobManager.swift; sourceTree = "<group>"; };
 		CACCFA8A2677B24000C93244 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContoller+Ext.swift"; sourceTree = "<group>"; };
@@ -195,6 +197,8 @@
 		CA4494CD2644A0100028F452 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CAB656192690CB83007DC9BA /* Stacks */,
+				CAB656182690CB7D007DC9BA /* Labels */,
 				CA4494BB26436C320028F452 /* Main.storyboard */,
 				CA838109265301AF002357E2 /* Cuisine.storyboard */,
 				CA83810B265301CD002357E2 /* Meal.storyboard */,
@@ -272,6 +276,21 @@
 				CA83811D26548C3E002357E2 /* CuisineEditController.swift */,
 			);
 			path = Cuisine;
+			sourceTree = "<group>";
+		};
+		CAB656182690CB7D007DC9BA /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		CAB656192690CB83007DC9BA /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				CAB656162690CA0E007DC9BA /* HorizontalLabelsStack.swift */,
+			);
+			path = Stacks;
 			sourceTree = "<group>";
 		};
 		CACCFA862677996900C93244 /* Utilities */ = {
@@ -454,6 +473,7 @@
 				CACCFA88267799A000C93244 /* GoogleAdMobManager.swift in Sources */,
 				CAD3F3DA266AAD4E00960F03 /* MealDetailViewController.swift in Sources */,
 				CA8380F4264F6C7B002357E2 /* Meal+CoreDataProperties.swift in Sources */,
+				CAB656172690CA0E007DC9BA /* HorizontalLabelsStack.swift in Sources */,
 				CA8380F7264F6C7B002357E2 /* Ingredient+CoreDataClass.swift in Sources */,
 				CAD3F3D8266AAD2400960F03 /* MealAddMenuController.swift in Sources */,
 				CA83DF8D264CC8E800FFC7EB /* MealLeftMenuController.swift in Sources */,

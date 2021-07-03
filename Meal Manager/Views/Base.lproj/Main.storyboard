@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="400" width="375" height="267"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to eat?" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="x72-IR-xhp">
-                                        <rect key="frame" x="20" y="108" width="335" height="28.5"/>
+                                        <rect key="frame" x="20" y="108" width="335" height="24.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="20"/>
                                         <color key="textColor" name="MMBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWu-8a-ooh">
-                                <rect key="frame" x="20" y="577" width="335" height="40"/>
+                                <rect key="frame" x="20" y="581" width="335" height="36"/>
                                 <color key="backgroundColor" name="MMRedColor"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
