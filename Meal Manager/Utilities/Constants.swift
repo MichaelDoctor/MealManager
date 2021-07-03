@@ -46,6 +46,7 @@ enum K {
         static let welcomeScreen = "WelcomeScreen"
         static let customScreen = "CustomScreen"
         static let cuisineScreen = "CuisineScreen"
+        static let generalScreen = "GeneralScreen"
     }
     
     //MARK: - Filters
@@ -59,6 +60,17 @@ enum K {
         static let all = "ALL"
         static let cook = "Cooked"
         static let order = "Ordered"
+    }
+    
+    enum Fonts {
+        static let montserrat = "Montserrat"
+        static let openSans = "OpenSans"
+        
+        enum weight {
+            static let bold = "-Bold"
+            static let regular = "-Regular"
+            static let italic = "-Italic"
+        }
     }
     
     //MARK: - Helper Functions

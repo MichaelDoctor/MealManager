@@ -59,6 +59,8 @@ extension MealMainController {
         if !meals.isEmpty {
             meal = meals.randomElement()
             print(meal!.name ?? "No Name")
+            let nav = UINavigationController(rootViewController: MealPlayController())
+            present(nav, animated: true)
         } else {
             print("Add meals")
         }
