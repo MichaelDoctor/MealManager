@@ -13,7 +13,6 @@ import ViewAnimator
 
 class MealMainController: UIViewController {
     private let banner: GADBannerView = GoogleAdMobManager.createBanner()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet var overlayView: UIView!
     @IBOutlet var titleLabel: UILabel!
@@ -32,7 +31,7 @@ class MealMainController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animateView()
+        view.popUpAnimation(overlayView, titleLabel, bodyLabel, playButton, playFilter, infoButton)
     }
     
     
@@ -52,7 +51,6 @@ extension MealMainController {
     
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
-        // basic functionality
         loadMeals()
         var meal: Meal?
         
@@ -60,6 +58,7 @@ extension MealMainController {
             meal = meals.randomElement()
             let playController = MealPlayController()
             playController.meal = meal
+            playController.delegate = self
             let nav = UINavigationController(rootViewController: playController)
             present(nav, animated: true)
         } else {
@@ -153,12 +152,24 @@ extension MealMainController {
         }
         
         do {
-            self.meals = try context.fetch(request)
+            self.meals = try K.context.fetch(request)
             
         } catch {
             print(error.localizedDescription)
         }
     }
+    
+    //MARK: - Update
+        func updateMeal(_ meal: Meal, newNum: Int) {
+            meal.numberOfTimesEaten = Int64(newNum)
+            meal.lastAte = Date()
+            meal.didEat = !meal.didEat
+            do {
+                try K.context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
 }
 
 //MARK: - Configure and Helper Functions
@@ -180,18 +191,5 @@ extension MealMainController {
         DispatchQueue.main.async {
             self.playFilter.setTitle(filter.uppercased(), for: .normal)
         }
-    }
-}
-
-//MARK: - Animation
-extension MealMainController {
-    func animateView() {
-        let animation = AnimationType.zoom(scale: 0.3)
-        overlayView.animate(animations: [animation])
-        titleLabel.animate(animations: [animation])
-        bodyLabel.animate(animations: [animation])
-        playButton.animate(animations: [animation])
-        playFilter.animate(animations: [animation])
-        infoButton.animate(animations: [animation])
     }
 }

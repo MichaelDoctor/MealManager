@@ -14,7 +14,6 @@ import ViewAnimator
 class CuisineMainController: UIViewController {
     
     private let banner = GoogleAdMobManager.createBanner()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet var overlayView: UIView!
     @IBOutlet var titleLabel: UILabel!
@@ -33,7 +32,7 @@ class CuisineMainController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animateView()
+        view.popUpAnimation(overlayView, titleLabel, bodyLabel, playButton)
     }
     
     
@@ -87,7 +86,7 @@ extension CuisineMainController {
         do {
             let activeRequest: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
             activeRequest.predicate = NSPredicate(format: "isActive == %@", NSNumber(value: true))
-            self.activeCuisines = try context.fetch(activeRequest)
+            self.activeCuisines = try K.context.fetch(activeRequest)
         } catch {
             print(error.localizedDescription)
         }
@@ -98,7 +97,7 @@ extension CuisineMainController {
         cuisine.numberOfTimesEaten = Int64(newNum)
         cuisine.lastAte = Date()
         do {
-            try context.save()
+            try K.context.save()
         } catch {
             print(error.localizedDescription)
         }
@@ -112,18 +111,3 @@ extension CuisineMainController {
         view.addSubview(banner)
     }
 }
-
-//MARK: - Animation
-extension CuisineMainController {
-    func animateView() {
-        let animation = AnimationType.zoom(scale: 0.3)
-        overlayView.animate(animations: [animation])
-        titleLabel.animate(animations: [animation])
-        bodyLabel.animate(animations: [animation])
-        playButton.animate(animations: [animation])
-    }
-}
-
-
-
-

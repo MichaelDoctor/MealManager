@@ -12,7 +12,6 @@ import CoreData
 class MealAddMenuController: UITableViewController {
     
     let options = ["Add Cooked Meal","Add Ordered Meal"]
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,10 +82,12 @@ extension MealAddMenuController {
     }
     
     func createMeal(name: String, type: String, cuisineType: String = "Any") {
-        let newMeal = Meal(context: context)
+        let newMeal = Meal(context: K.context)
         newMeal.name = name
         newMeal.type = type
-        // add image later
+        
+        #warning("Add Image Later")
+        
         newMeal.numberOfTimesEaten = 0
         newMeal.didEat = false
         newMeal.cuisineType = cuisineType
@@ -100,21 +101,21 @@ extension MealAddMenuController {
         }
         
         do {
-            try context.save()
+            try K.context.save()
         } catch {
             print(error.localizedDescription)
         }
     }
     
     func createCookType() -> CookType {
-        let cookType = CookType(context: context)
+        let cookType = CookType(context: K.context)
         cookType.ingredients = NSSet(array: [Ingredient]())
         cookType.instructions = NSSet(array: [Instruction]())
         return cookType
     }
     
     func createOrderType() -> OrderType {
-        let orderType = OrderType(context: context)
+        let orderType = OrderType(context: K.context)
         return orderType
     }
 }

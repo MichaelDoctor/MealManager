@@ -6,26 +6,32 @@
 //
 
 import UIKit
+import CoreData
+
+protocol  MealPlaycontrollerDelegate: AnyObject {
+    var meals: [Meal] { get }
+    var navigationController: UINavigationController? { get }
+    func updateMeal(_ meal: Meal, newNum: Int)
+}
 
 class MealPlayController: UIViewController {
     
     let bgImage = UIImageView(image: UIImage(named: K.Images.generalScreen))
-    var mealLabel: HeaderLabel!
-    var typeLabel: HeaderLabel!
-    var dateStack: HorizontalLabelsStack!
-    var eatenStack: HorizontalLabelsStack!
     let retryButton = UIButton()
     let eatButton = UIButton()
     let buttonStack = UIStackView()
     
+    var mealLabel: HeaderLabel!
+    var typeLabel: HeaderLabel!
+    var dateStack: HorizontalLabelsStack!
+    var eatenStack: HorizontalLabelsStack!
     var meal: Meal?
+    var delegate: MealMainController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
-    
 }
 
 //MARK: - Buttons
@@ -36,16 +42,24 @@ extension MealPlayController {
     
     
     @objc func retryTapped() {
-        print("retry tapped")
+        meal = delegate.meals.randomElement()
+        self.updateUI()
+        view.popUpAnimation(buttonStack, mealLabel, typeLabel, dateStack, eatenStack)
     }
     
     
     @objc func eatTapped() {
-        print("Eat tapped")
+        guard let meal = meal else { return }
+        
+        delegate.updateMeal(meal, newNum: Int(meal.numberOfTimesEaten) + 1)
+        
+        #warning("Insert Detail View Controller later")
+        
+        dismiss(animated: true)
     }
 }
 
-//MARK: - Configure Functions
+//MARK: - Configure and Helper Functions
 extension MealPlayController {
     private func configure() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
@@ -85,7 +99,25 @@ extension MealPlayController {
             eatenStack.isHidden = true
             buttonStack.isHidden = true
         }
+    }
+    
+    
+    private func updateUI() {
+        guard let meal = meal else { return }
         
+        DispatchQueue.main.async {
+            self.mealLabel.text = meal.name ?? "Name Not Found"
+            self.typeLabel.text = meal.type ?? "Type Not Found"
+            
+            if let date = meal.lastAte {
+                let dateFormatter = K.formatDate(date)
+                self.dateStack.rightLabel.text = dateFormatter.string(from: date)
+            } else {
+                self.dateStack.rightLabel.text = "--"
+            }
+            
+            self.eatenStack.rightLabel.text = "\(meal.numberOfTimesEaten)"
+        }
     }
     
     

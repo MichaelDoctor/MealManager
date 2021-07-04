@@ -24,6 +24,7 @@ class CuisinePlayController: UIViewController {
     @IBOutlet var tryAgainButton: UIButton!
     @IBOutlet var eatButton: UIButton!
     @IBOutlet var findButton: UIButton!
+    @IBOutlet var infoButton: UIButton!
     var cuisine: Cuisine?
     var delegate: CuisineMainController!
     var message = ""
@@ -53,6 +54,7 @@ extension CuisinePlayController {
         cuisine = delegate.activeCuisines.randomElement()
         message = "Try eating \(cuisine!.name!) Cuisine"
         setLabels()
+        view.popUpAnimation(cuisineName, messageLabel, tryAgainButton, eatButton, findButton, infoButton)
     }
     
     //MARK: - Eat button

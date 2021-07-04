@@ -9,7 +9,7 @@ import UIKit
 import ViewAnimator
 
 class MealLeftMenuController: UITableViewController {
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     let options = ["Reset Eaten"]
     
     override func viewDidLoad() {

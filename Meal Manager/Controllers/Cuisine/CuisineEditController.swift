@@ -11,8 +11,6 @@ import Eureka
 
 class CuisineEditController: FormViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var cuisine = Cuisine()
     
     
@@ -31,7 +29,7 @@ extension CuisineEditController {
         cuisine.lastAte = newDate
         
         do {
-            try context.save()
+            try K.context.save()
             navigationController?.popViewController(animated: true)
         } catch {
             print(error.localizedDescription)

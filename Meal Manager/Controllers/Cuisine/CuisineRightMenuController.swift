@@ -11,8 +11,6 @@ import ViewAnimator
 
 class CuisineRightMenuController: UIViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     var cuisines = [Cuisine]()
@@ -50,7 +48,7 @@ extension CuisineRightMenuController {
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         do {
-            self.cuisines = try context.fetch(request)
+            self.cuisines = try K.context.fetch(request)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -67,7 +65,7 @@ extension CuisineRightMenuController {
     func updateActive(_ cuisine: Cuisine) {
         cuisine.isActive = !cuisine.isActive
         do {
-            try context.save()
+            try K.context.save()
             searchBarSearchButtonClicked(searchBar)
         } catch {
             print(error.localizedDescription)
@@ -141,7 +139,7 @@ extension CuisineRightMenuController: UITableViewDelegate, UITableViewDataSource
             let cuisine = cuisines[indexPath.row]
             cell.cuisine = cuisine
             cell.title.text = cuisine.name
-            cell.title.textColor = UIColor.init(named: K.Color.black)
+            cell.title.textColor = cuisine.isActive ? UIColor.init(named: K.Color.red) : UIColor.init(named: K.Color.black)
             cell.uiSwitch.isHidden = false
             cell.uiSwitch.isOn = cuisine.isActive
             cell.isUserInteractionEnabled = true

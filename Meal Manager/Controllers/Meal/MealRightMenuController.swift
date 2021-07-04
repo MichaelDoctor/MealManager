@@ -11,8 +11,6 @@ import ViewAnimator
 
 class MealRightMenuController: UIViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     var meals = [Meal]()
@@ -54,7 +52,7 @@ extension MealRightMenuController {
         notEatenRequest.predicate = NSPredicate(format: "didEat == %@", NSNumber(value: false))
         
         do {
-            self.meals = try context.fetch(request)
+            self.meals = try K.context.fetch(request)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -70,16 +68,16 @@ extension MealRightMenuController {
     //MARK: - Delete
     func deleteMeal(_ meal: Meal) {
         if meal.type == K.MealFilter.cook {
-            context.delete(meal.cookType!)
+            K.context.delete(meal.cookType!)
         } else {
-            context.delete(meal.orderType!)
+            K.context.delete(meal.orderType!)
         }
         
-        context.delete(meal)
+        K.context.delete(meal)
         
         // save the data
         do {
-            try context.save()
+            try K.context.save()
             loadMeals()
         } catch {
             print(error.localizedDescription)

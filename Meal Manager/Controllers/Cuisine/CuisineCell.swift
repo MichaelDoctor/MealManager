@@ -33,11 +33,10 @@ class CuisineCell: UITableViewCell {
 extension CuisineCell {
     //MARK: - Update
     @objc func updateActive() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         cuisine.isActive = !cuisine.isActive
         
         do {
-            try context.save()
+            try K.context.save()
             title.textColor = cuisine.isActive ? UIColor.init(named: K.Color.red) : UIColor.init(named: K.Color.black)
         } catch {
             print(error.localizedDescription)

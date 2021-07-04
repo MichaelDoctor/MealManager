@@ -12,6 +12,8 @@ enum K {
     
     static let preloadKey = "didPreloadCuisine"
     
+    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     //MARK: - Storyboard constants
     enum Views {
         static let tabBarCtr = "TabBarController"

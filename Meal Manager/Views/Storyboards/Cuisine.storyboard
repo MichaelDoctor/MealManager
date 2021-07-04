@@ -493,6 +493,7 @@
                         <outlet property="cuisineName" destination="In5-Od-mjJ" id="Jgn-DZ-u5s"/>
                         <outlet property="eatButton" destination="n1D-QB-z7m" id="tHR-xs-vre"/>
                         <outlet property="findButton" destination="vXF-e5-34D" id="eKn-oR-KJn"/>
+                        <outlet property="infoButton" destination="bXy-eg-aYf" id="fok-KN-FUl"/>
                         <outlet property="messageLabel" destination="SvE-E8-nkh" id="NX4-YP-wd0"/>
                         <outlet property="tryAgainButton" destination="Jwt-en-d0d" id="emM-av-Km9"/>
                     </connections>

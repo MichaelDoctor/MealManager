@@ -11,8 +11,6 @@ import GoogleMobileAds
 class CuisineDetailViewController: UIViewController {
     
     private let banner: GADBannerView = GoogleAdMobManager.sharedForDetail
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let locationManager = FindLocationManager.shared
     
     @IBOutlet var cuisineName: UILabel!
@@ -89,7 +87,7 @@ extension CuisineDetailViewController {
         cuisine.isActive = !cuisine.isActive
         
         do {
-            try context.save()
+            try K.context.save()
         } catch {
             print(error.localizedDescription)
         }

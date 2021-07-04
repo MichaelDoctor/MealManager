@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 extension UIView {
     func addSubviews(_ views: UIView...) {
@@ -36,5 +37,13 @@ extension UIView {
     func roundedView() {
         layer.cornerRadius = 12.0
         backgroundColor = UIColor.white.withAlphaComponent(0.75)
+    }
+    
+    
+    func popUpAnimation(_ views: UIView...) {
+        let animation = AnimationType.zoom(scale: 0.3)
+        for view in views {
+            view.animate(animations: [animation])
+        }
     }
 }

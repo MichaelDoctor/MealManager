@@ -12,7 +12,6 @@ import ViewAnimator
 class CuisineLeftMenuController: UITableViewController {
     
     let options = ["Enable All Cuisine", "Disable All Cuisine", "Reset All Eaten Data"]
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     override func viewDidLoad() {
@@ -31,10 +30,10 @@ extension CuisineLeftMenuController {
         request.resultType = .updatedObjectIDsResultType
         
         do {
-            let result = try self.context.execute(request) as! NSBatchUpdateResult
+            let result = try K.context.execute(request) as! NSBatchUpdateResult
             
             let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
-            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [K.context])
         } catch {
             print(error.localizedDescription)
         }
@@ -48,10 +47,10 @@ extension CuisineLeftMenuController {
         request.resultType = .updatedObjectIDsResultType
         
         do {
-            let result = try self.context.execute(request) as! NSBatchUpdateResult
+            let result = try K.context.execute(request) as! NSBatchUpdateResult
 
             let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
-            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [K.context])
         } catch {
             print(error.localizedDescription)
         }
@@ -69,7 +68,7 @@ extension CuisineLeftMenuController {
         let cell = UITableViewCell(style: .default, reuseIdentifier: K.Views.cuisineLeftCell)
         cell.textLabel?.text = options[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        cell.textLabel?.textColor = UIColor(named: K.Color.accent)
+        cell.textLabel?.textColor = UIColor(named: K.Color.red)
         return cell
     }
 }

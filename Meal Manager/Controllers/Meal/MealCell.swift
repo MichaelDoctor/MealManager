@@ -32,11 +32,10 @@ class MealCell: UITableViewCell {
 extension MealCell {
     //MARK: - Update
     @objc func updateEaten() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         meal.didEat = !meal.didEat
         
         do {
-            try context.save()
+            try K.context.save()
             title.textColor = meal.didEat ? UIColor.init(named: K.Color.black) : UIColor.init(named: K.Color.red)
         } catch {
             print(error.localizedDescription)
