@@ -53,7 +53,9 @@ extension MealPlayController {
         
         delegate.updateMeal(meal, newNum: Int(meal.numberOfTimesEaten) + 1)
         
-        #warning("Insert Detail View Controller later")
+        let detailViewController = MealDetailViewController()
+        detailViewController.meal = meal
+        delegate.navigationController?.pushViewController(detailViewController, animated: true)
         
         dismiss(animated: true)
     }
@@ -155,10 +157,10 @@ extension MealPlayController {
     
     private func configureDateStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
-            dateStack.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 50),
+            dateStack.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 25),
             dateStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
             dateStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
-            dateStack.heightAnchor.constraint(equalToConstant: 50)
+            dateStack.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
     
@@ -168,7 +170,7 @@ extension MealPlayController {
             eatenStack.topAnchor.constraint(equalTo: dateStack.bottomAnchor, constant: padding),
             eatenStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
             eatenStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
-            eatenStack.heightAnchor.constraint(equalToConstant: 50)
+            eatenStack.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
     
@@ -192,7 +194,7 @@ extension MealPlayController {
         buttonStack.addArrangedSubview(eatButton)
         
         NSLayoutConstraint.activate([
-            buttonStack.topAnchor.constraint(equalTo: eatenStack.bottomAnchor, constant: padding),
+            buttonStack.topAnchor.constraint(equalTo: eatenStack.bottomAnchor, constant: 50),
             buttonStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
             buttonStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
             buttonStack.heightAnchor.constraint(equalToConstant: 50),

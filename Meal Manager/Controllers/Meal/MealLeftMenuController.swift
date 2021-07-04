@@ -11,7 +11,7 @@ import CoreData
 
 class MealLeftMenuController: UITableViewController {
 
-    let options = ["Reset Recently Eaten", "Reset All Eaten Data"]
+    let options = ["Enable Recently Eaten", "Delete All Eaten Data"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

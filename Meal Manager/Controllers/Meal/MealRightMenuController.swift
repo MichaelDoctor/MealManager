@@ -20,6 +20,12 @@ class MealRightMenuController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadMeals()
+    }
 }
 
 //MARK: - Buttons
@@ -127,7 +133,10 @@ extension MealRightMenuController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension MealRightMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(meals[indexPath.row])
+        let detailViewController = MealDetailViewController()
+        detailViewController.meal = meals[indexPath.row]
+        navigationController?.pushViewController(detailViewController, animated: true)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
