@@ -92,7 +92,7 @@ extension MealPlayController {
             eatenStack = HorizontalLabelsStack(leftText: "Times Eaten:", rightText: "\(meal.numberOfTimesEaten)")
         } else {
             mealLabel = HeaderLabel(labelText: "No Meals Found", labelFont: UIFont(name: K.Fonts.montserrat + K.Fonts.weight.bold, size: 32)!, wordWrap: true, color: UIColor(named: K.Color.red)!)
-            typeLabel = HeaderLabel(labelText: "Add meals or change play filter settings.", labelFont: UIFont(name: K.Fonts.openSans + K.Fonts.weight.bold, size: 20)!, wordWrap: true)
+            typeLabel = HeaderLabel(labelText: "Add/Reset meals or change play filter settings.", labelFont: UIFont(name: K.Fonts.openSans + K.Fonts.weight.bold, size: 20)!, wordWrap: true)
             dateStack = HorizontalLabelsStack(leftText: "Eaten On:", rightText: "--")
             eatenStack = HorizontalLabelsStack(leftText: "Times Eaten:", rightText: "0")
             dateStack.isHidden = true

@@ -7,14 +7,52 @@
 
 import UIKit
 import ViewAnimator
+import CoreData
 
 class MealLeftMenuController: UITableViewController {
 
-    let options = ["Reset Eaten"]
+    let options = ["Reset Recently Eaten", "Reset All Eaten Data"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+}
+
+//MARK: - Core Data
+extension MealLeftMenuController {
+    //MARK: - Update
+    func updateBatchRecentlyEaten(value didEat: Bool) {
+        let request = NSBatchUpdateRequest(entityName: "Meal")
+        request.predicate = NSPredicate(format: "didEat == %@", NSNumber(value: didEat))
+        request.propertiesToUpdate = ["didEat": NSNumber(value: !didEat)]
+        request.resultType = .updatedObjectIDsResultType
+        
+        do {
+            let result = try K.context.execute(request) as! NSBatchUpdateResult
+            
+            let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [K.context])
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    func updateBatchNumEaten() {
+        let request = NSBatchUpdateRequest(entityName: "Meal")
+        request.predicate = NSPredicate(format: "numberOfTimesEaten > %i", Int64(0))
+        request.propertiesToUpdate = ["numberOfTimesEaten": Int64(0), "lastAte": Optional<Date>.none as Any]
+        request.resultType = .updatedObjectIDsResultType
+        
+        do {
+            let result = try K.context.execute(request) as! NSBatchUpdateResult
+
+            let changes: [AnyHashable: Any] = [NSUpdatedObjectsKey: result.result as! [NSManagedObjectID]]
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [K.context])
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -42,7 +80,9 @@ extension MealLeftMenuController {
         
         switch indexPath.row {
         case 0:
-            resetSelected(alert: alert)
+            reenableEaten(alert: alert)
+        case 1:
+            resetAllEaten(alert: alert)
         default:
             break
         }
@@ -62,10 +102,20 @@ extension MealLeftMenuController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    func resetSelected(alert: UIAlertController) {
-        alert.addAction(UIAlertAction(title: options[0], style: .default, handler: { [weak self] _ in
+    func reenableEaten(alert: UIAlertController) {
+        alert.message = "Are you sure you want to re-enable all recently eaten meals?"
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [weak self] _ in
             guard let self = self else { return }
-            print("Reset pressed")
+            self.updateBatchRecentlyEaten(value: true)
+            self.dismiss(animated: true)
+        }))
+    }
+    
+    func resetAllEaten(alert: UIAlertController) {
+        alert.message = "Are you sure you want to reset all eaten data?"
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.updateBatchNumEaten()
             self.dismiss(animated: true)
         }))
     }
