@@ -36,8 +36,8 @@ class CuisineMainController: UIViewController {
     }
     
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController, banner: banner)
     }
 }

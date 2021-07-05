@@ -323,19 +323,6 @@
                                     <constraint firstItem="2HU-Mh-SUa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0sJ-jH-Z5i" secondAttribute="trailing" constant="10" id="wZb-o6-ekj"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL2-3J-bRc">
-                                <rect key="frame" x="30" y="431" width="315" height="35"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="XFC-YF-Xir"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="25"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="editTapped:" destination="yJr-ZF-TId" eventType="touchUpInside" id="BVT-r5-P2n"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpR-QT-RRs">
                                 <rect key="frame" x="163" y="230" width="51" height="31"/>
                                 <color key="onTintColor" name="AccentColor"/>
@@ -348,7 +335,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bvb-6A-bY6" firstAttribute="top" secondItem="LpR-QT-RRs" secondAttribute="bottom" id="4nb-i1-3cv"/>
-                            <constraint firstItem="CL2-3J-bRc" firstAttribute="top" secondItem="bvb-6A-bY6" secondAttribute="bottom" constant="20" id="8Og-1e-jFe"/>
                             <constraint firstItem="et3-Jr-MBk" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="30" id="9h8-b3-9M4"/>
                             <constraint firstItem="AgP-jc-nag" firstAttribute="centerX" secondItem="leM-Iu-I0b" secondAttribute="centerX" id="E8g-oM-fQb"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="et3-Jr-MBk" secondAttribute="trailing" constant="30" id="EO2-AR-ZpJ"/>
@@ -358,13 +344,11 @@
                             <constraint firstItem="et3-Jr-MBk" firstAttribute="top" secondItem="leM-Iu-I0b" secondAttribute="top" constant="50" id="WaT-CV-DOc"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="JrU-OL-6Tm" secondAttribute="trailing" id="awd-NT-T4I"/>
                             <constraint firstItem="LpR-QT-RRs" firstAttribute="top" secondItem="AgP-jc-nag" secondAttribute="bottom" constant="50" id="e37-Ir-Oz2"/>
-                            <constraint firstItem="CL2-3J-bRc" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="30" id="ged-oA-iLO"/>
                             <constraint firstItem="AgP-jc-nag" firstAttribute="top" secondItem="et3-Jr-MBk" secondAttribute="bottom" constant="50" id="hqj-8S-OKA"/>
                             <constraint firstItem="JrU-OL-6Tm" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" id="lCq-vg-uXi"/>
                             <constraint firstItem="leM-Iu-I0b" firstAttribute="bottom" secondItem="JrU-OL-6Tm" secondAttribute="bottom" id="nbF-vH-pB0"/>
                             <constraint firstItem="bvb-6A-bY6" firstAttribute="leading" secondItem="leM-Iu-I0b" secondAttribute="leading" constant="30" id="oaf-w3-SHJ"/>
                             <constraint firstItem="JrU-OL-6Tm" firstAttribute="top" secondItem="leM-Iu-I0b" secondAttribute="top" id="qFc-Al-99S"/>
-                            <constraint firstItem="leM-Iu-I0b" firstAttribute="trailing" secondItem="CL2-3J-bRc" secondAttribute="trailing" constant="30" id="tLZ-oN-f1E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c67-HX-BUY"/>
@@ -373,7 +357,6 @@
                         <outlet property="activeSwitch" destination="LpR-QT-RRs" id="NQ4-GH-kSC"/>
                         <outlet property="cuisineName" destination="et3-Jr-MBk" id="x5u-py-UZw"/>
                         <outlet property="dateLabel" destination="PRb-bu-k8f" id="JD5-of-nLw"/>
-                        <outlet property="editButton" destination="CL2-3J-bRc" id="8OY-GC-fnX"/>
                         <outlet property="numLabel" destination="2HU-Mh-SUa" id="6os-aT-FAe"/>
                     </connections>
                 </viewController>

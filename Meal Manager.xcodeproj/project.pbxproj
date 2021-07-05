@@ -51,6 +51,7 @@
 		CAB656172690CA0E007DC9BA /* HorizontalLabelsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB656162690CA0E007DC9BA /* HorizontalLabelsStack.swift */; };
 		CAB6561D2690EB70007DC9BA /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6561C2690EB70007DC9BA /* HeaderLabel.swift */; };
 		CAB656232690F5E2007DC9BA /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB656222690F5E2007DC9BA /* UIAlertController+Ext.swift */; };
+		CAB6562526921693007DC9BA /* HorizontalLabelButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6562426921693007DC9BA /* HorizontalLabelButtonStack.swift */; };
 		CACCFA88267799A000C93244 /* GoogleAdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */; };
 		CACCFA8B2677B24000C93244 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8A2677B24000C93244 /* UIView+Ext.swift */; };
 		CACCFA8D2677C54B00C93244 /* UIViewContoller+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */; };
@@ -112,6 +113,7 @@
 		CAB656162690CA0E007DC9BA /* HorizontalLabelsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLabelsStack.swift; sourceTree = "<group>"; };
 		CAB6561C2690EB70007DC9BA /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		CAB656222690F5E2007DC9BA /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
+		CAB6562426921693007DC9BA /* HorizontalLabelButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLabelButtonStack.swift; sourceTree = "<group>"; };
 		CACCFA87267799A000C93244 /* GoogleAdMobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAdMobManager.swift; sourceTree = "<group>"; };
 		CACCFA8A2677B24000C93244 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		CACCFA8C2677C54B00C93244 /* UIViewContoller+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContoller+Ext.swift"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB656162690CA0E007DC9BA /* HorizontalLabelsStack.swift */,
+				CAB6562426921693007DC9BA /* HorizontalLabelButtonStack.swift */,
 			);
 			path = Stacks;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				CA83811726537B1A002357E2 /* CuisinePlayController.swift in Sources */,
 				CAB6561D2690EB70007DC9BA /* HeaderLabel.swift in Sources */,
 				CAD3F3DC266AAD6F00960F03 /* MealPlayController.swift in Sources */,
+				CAB6562526921693007DC9BA /* HorizontalLabelButtonStack.swift in Sources */,
 				CA4495372644DA280028F452 /* CuisineMainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

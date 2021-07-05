@@ -12,13 +12,17 @@ class MealDetailViewController: UIViewController {
     
     private let banner: GADBannerView = GoogleAdMobManager.sharedForDetail
     let bgImage = UIImageView(image: UIImage(named: K.Images.generalScreen))
+    let scrollView = UIScrollView(frame: .zero)
+    let contentView = UIView(frame: .zero)
     
     var mealLabel: HeaderLabel!
     var typeLabel: HeaderLabel!
     var dateStack: HorizontalLabelsStack!
     var eatenStack: HorizontalLabelsStack!
+    var addressStack: HorizontalLabelButtonStack?
+    var linkStack: HorizontalLabelButtonStack?
     var meal: Meal!
-    
+    var contentViewHeight: CGFloat = 130
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +36,10 @@ class MealDetailViewController: UIViewController {
     }
     
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController)
+        configureContentHeight()
     }
 }
 
@@ -47,6 +52,16 @@ extension MealDetailViewController {
     
     @objc func editTapped() {
         print("Edit")
+    }
+    
+    
+    @objc func addressButtonTapped() {
+        print("Address Tapped")
+    }
+    
+    
+    @objc func linkButtonTapped() {
+        print("Link Tapped")
     }
 }
 
@@ -66,9 +81,12 @@ extension MealDetailViewController {
         ]
         configureUIData()
         banner.rootViewController = self
+
+        view.addSubviews(bgImage, scrollView, banner)
+        scrollView.addSubview(contentView)
         
-        view.addSubviews(banner, bgImage, mealLabel, typeLabel, dateStack, eatenStack)
-        view.enableAutoLayout(bgImage, mealLabel, typeLabel, dateStack, eatenStack)
+        view.enableAutoLayout(bgImage, scrollView, contentView, mealLabel, typeLabel, dateStack, eatenStack)
+        contentView.addSubviews(mealLabel, typeLabel, dateStack, eatenStack)
         
         configureBg()
         configureTitle()
@@ -105,16 +123,27 @@ extension MealDetailViewController {
             bgImage.topAnchor.constraint(equalTo: view.topAnchor),
             bgImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bgImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bgImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            bgImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
     }
     
     
     private func configureTitle(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
-            mealLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 75),
-            mealLabel.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding),
-            mealLabel.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding),
+            mealLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 75),
+            mealLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            mealLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             mealLabel.heightAnchor.constraint(equalToConstant: 125),
         ])
     }
@@ -123,8 +152,8 @@ extension MealDetailViewController {
     private func configureType(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
             typeLabel.topAnchor.constraint(equalTo: mealLabel.bottomAnchor, constant: padding),
-            typeLabel.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
-            typeLabel.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            typeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding*multiplier),
+            typeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding*multiplier),
             typeLabel.heightAnchor.constraint(equalToConstant: (meal != nil) ? 25 : 75)
         ])
     }
@@ -133,8 +162,8 @@ extension MealDetailViewController {
     private func configureDateStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
             dateStack.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 25),
-            dateStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
-            dateStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            dateStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding*multiplier),
+            dateStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding*multiplier),
             dateStack.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
@@ -143,17 +172,62 @@ extension MealDetailViewController {
     private func configureEatenStack(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
         NSLayoutConstraint.activate([
             eatenStack.topAnchor.constraint(equalTo: dateStack.bottomAnchor, constant: padding),
-            eatenStack.leadingAnchor.constraint(equalTo: bgImage.leadingAnchor, constant: padding*multiplier),
-            eatenStack.trailingAnchor.constraint(equalTo: bgImage.trailingAnchor, constant: -padding*multiplier),
+            eatenStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding*multiplier),
+            eatenStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding*multiplier),
             eatenStack.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
     
     
-    private func configureOrdered() {
+    private func configureOrdered(withPadding padding: CGFloat = 10, multiplier: CGFloat = 4) {
+        if let address = meal.orderType?.address {
+            addressStack = HorizontalLabelButtonStack(leftText: "Address:", rightText: address)
+        } else {
+            addressStack = HorizontalLabelButtonStack(leftText: "Address:", rightText: "--")
+            addressStack?.rightButton.setTitleColor(UIColor(named: K.Color.black), for: .normal)
+            addressStack?.rightButton.isUserInteractionEnabled = false
+        }
+        
+        if let link = meal.orderType?.link {
+            linkStack = HorizontalLabelButtonStack(leftText: "Link:", rightText: link)
+        } else {
+            linkStack = HorizontalLabelButtonStack(leftText: "Link:", rightText: "--")
+            linkStack?.rightButton.setTitleColor(UIColor(named: K.Color.black), for: .normal)
+            linkStack?.rightButton.isUserInteractionEnabled = false
+        }
+        
+        guard let addressStack = addressStack, let linkStack = linkStack else { return }
+        
+        addressStack.rightButton.addTarget(self, action: #selector(addressButtonTapped), for: .touchUpInside)
+        linkStack.rightButton.addTarget(self, action: #selector(linkButtonTapped), for: .touchUpInside)
+        contentView.addSubviews(addressStack, linkStack)
+        view.enableAutoLayout(addressStack, linkStack)
+        
+        NSLayoutConstraint.activate([
+            addressStack.topAnchor.constraint(equalTo: eatenStack.bottomAnchor, constant: padding),
+            addressStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding*multiplier),
+            addressStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding*multiplier),
+            addressStack.heightAnchor.constraint(equalToConstant: 25),
+            
+            linkStack.topAnchor.constraint(equalTo: addressStack.bottomAnchor, constant: padding),
+            linkStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding*multiplier),
+            linkStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding*multiplier),
+            linkStack.heightAnchor.constraint(equalToConstant: 25),
+        ])
     }
+    
     
     private func configureCooked() {
         
+    }
+    
+    
+    func configureContentHeight() {
+        for view in contentView.subviews {
+            contentViewHeight += view.frame.size.height + 10
+        }
+        if contentViewHeight > view.frame.size.height - 50 {
+            scrollView.contentSize = CGSize(width: view.frame.size.width, height: contentViewHeight)
+        }
     }
 }

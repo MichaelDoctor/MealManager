@@ -17,7 +17,6 @@ class CuisineDetailViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var numLabel: UILabel!
     @IBOutlet var activeSwitch: UISwitch!
-    @IBOutlet var editButton: UIButton!
     var cuisine = Cuisine()
     
     
@@ -33,9 +32,9 @@ class CuisineDetailViewController: UIViewController {
     }
     
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        GoogleAdMobManager.layoutAd(forView: view, tabBarController: tabBarController, banner: banner)
     }
 }
 
@@ -46,7 +45,7 @@ extension CuisineDetailViewController {
     }
     
     
-    @IBAction func editTapped(_ sender: UIButton) {
+    @objc func editTapped() {
         let editController = CuisineEditController(style: .insetGrouped)
         editController.cuisine = cuisine
         navigationController?.pushViewController(editController, animated: true)
@@ -100,6 +99,6 @@ extension CuisineDetailViewController {
         banner.rootViewController = self
         view.addSubview(banner)
         
-        editButton.roundedButton(bg: UIColor(named: K.Color.accent)!, tint: UIColor(named: K.Color.white)!)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTapped))
     }
 }
